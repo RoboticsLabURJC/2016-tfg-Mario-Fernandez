@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Suma dos numeros con Ajax</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	var peticionHttp;
+	var numbers = [];
+
+	//Control de Trazas
+	function logs(info){
+		console.log(info);
+	}
+
+
+	function Inicializar_XHR()
+	{
+		if (window.XMLHttpRequest)
+			peticionHttp = new XMLHttpRequest();
+		else peticionHttp = new ActiveXObject("Microsoft.XMLHttp")
+	}
+
+	//url de donde se carga la información
+	//metodo get o post
+	//funcion de respuesta(aztualizar contenido de la página)/
+
+	function realizarpeticion(url, metodo, funcion)
+	{
+		peticionHttp.onreadystatechange = funcion;
+		//metodo, pagina, petición asincrona
+		peticionHttp.open(metodo, url, true);
+		//Añade un par de etiqueta / valor a la cabecera que se enviará
+		peticionHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//send(string)
+		peticionHttp.send(string());
+		logs(string());
+
+	}
+
+	function string(){
+		return "num1="+numbers[0]+"&num2="+numbers[1];
+	}
+
+	function descargarArchivo()
+	{
+		Inicializar_XHR();
+		realizarpeticion("http://localhost:3000/", "POST", funcActuadora);
+	}
+
+	function funcActuadora()
+	{
+		//4 == solicitud terminada y la respuesta esta lista
+		if(peticionHttp.readyState == 4)
+			//200 = ok
+			if(peticionHttp.status == 200)
+				logs("recibo el contenido")
+	      		document.getElementById("resultado").value = peticionHttp.responseText;
+	}
+
+	function comprobar(valor){
+
+		numbers.push(valor);
+		if(numbers.length == 2){
+			logs("envio peticiones");
+			descargarArchivo();
+			numbers = [];
+		}
+	}
+
+
+	</script>
+</head>
+
+<body>
+	<p>SUMA</p>
+	<p><input type="number" onchange="comprobar(this.value)">
+	+
+	<input type="number" onchange="comprobar(this.value)" >
+	=
+	<input type="number" id="resultado" ></p>
+</body>
+
+</html>
