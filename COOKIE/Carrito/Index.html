@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Ejemplo Carrito_Compra</title>
+    <script src="http://localhost:3000/js/carrito.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/Semantic-Org/Semantic-UI/next/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:3000/css/style.css">     
+  </head>
+  <body>
+  <form action="http://localhost:3000/" method="POST" onsubmit="user">
+  	Nombre:<input type="text" name="user" id="name_user" onchange="checkCookie()">
+    <input type="submit" value="Submit">
+  </form>
+  <br>
+  <button onclick="checkCookie()">Car</button>
+  <div id="elementos">
+  </div>
+    <div id="imagenes">
+      <img name="1984" id="libro1" src ="http://localhost:3000/imagenes/1084.jpg"></img>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('libro1')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>
+    </div>
+  </div>
+   <div id="imagenes">
+      <img name ="Harry Potter" id="libro2" src ="http://localhost:3000/imagenes/harry.jpg"></img>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('libro2')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>
+   </div>
+ </div>
+    <div id="imagenes">
+      <img name ="Heart" id="libro3" src ="http://localhost:3000/imagenes/Heart.jpg"></img>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('libro3')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>  
+    </div>
+  </div>
+    <div id="imagenes">
+      <img name ="Huxley" id="libro4" src ="http://localhost:3000/imagenes/huxley2.jpg"></img>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('libro4')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>
+    </div>
+    </div>
+</div>
+
+    <div id="videos">
+      <video name="Bici1" id="video1" src="http://localhost:3000/video/Bici_1.webm" controls></video>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('video1')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>  
+    </div>
+    </div>
+
+    <div id="videos">
+      <video name="Bici2" id="video2" src="http://localhost:3000/video/Bici_2.webm" controls></video>
+      <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content" onclick="Añadir('video2')">Shop</div>
+      <div class="visible content">
+      <i class="shop icon"></i>
+      </div>  
+    </div>
+    </div>
+  </body>
+<html>
