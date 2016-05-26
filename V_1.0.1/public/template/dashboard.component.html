@@ -1,4 +1,4 @@
-
+<header id="top" class="header">
 <button type="button" class="btn btn-success" (click)="search();">
   Encuentra a todos nuestros famaceuticos</button>
 <div class="grid grid-pad">
@@ -9,7 +9,9 @@
   </div>
   <div *ngFor="#book of books"  class="col-1-4">
     <div class="module hero">
-      <h4>{{book}}</h4>
+      <h4>{{book.title}}</h4>
+      <h4>{{book.year}}</h4>
     </div>
   </div>
 </div>
+</header>

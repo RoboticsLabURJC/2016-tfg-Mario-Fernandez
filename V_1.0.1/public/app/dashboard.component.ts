@@ -3,7 +3,7 @@ import { Router } from 'angular2/router';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import {HeroFormComponent} from './hero-form.component'
+
 
 @Component({
   selector: 'my-dashboard',
@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   heroes: Hero[] = [];
   private books: string[] = [];
+
 
   constructor(
     private _router: Router,

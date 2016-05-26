@@ -12,7 +12,7 @@ import {HeroFormComponent} from './hero-form.component'
 @Component({
   selector: 'my-app',
   templateUrl: 'template/app.component.html',
-  styleUrls: ['css/app.component.css'],
+  styleUrls: ["css/stylish-portfolio.css"],
   directives: [ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS, HeroService, HTTP_PROVIDERS, HeroFormComponent]
 })
@@ -21,8 +21,7 @@ import {HeroFormComponent} from './hero-form.component'
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: DashboardComponent,
-    useAsDefault: true
+    component: DashboardComponent
   },
   {
     path: '/api/tvshows/:id',
@@ -32,7 +31,8 @@ import {HeroFormComponent} from './hero-form.component'
   {
     path: '/registrar',
     name: 'HeroForm',
-    component: HeroFormComponent
+    component: HeroFormComponent,
+    useAsDefault: true
   },
   {
     path: '/heroes',
@@ -42,4 +42,13 @@ import {HeroFormComponent} from './hero-form.component'
 ])
 export class AppComponent {
   title = 'Tour of Heroes';
+  public show: boolean=true;
+
+  hidden(){
+    this.show = false;
+  }
+  nothidden(){
+    this.show = true;
+  }
+
 }

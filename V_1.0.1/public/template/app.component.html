@@ -1,7 +1,19 @@
-<h1>{{title}}</h1>
-<nav>
-  <a [routerLink]="['Dashboard']">Dashboard</a>
-  <a [routerLink]="['Heroes']">Heroes</a>
-  <a [routerLink]="['HeroForm']">Resgistro</a>
-</nav>
+
+  <a id="menu-toggle" (click)="hidden();" *ngIf="show" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper" *ngIf="!show" class="active">
+        <ul class="sidebar-nav" >
+            <a id="menu-close" (click)="nothidden();" class="btn btn-light btn-lg pull-right toggle">
+              <i class="fa fa-times"></i></a>
+              <li class="sidebar-brand">
+                <a [routerLink]="['Dashboard']">Dashboard</a>
+                </li>
+                <li>
+                  <a [routerLink]="['Heroes']">Heroes</a>
+                </li>
+                <li>
+                  <a [routerLink]="['HeroForm']">Resgistro</a>
+                </li>
+        </ul>
+    </nav>
+
 <router-outlet></router-outlet>

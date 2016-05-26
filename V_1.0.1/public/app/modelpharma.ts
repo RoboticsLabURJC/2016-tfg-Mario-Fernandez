@@ -1,12 +1,8 @@
 export class modelPharma {
   title: string;
   year:  number;
-  country:  string;
-  poster:   string;
-  seasons:  number;
-  autor:    string;
+  autor: string;
   genre: string;
-  summary:  string;
 }
 
 
