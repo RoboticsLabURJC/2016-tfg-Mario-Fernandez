@@ -8,7 +8,7 @@ import { HeroService } from './hero.service';
   styleUrls: ["css/register.css"]
 })
 export class RegisterComponent {
-  types = ['24 Hours', 'Herbalist', 'Botany', 'Clinical Pharmacy'];
+  types = ['24 Hora', 'Herbalist', 'Botany', 'Clinical Pharmacy'];
   model = new Pharma('Dr IQ', "18", this.types[0]);
   submitted = false;
   onepharma: Pharma;

@@ -27,7 +27,7 @@ System.register(['angular2/core', './pharma', './hero.service'], function(export
             RegisterComponent = (function () {
                 function RegisterComponent(_heroService) {
                     this._heroService = _heroService;
-                    this.types = ['24 Hours', 'Herbalist', 'Botany', 'Clinical Pharmacy'];
+                    this.types = ['24 Hora', 'Herbalist', 'Botany', 'Clinical Pharmacy'];
                     this.model = new pharma_1.Pharma('Dr IQ', "18", this.types[0]);
                     this.submitted = false;
                     this.registrado = false;
