@@ -1,27 +1,75 @@
-import { Hero } from './hero';
+import { Login } from './login';
+import { Pharma } from './pharma';
 import { HEROES } from './mock-heroes';
 import { Injectable } from 'angular2/core';
 import {Response, Http, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {localStorage} from 'localStorage';
 import 'rxjs/Rx';
 
 
 @Injectable()
 export class HeroService {
 
-  books: string[] = [];
+  pharmacys: Pharma[] = [];
+  private loggedIn = false;
 
-  constructor(private http: Http) {}
+  constructor(private http: Http) {
+    this.loggedIn = !!localStorage.getItem('auth_token');
+  }
 
-  addPharmacy(item: Hero){
+  login(email, password) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
-    let url = "http://localhost:3000/api/tvshows";
+    return this.http
+      .post(
+        '/login',
+        JSON.stringify({ email, password }),
+        { headers }
+      )
+      .map(res => res.json())
+      .map((res) => {
+        if (res.success) {
+          localStorage.setItem('auth_token', res.auth_token);
+          this.loggedIn = true;
+        }
+
+        return res.success;
+      });
+  }
+
+  logout() {
+    localStorage.removeItem('auth_token');
+    this.loggedIn = false;
+  }
+
+  isLoggedIn() {
+    return this.loggedIn;
+  }
+
+  initSesion  (item: Login){
+
+      let url = "http://localhost:3000/api/login";
+      let body = JSON.stringify(item);
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+
+      return this.http.post(url, body, options)
+        .map(response => response.json()).catch(error => this.handleError(error));
+    }
+
+  addPharmacy(item: Pharma){
+
+    let url = "http://localhost:3000/api/pharmacys";
     let body = JSON.stringify(item);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
+
     return this.http.post(url, body, options)
       .map(response => response.json()).catch(error => this.handleError(error));
+
   }
 
   getAllPharmacy() {
@@ -34,6 +82,7 @@ export class HeroService {
       console.error(error);
       return Observable.throw("Server error (" + error.status + "): " + error.text())
   }
+
 
 
   getHeroes() {
@@ -49,7 +98,7 @@ export class HeroService {
 
   getHero(id: number) {
     return Promise.resolve(HEROES).then(
-      heroes => heroes.filter(hero => hero.year === id)[0]
+      heroes => heroes.filter(hero => hero.password === id)[0]
     );
   }
 }

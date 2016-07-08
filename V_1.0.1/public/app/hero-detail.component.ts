@@ -12,7 +12,7 @@ import { HeroService } from './hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
-  private books: string[] = [];
+
 
   constructor(
     private _heroService: HeroService,

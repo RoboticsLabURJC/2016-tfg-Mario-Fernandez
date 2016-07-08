@@ -3,14 +3,9 @@
   Encuentra a todos nuestros famaceuticos</button>
 <div class="grid grid-pad">
   <div *ngFor="#hero of heroes" (click)="gotoDetail(hero)" class="col-1-4">
-    <div class="module hero">
-      <h4>{{hero.title}}</h4>
-    </div>
-  </div>
-  <div *ngFor="#book of books"  class="col-1-4">
-    <div class="module hero">
-      <h4>{{book.title}}</h4>
-      <h4>{{book.year}}</h4>
+    <div class="module hero" >
+      <h4>{{hero.name}}</h4>
+      <h4>{{hero.password}}</h4>
     </div>
   </div>
 </div>

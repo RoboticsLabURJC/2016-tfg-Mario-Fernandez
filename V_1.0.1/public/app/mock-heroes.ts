@@ -1,10 +1,10 @@
-import { Hero } from './hero';
+import { Pharma } from './pharma';
 
-export var HEROES: Hero[] = [
-	{"title": "Mr. Nice", "year": 11,  "autor": "t", "genre": 'Chuck Overstreet'},
-	{"title": "Dynama", "year": 12,  "autor": "t", "genre": 'Chuck Overstreet'},
-	{"title": "Dr IQ", "year": 13,  "autor": "t", "genre": 'Chuck Overstreet'},
-	{"title": "Spiderman", "year": 14,  "autor": "t", "genre": 'Chuck Overstreet'},
-	{"title": "Magma", "year": 15,  "autor": "t", "genre": 'Chuck Overstreet'},
-	{"title": "Tornado", "year": 16,  "autor": "t", "genre": 'Chuck Overstreet'}
+export var HEROES: Pharma[] = [
+	{"horarios": "Mr. Nice", "location": "11",  "type": "t"},
+	{"horarios": "Dynama", "location": "12",  "type": "t"},
+	{"horarios": "Dr IQ", "location": "13",  "type": "t"},
+	{"horarios": "Spiderman", "location": "14",  "type": "t"},
+	{"horarios": "Magma", "location": "15",  "type": "t"},
+	{"horarios": "Tornado", "location": "16",  "type": "t"}
 ];

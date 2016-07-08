@@ -3,7 +3,7 @@ var express = require("express"),
     bodyParser  = require("body-parser"),
     methodOverride = require("method-override");
     mongoose = require('mongoose'),
-    path = require('path');;
+    path = require('path');
 
 // getting-started.js
 var mongoose = require('mongoose');
@@ -28,43 +28,42 @@ db.once('open', function() {
 });
 
 // Import Models and controllers
-require("./models/autor");
-require("./models/tvshow");
-var TVShowCtrl = require('./controllers/tvshows');
+require("./models/pharma");
+require("./models/login");
+
+var Controller = require('./controllers/controller');
 
 //angular 2
 var index = require('./routes/index');
 
 //Example Route
 var router = express.Router();
-var tvshows = express.Router();
+var users = express.Router();
 
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api', tvshows);
+app.use('/api', users);
 
 
 
 //API ROUTES
-tvshows.route('/autor')
-  .post(TVShowCtrl.addautor)
-  .get(TVShowCtrl.findAllAutor)
+users.route('/pharmacys')
+  .post(Controller.addpharma)
+  .get(Controller.findAllPharma)
 
-tvshows.route('/tvshows')
-  .get(TVShowCtrl.findAllTVShows)
-  .post(TVShowCtrl.addTVShow);
+users.route('/login')
+  .get(Controller.findAllLogins)
+  .post(Controller.addlogin);
 
-tvshows.route('/tvshowsautor')
-  .get(TVShowCtrl.findAllTVShowsAutor);
+users.route('/loginspharma')
+  .get(Controller.findAllloginpharma);
 
-tvshows.route('/tvshows/:id')
-  .get(TVShowCtrl.findById)
-  .put(TVShowCtrl.updateTVShow)
-  .delete(TVShowCtrl.deleteTVShow);
-
-
+users.route('/login/:id')
+  .get(Controller.findById)
+  .put(Controller.updatelogin)
+  .delete(Controller.deletelogin);
 
 
 // Start server

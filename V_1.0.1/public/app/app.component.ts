@@ -6,15 +6,17 @@ import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
-import {HeroFormComponent} from './hero-form.component'
+import { RegisterComponent} from './register.component';
+import { WelcomeComponent} from './welcome.component';
+import { InitComponent} from './init.component';
 
 
 @Component({
   selector: 'my-app',
   templateUrl: 'template/app.component.html',
-  styleUrls: ["css/stylish-portfolio.css"],
+  styleUrls: ["css/style-menu.css"],
   directives: [ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS, HeroService, HTTP_PROVIDERS, HeroFormComponent]
+  providers: [ROUTER_PROVIDERS, HeroService, HTTP_PROVIDERS, RegisterComponent]
 })
 
 @RouteConfig([
@@ -29,17 +31,28 @@ import {HeroFormComponent} from './hero-form.component'
     component: HeroDetailComponent
   },
   {
-    path: '/registrar',
-    name: 'HeroForm',
-    component: HeroFormComponent,
-    useAsDefault: true
+    path: '/register',
+    name: 'Register',
+    component: RegisterComponent
+  },
+  {
+    path: '/init',
+    name: 'Init',
+    component: InitComponent
   },
   {
     path: '/heroes',
     name: 'Heroes',
     component: HeroesComponent
+  },
+  {
+    path: '/welcome',
+    name: 'Welcome',
+    component: WelcomeComponent,
+    useAsDefault: true
   }
 ])
+
 export class AppComponent {
   title = 'Tour of Heroes';
   public show: boolean=true;

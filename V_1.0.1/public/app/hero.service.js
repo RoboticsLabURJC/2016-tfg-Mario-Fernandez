@@ -1,4 +1,4 @@
-System.register(['./mock-heroes', 'angular2/core', 'angular2/http', 'rxjs/Rx'], function(exports_1, context_1) {
+System.register(['./mock-heroes', 'angular2/core', 'angular2/http', 'rxjs/Observable', 'localStorage', 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['./mock-heroes', 'angular2/core', 'angular2/http', 'rxjs/Rx'], 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var mock_heroes_1, core_1, http_1;
+    var mock_heroes_1, core_1, http_1, Observable_1, localStorage_1;
     var HeroService;
     return {
         setters:[
@@ -23,13 +23,71 @@ System.register(['./mock-heroes', 'angular2/core', 'angular2/http', 'rxjs/Rx'], 
             function (http_1_1) {
                 http_1 = http_1_1;
             },
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
+            },
+            function (localStorage_1_1) {
+                localStorage_1 = localStorage_1_1;
+            },
             function (_1) {}],
         execute: function() {
             HeroService = (function () {
                 function HeroService(http) {
                     this.http = http;
-                    this.books = [];
+                    this.pharmacys = [];
+                    this.loggedIn = false;
+                    this.loggedIn = !!localStorage_1.localStorage.getItem('auth_token');
                 }
+                HeroService.prototype.login = function (email, password) {
+                    var _this = this;
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    return this.http
+                        .post('/login', JSON.stringify({ email: email, password: password }), { headers: headers })
+                        .map(function (res) { return res.json(); })
+                        .map(function (res) {
+                        if (res.success) {
+                            localStorage_1.localStorage.setItem('auth_token', res.auth_token);
+                            _this.loggedIn = true;
+                        }
+                        return res.success;
+                    });
+                };
+                HeroService.prototype.logout = function () {
+                    localStorage_1.localStorage.removeItem('auth_token');
+                    this.loggedIn = false;
+                };
+                HeroService.prototype.isLoggedIn = function () {
+                    return this.loggedIn;
+                };
+                HeroService.prototype.initSesion = function (item) {
+                    var _this = this;
+                    var url = "http://localhost:3000/api/login";
+                    var body = JSON.stringify(item);
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(url, body, options)
+                        .map(function (response) { return response.json(); }).catch(function (error) { return _this.handleError(error); });
+                };
+                HeroService.prototype.addPharmacy = function (item) {
+                    var _this = this;
+                    var url = "http://localhost:3000/api/pharmacys";
+                    var body = JSON.stringify(item);
+                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+                    var options = new http_1.RequestOptions({ headers: headers });
+                    return this.http.post(url, body, options)
+                        .map(function (response) { return response.json(); }).catch(function (error) { return _this.handleError(error); });
+                };
+                HeroService.prototype.getAllPharmacy = function () {
+                    var _this = this;
+                    var url = "http://localhost:3000/api/tvshows/";
+                    return this.http.get(url)
+                        .map(function (response) { return response.json(); }).catch(function (error) { return _this.handleError(error); });
+                };
+                HeroService.prototype.handleError = function (error) {
+                    console.error(error);
+                    return Observable_1.Observable.throw("Server error (" + error.status + "): " + error.text());
+                };
                 HeroService.prototype.getHeroes = function () {
                     return Promise.resolve(mock_heroes_1.HEROES);
                 };
@@ -38,26 +96,10 @@ System.register(['./mock-heroes', 'angular2/core', 'angular2/http', 'rxjs/Rx'], 
                     return new Promise(function (resolve) {
                         return setTimeout(function () { return resolve(mock_heroes_1.HEROES); }, 2000);
                     } // 2 seconds
-                     // 2 seconds
                     );
                 };
-                HeroService.prototype.putPharmacy = function (data) {
-                    var _this = this;
-                    var url = "http://localhost:3000/api/tvshows";
-                    var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-                    var options = new http_1.RequestOptions({ headers: headers });
-                    return this.http.post(url, data, options).map(function (response) { return _this.extractTitles(response); });
-                };
-                HeroService.prototype.getAllPharmacy = function () {
-                    var _this = this;
-                    var url = "http://localhost:3000/api/tvshows/";
-                    return this.http.get(url).map(function (response) { return _this.extractTitles(response); });
-                };
-                HeroService.prototype.extractTitles = function (response) {
-                    return response.json().map(function (book) { return book.title; });
-                };
                 HeroService.prototype.getHero = function (id) {
-                    return Promise.resolve(mock_heroes_1.HEROES).then(function (heroes) { return heroes.filter(function (hero) { return hero.year === id; })[0]; });
+                    return Promise.resolve(mock_heroes_1.HEROES).then(function (heroes) { return heroes.filter(function (hero) { return hero.password === id; })[0]; });
                 };
                 HeroService = __decorate([
                     core_1.Injectable(), 

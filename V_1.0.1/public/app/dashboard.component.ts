@@ -1,7 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-
-import { Hero } from './hero';
+import { Pharma } from './pharma';
 import { HeroService } from './hero.service';
 
 
@@ -12,9 +11,7 @@ import { HeroService } from './hero.service';
 })
 export class DashboardComponent implements OnInit {
 
-  heroes: Hero[] = [];
-  private books: string[] = [];
-
+  pharmacys: Pharma[] = [];
 
   constructor(
     private _router: Router,
@@ -23,20 +20,19 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this._heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1,5));
+      .then(pharmacys => this.pharmacys = pharmacys.slice(1,5));
   }
 
   search() {
-        this.books = [];
+
         this._heroService.getAllPharmacy().subscribe(
-          books => this.books = books,
+          pharmacys => this.pharmacys = pharmacys,
           error => console.error(error)
         );
   }
 
-
-  gotoDetail(hero: Hero) {
-    let link = ['HeroDetail', { id: hero.year }];
+  gotoDetail(onepharma: Pharma) {
+    let link = ['HeroDetail', { id: onepharma.password }];
     this._router.navigate(link);
   }
 }
