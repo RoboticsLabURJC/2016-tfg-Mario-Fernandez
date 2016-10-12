@@ -1,0 +1,13 @@
+<h1>Login Profesor</h1>
+<form >
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text"  class="form-control" [(ngModel)]="model.nombre" name= "nombre" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" [(ngModel)]="model.password" name= "password" placeholder="Password">
+    </div>
+    <button type="submit" (click)="login(model)">Submit</button>
+    <a class="btn rounded-btn" [routerLink]="['/signupprofesor']"> SignUp </a>
+</form>

@@ -1,0 +1,30 @@
+  <h1>Signup Alumno0o</h1>
+  <form role="form">
+    <div class="form-group">
+      <label for="email">Mail</label>
+      <input type="text"  class="form-control" [(ngModel)]="model.email"
+      name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" [(ngModel)]="model.password"
+      name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text"  class="form-control" [(ngModel)]="model.nombre"
+      name="nombre" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" [(ngModel)]="model.apellidos" name= "apellidos"
+      placeholder="Apellidos">
+    </div>
+    <div class="form-group">
+      <label for="edad">Edad</label>
+      <input type="date" class="form-control" [(ngModel)]="model.edad"
+      name="edad" placeholder="Edad">
+    </div>
+
+  <button type="submit" (click)="registrar(model)">Submit</button>
+</form>

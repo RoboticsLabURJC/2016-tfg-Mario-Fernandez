@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true
+  },
+  "files": [
+    "./src/app.ts",
+    "./src/appcomponent.ts",
+    "./src/common/auth.guard.ts",
+    "./src/common/headers.ts",
+    "./src/home/data.ts",
+    "./src/home/home.ts",
+    "./src/home/index.ts",
+    "./src/index.ts",
+    "./src/intro/index.ts",
+    "./src/intro/intro.ts",
+    "./src/loginalumno/alumno.ts",
+    "./src/loginalumno/index.ts",
+    "./src/loginalumno/login.ts",
+    "./src/loginprofesor/index.ts",
+    "./src/loginprofesor/login.ts",
+    "./src/loginprofesor/profesor.ts",
+    "./src/signupalumno/alumno.ts",
+    "./src/signupalumno/index.ts",
+    "./src/signupalumno/signupalumno.ts",
+    "./src/signupprofesor/index.ts",
+    "./src/signupprofesor/profesor.ts",
+    "./src/signupprofesor/signupprofesor.ts"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}
