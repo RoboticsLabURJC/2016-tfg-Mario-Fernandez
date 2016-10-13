@@ -12,7 +12,7 @@ var app = express();
 
 // getting-started.js
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27018/alumnos');
+mongoose.connect('mongodb://localhost/alumnos');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
