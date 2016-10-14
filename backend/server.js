@@ -45,7 +45,10 @@ if (process.env.NODE_ENV === 'development') {
 
 require("./models/alumno");
 require("./models/loginalumno");
-var Controller = require('./controllers/controller');
+require("./models/profesor");
+require("./models/loginprofesor");
+var Ctrlalumno = require('./controllers/contalumno');
+var Ctrlprofesor = require('./controllers/contprofesor');
 
 
 //Rutas
@@ -54,10 +57,16 @@ app.use('/', users);
 
 //API ROUTES
 users.route('/registeralumno')
-  .post(Controller.registeralumno);
+  .post(Ctrlalumno.registeralumno);
 
 users.route('/loginalumno')
-  .post(Controller.loginalumno);
+  .post(Ctrlalumno.loginalumno);
+
+users.route('/registerprofesor')
+  .post(Ctrlprofesor.registerprofesor);
+
+users.route('/loginprofesor')
+  .post(Ctrlprofesor.loginprofesor);
 
 
 
