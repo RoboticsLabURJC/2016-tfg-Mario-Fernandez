@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 
-
-
-const styles   = require('./intro.css');
-const template = require('./intro.html');
-
 @Component({
   selector: 'intro',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './src/intro/intro.html',
+  styleUrls: [ './src/intro/intro.css' ]
 })
 export class Intro {
   constructor(public router: Router) {}

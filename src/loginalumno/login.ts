@@ -5,13 +5,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { contentHeaders } from '../common/headers';
 import { AlumnoScheme } from './alumno';
 
-const styles   = require('./login.css');
-const template = require('./login.html');
-
 @Component({
   selector: 'login',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './src/loginalumno/login.html',
+  styleUrls: [ './src/loginalumno/login.css' ]
 })
 export class LoginAlumno {
 

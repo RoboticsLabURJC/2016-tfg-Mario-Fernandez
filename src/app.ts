@@ -4,8 +4,11 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { RouterModule }  from '@angular/router';
 
+
 import { AuthGuard } from './common/auth.guard';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AgmCoreModule} from 'angular2-google-maps/core';
+
 
 import { AppComponent } from './appcomponent';
 import { Home } from './home';
@@ -21,6 +24,9 @@ import { SignupProfesor } from './signupprofesor';
     BrowserModule,
     FormsModule,
     HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCYUVL5zFNpT0vaziTcpEUUbsmqZ7YRERM'
+    }),
     RouterModule.forRoot([
       { path: '',       component:  Intro },
       { path: 'alumno',  component: LoginAlumno },

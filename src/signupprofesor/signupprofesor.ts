@@ -3,14 +3,12 @@ import { Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { ProfesorScheme } from './profesor';
-
-const styles   = require('./signupprofesor.css');
-const template = require('./signupprofesor.html');
+import { MouseEvent} from 'angular2-google-maps/core';
 
 @Component({
   selector: 'signupprofesor',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './src/signupprofesor/signupprofesor.html',
+  styleUrls: [ './src/signupprofesor/signupprofesor.css' ]
 })
 
 export class SignupProfesor {
@@ -18,8 +16,17 @@ export class SignupProfesor {
   model = new ProfesorScheme('', '', '',
   new Date(''), '', '', {lat: 0, lng: 0});
 
+  lat: number = 44.3;
+  lng: number = 33.2;
+
   constructor(public router: Router, public http: Http) {
   }
+
+  mapClicked($event: MouseEvent) {
+      this.model.loc.lat = $event.coords.lat;
+      this.model.loc.lng = $event.coords.lng;
+
+  };
 
   registrar(description: ProfesorScheme) {
     let url = 'http://localhost:3001/registerprofesor';

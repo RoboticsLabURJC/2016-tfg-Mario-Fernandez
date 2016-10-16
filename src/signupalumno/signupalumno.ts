@@ -4,13 +4,10 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AlumnoScheme } from './alumno';
 
-const styles   = require('./signupalumno.css');
-const template = require('./signupalumno.html');
-
 @Component({
   selector: 'signupalumno',
-  template: template,
-  styles: [ styles ]
+  templateUrl: './src/signupalumno/signupalumno.html',
+  styleUrls: [ './src/signupalumno/signupalumno.css' ]
 })
 
 export class SignupAlumno {
