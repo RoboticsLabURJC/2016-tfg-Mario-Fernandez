@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -11,21 +11,39 @@ import { MouseEvent} from 'angular2-google-maps/core';
   styleUrls: [ './src/signupprofesor/signupprofesor.css' ]
 })
 
-export class SignupProfesor {
+export class SignupProfesor implements OnInit {
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
   model = new ProfesorScheme('', '', '',
   new Date(''), '', '', {lat: 0, lng: 0});
 
-  lat: number = 44.3;
-  lng: number = 33.2;
 
   constructor(public router: Router, public http: Http) {
   }
 
+  Init(lat: number, lng: number){
+
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position){
+        let geo: Object = {lat: 0, lng: 0};
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+
+
+        console.log(lat);
+        console.log(lng);
+      });
+    };
+  };
+
+  ngOnInit(){
+    let lat: number;
+    let lng: number;
+    this.Init(lat, lng);
+  };
+
   mapClicked($event: MouseEvent) {
       this.model.loc.lat = $event.coords.lat;
       this.model.loc.lng = $event.coords.lng;
-
   };
 
   registrar(description: ProfesorScheme) {

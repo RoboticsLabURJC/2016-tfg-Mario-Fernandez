@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { contentHeaders } from '../common/headers';
 import { ProfesorScheme } from './profesor';
 
 @Component({

@@ -54,7 +54,9 @@ exports.loginalumno = function(req, res) {
       DataAlumno.populate(login, {path: "data"},function(err, libros){
         console.log(libros);
         var profile = _.pick(req.body, 'email', 'password', 'extra');
-        profile.id = libros[0].data.nombre;
+        profile.Nombre = libros[0].data.nombre;
+        profile.Apellidos = libros[0].data.apellidos;
+        profile.Edad = libros[0].data.edad;
         res.status(201).send({ id_token: createToken(profile) });
       });
     }else{
