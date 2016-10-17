@@ -32,7 +32,7 @@
     </select>
   </div>
 </form>
-<sebm-google-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+<sebm-google-map [latitude]="model.loc.lat" [longitude]="model.loc.lng"  [zoom] = "14" (mapClick)="mapClicked($event)">
   <sebm-google-map-marker
           [latitude]="model.loc.lat"
           [longitude]="model.loc.lng">

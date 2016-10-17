@@ -54,6 +54,16 @@ exports.registerprofesor = function(req, res) {
   });
 };
 
+exports.getallprofesores = function(req, res){
+    console.log('GET /getallprofesores');
+    ProfesorScheme.find({}, function(err, dataprof){
+        DataProfesor.populate(dataprof, {path: "data"}, function(err, dataprofext){
+          console.log('GET /getallprofesores');
+		      res.status(200).jsonp(dataprofext);
+        })
+    });
+};
+
 exports.loginprofesor = function(req, res) {
   ProfesorScheme.find({"email" : req.body.email}, function(err, login) {
     if (login.length != 0){

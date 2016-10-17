@@ -68,6 +68,9 @@ users.route('/registerprofesor')
 users.route('/loginprofesor')
   .post(Ctrlprofesor.loginprofesor);
 
+users.route('/profesores')
+  .get(Ctrlprofesor.getallprofesores);
+
 
 
 /*
