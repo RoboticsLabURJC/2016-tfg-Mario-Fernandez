@@ -6,10 +6,14 @@
     <p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Logout</a></p>
     <button type="submit" (click)="getallprof()">Submit</button>
   </div>
-  <sebm-google-map [latitude]="0" [longitude]="0"  [zoom] = "0">
+  <input type="textbox" [(ngModel)]="address">
+  <button type="submit" (click)="getcoors(address)">Submit</button>
+  <sebm-google-map [latitude]="alumno.loc.lat" [longitude]="alumno.loc.lng"  [zoom] = "12">
     <sebm-google-map-marker *ngFor="let m of profesores"
             [latitude]="m.data.loc.lat"
             [longitude]="m.data.loc.lng">
     </sebm-google-map-marker>
   </sebm-google-map>
+
+
 </div>
