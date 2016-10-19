@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
@@ -14,7 +14,7 @@ declare var google: any;
   styleUrls: [ './src/home/home.css' ]
 })
 
-export class Home implements OnInit{
+export class Home {
   jwt: string;
   decodedJwt: DataAlumno;
   dir: string= '';
@@ -22,15 +22,18 @@ export class Home implements OnInit{
   alumno = new DataAlumno('', '', new Date(''), '', {lat: 40.416775, lng: -3.7037901999999576});
   address : string = 'Madrid';
 
+
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
     console.log(this.decodedJwt);
   }
 
-  ngOnInit(){
-    this.alumno.loc.lat = this.alumno.loc.lat;
-    this.alumno.loc.lng = this.alumno.loc.lng;
+  Initcoor(results: any) {
+    this.alumno.loc.lat = results[0].geometry.location.lat();
+    this.alumno.loc.lng = results[0].geometry.location.lng();
+    console.log('lat: ' + this.alumno.loc.lat + ', long:'  + this.alumno.loc.lng);
+
   }
 
   getcoors(address: string) {
@@ -38,9 +41,11 @@ export class Home implements OnInit{
       console.log('Getting Address - ', address);
       let geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'address': address }, (results, status) => {
-        this.alumno.loc.lat = results[0].geometry.location.lat();
-        this.alumno.loc.lng = results[0].geometry.location.lng();
-        console.log('lat: ' + this.alumno.loc.lat + ', long:'  + this.alumno.loc.lng);
+        if (status === google.maps.GeocoderStatus.OK) {
+            this.Initcoor(results);
+        }else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
       });
   }
 
