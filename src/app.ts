@@ -11,7 +11,7 @@ import { AgmCoreModule} from 'angular2-google-maps/core';
 
 
 import { AppComponent } from './appcomponent';
-import { Home } from './home';
+import { Home } from './homealumno';
 import { Intro} from './intro/intro';
 import { LoginAlumno } from './loginalumno';
 import { LoginProfesor } from './loginprofesor';

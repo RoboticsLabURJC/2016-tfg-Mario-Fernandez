@@ -10,30 +10,24 @@ declare var google: any;
 
 @Component({
   selector: 'home',
-  templateUrl: './src/home/home.html',
-  styleUrls: [ './src/home/home.css' ]
+  templateUrl: './src/homealumno/home.html',
+  styleUrls: [ './src/homealumno/home.css' ]
 })
 
 export class Home {
   jwt: string;
   decodedJwt: DataAlumno;
-  dir: string= '';
+  
   profesores: DataProfesor[] = [];
   alumno = new DataAlumno('', '', new Date(''), '', {lat: 40.416775, lng: -3.7037901999999576});
-  address : string = 'Madrid';
 
+  address : string = 'Madrid';
+  curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
     console.log(this.decodedJwt);
-  }
-
-  Initcoor(results: any) {
-    this.alumno.loc.lat = results[0].geometry.location.lat();
-    this.alumno.loc.lng = results[0].geometry.location.lng();
-    console.log('lat: ' + this.alumno.loc.lat + ', long:'  + this.alumno.loc.lng);
-
   }
 
   getcoors(address: string) {
@@ -42,7 +36,8 @@ export class Home {
       let geocoder = new google.maps.Geocoder();
       geocoder.geocode({ 'address': address }, (results, status) => {
         if (status === google.maps.GeocoderStatus.OK) {
-            this.Initcoor(results);
+          this.alumno.loc.lat = results[0].geometry.location.lat();
+          this.alumno.loc.lng = results[0].geometry.location.lng();
         }else {
             alert('Geocode was not successful for the following reason: ' + status);
         }

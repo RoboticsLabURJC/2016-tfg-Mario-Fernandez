@@ -2,8 +2,6 @@
   <div class="home jumbotron centered">
     <h1>Welcome to Perfill!</h1>
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Edad}}</code></pre>
-      <h2>{{alumno.loc.lat}} details!</h2>
-        <h2>{{address}} details!</h2>
     <p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Logout</a></p>
     <button type="submit" (click)="getallprof()">Submit</button>
   </div>
@@ -19,6 +17,14 @@
             [longitude]="m.data.loc.lng">
     </sebm-google-map-marker>
   </sebm-google-map>
-
+  <form role="form">
+    <div class="form-group">
+      <label for="curso">Curso</label>
+      <select class="form-control" [(ngModel)]="curso[p]" name="curso">
+        <option *ngFor="let p of curso" [value]="p">{{p}}</option>
+      </select>
+    </div>
+  </form>
+  <button type="submit" (click)="getquery(query)">Submit</button>
 
 </div>
