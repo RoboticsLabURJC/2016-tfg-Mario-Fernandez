@@ -2,11 +2,13 @@
   <div class="home jumbotron centered">
     <h1>Welcome to Perfill!</h1>
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Edad}}</code></pre>
+
     <p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Logout</a></p>
     <button type="submit" (click)="getallprof()">Submit</button>
   </div>
   <input [(ngModel)]="address" >
-  <button (click)="getcoors(address)" >Submit</button>
+  <button (click)="initcoor(address)" >Submit</button>
+  <p>{{alumno.loc.lat}}</p>
   <sebm-google-map *ngIf= "alumno.loc.lat" [latitude]="alumno.loc.lat" [longitude]="alumno.loc.lng"  [zoom] = "12">
     <sebm-google-map-marker
             [latitude]="alumno.loc.lat"
