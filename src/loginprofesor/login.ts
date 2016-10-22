@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { ProfesorScheme } from './profesor';
+import { ProfesorScheme } from '../models/profesores';
 
 @Component({
   selector: 'login',
@@ -11,7 +11,7 @@ import { ProfesorScheme } from './profesor';
 })
 export class LoginProfesor {
 
-  model = new ProfesorScheme('', '');
+  profesor = new ProfesorScheme('', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
 
   constructor(public router: Router, public http: Http) {  }
 

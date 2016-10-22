@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { AlumnoScheme } from './alumno';
+import { AlumnoScheme } from '../models/alumnos';
 
 @Component({
   selector: 'login',
@@ -11,11 +11,7 @@ import { AlumnoScheme } from './alumno';
 })
 export class LoginAlumno {
 
-  model = new AlumnoScheme('', '');
-
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
+  alumno = new AlumnoScheme('', '', '', '', new Date(''), {lat: 0, lng: 0});
 
   constructor(public router: Router, public http: Http) {  }
 

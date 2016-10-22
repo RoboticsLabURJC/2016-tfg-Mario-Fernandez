@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { AlumnoScheme } from './alumno';
+import { AlumnoScheme } from '../models/alumnos';
 
 @Component({
   selector: 'signupalumno',
@@ -12,7 +12,7 @@ import { AlumnoScheme } from './alumno';
 
 export class SignupAlumno {
 
-  model = new AlumnoScheme('', '', '', '', new Date(''));
+  alumno = new AlumnoScheme('', '', '', '', new Date(''), {lat: 0, lng: 0});
 
   constructor(public router: Router, public http: Http) {
   }
