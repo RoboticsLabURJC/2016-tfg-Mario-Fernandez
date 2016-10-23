@@ -1,6 +1,8 @@
 export class ProfesorScheme {
 
   constructor(
+    public Email: string,
+    public Password: string,
     public Nombre: string,
     public Apellidos: string,
     public Edad: Date,

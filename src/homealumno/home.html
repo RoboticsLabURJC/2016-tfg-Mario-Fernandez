@@ -7,27 +7,26 @@
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
   </div>
+  <p>{{address}}</p>
   <input [(ngModel)]="address" >
   <button (click)="initcoor(address)" >Elige tu zona</button>
-  <button type="submit" (click)="getallprof()">Busca los profesores que hay por tu zona</button>
-  <p >{{alumno.Loc.lat}}</p>
-  <sebm-google-map *ngIf= "alumno.Loc.lat" [latitude]="alumno.Loc.lat" [longitude]="alumno.Loc.lng"  [zoom] = "12">
-    <sebm-google-map-marker
-            [latitude]="alumno.Loc.lat"
-            [longitude]="alumno.Loc.lng">
-    </sebm-google-map-marker>
-    <sebm-google-map-marker *ngFor="let m of profesores"
-            [latitude]="m.Loc.lat"
-            [longitude]="m.Loc.lng">
-    </sebm-google-map-marker>
-  </sebm-google-map>
+  <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>
   <form role="form">
     <div class="form-group">
-      <label for="curso">Curso</label>
-      <select class="form-control" [(ngModel)]="curso[p]" name="curso">
+      <select class="form-control" [(ngModel)]="query.Curso" name="curso">
         <option *ngFor="let p of curso" [value]="p">{{p}}</option>
       </select>
     </div>
   </form>
-  <button type="submit" (click)="getquery(query)">crea una query</button>
+  <button type="submit" (click)="sendquery(query)">crea una query</button>
+  <sebm-google-map *ngIf="alumnocoors"[latitude]="alumnocoors.lat" [longitude]="alumnocoors.lng"  [zoom] = "12">
+    <sebm-google-map-marker
+            [latitude]="alumnocoors.lat"
+            [longitude]="alumnocoors.lng">
+    </sebm-google-map-marker>
+    <sebm-google-map-marker *ngFor="let m of profesores"
+            [latitude]="m.loc.lat"
+            [longitude]="m.loc.lng">
+    </sebm-google-map-marker>
+  </sebm-google-map>
 </div>

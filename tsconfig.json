@@ -24,6 +24,7 @@
     "./src/models/asignaturas.ts",
     "./src/models/profesores.ts",
     "./src/models/query.ts",
+    "./src/services/AlumnoService.ts",
     "./src/signupalumno/index.ts",
     "./src/signupalumno/signupalumno.ts",
     "./src/signupprofesor/index.ts",

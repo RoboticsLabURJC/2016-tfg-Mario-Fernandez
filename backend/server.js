@@ -52,6 +52,7 @@ var Ctrlprofesor = require('./controllers/contprofesor');
 
 
 //Rutas
+
 var users = express.Router();
 app.use('/', users);
 
@@ -69,7 +70,8 @@ users.route('/loginprofesor')
   .post(Ctrlprofesor.loginprofesor);
 
 users.route('/profesores')
-  .get(Ctrlprofesor.getallprofesores);
+  .get(Ctrlprofesor.getallprofesores)
+  .post(Ctrlprofesor.queryprofesores)
 
 
 

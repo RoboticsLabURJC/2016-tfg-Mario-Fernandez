@@ -11,7 +11,7 @@ import { ProfesorScheme } from '../models/profesores';
 })
 export class LoginProfesor {
 
-  profesor = new ProfesorScheme('', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
+  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
 
   constructor(public router: Router, public http: Http) {  }
 

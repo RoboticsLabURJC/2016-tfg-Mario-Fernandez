@@ -2,40 +2,40 @@
 <form role="form">
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text"  class="form-control" [(ngModel)]="model.Nombre"
+    <input type="text"  class="form-control" [(ngModel)]="profesor.Nombre"
     name="nombre" placeholder="Username">
   </div>
   <div class="form-group">
     <label for="apellidos">Apellido</label>
-    <input type="text" [(ngModel)]="model.apellidos" name= "Apellidos"
+    <input type="text" [(ngModel)]="profesor.apellidos" name= "Apellidos"
     placeholder="Apellidos">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" [(ngModel)]="model.Password"
+    <input type="password" class="form-control" [(ngModel)]="profesor.Password"
     name="password" placeholder="Password">
   </div>
   <div class="form-group">
     <label for="edad">Edad</label>
-    <input type="date" class="form-control" [(ngModel)]="model.Edad"
+    <input type="date" class="form-control" [(ngModel)]="profesor.Edad"
     name="edad" placeholder="Edad">
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="mail"  class="form-control" [(ngModel)]="model.Email"
+    <input type="mail"  class="form-control" [(ngModel)]="profesor.Email"
     name="email" placeholder="Email">
   </div>
   <div class="form-group">
     <label for="curso">Curso</label>
-    <select class="form-control" [(ngModel)]="model.Curso" name="curso">
+    <select class="form-control" [(ngModel)]="profesor.Curso" name="curso">
       <option *ngFor="let p of curso" [value]="p">{{p}}</option>
     </select>
   </div>
 </form>
-<sebm-google-map [latitude]="model.Loc.lat" [longitude]="model.Loc.lng"  [zoom] = "14" (mapClick)="mapClicked($event)">
+<sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"  [zoom] = "14" (mapClick)="mapClicked($event)">
   <sebm-google-map-marker
-          [latitude]="model.Loc.lat"
-          [longitude]="model.Loc.lng">
+          [latitude]="profesor.Loc.lat"
+          [longitude]="profesor.Loc.lng">
   </sebm-google-map-marker>
 </sebm-google-map>
-<button type="submit" (click)="registrar(model)">Submit</button>
+<button type="submit" (click)="registrar(profesor)">Submit</button>

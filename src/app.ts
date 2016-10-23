@@ -8,6 +8,7 @@ import { RouterModule }  from '@angular/router';
 import { AuthGuard } from './common/auth.guard';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AgmCoreModule} from 'angular2-google-maps/core';
+import {AlumnoService} from './services/AlumnoService';
 
 
 import { AppComponent } from './appcomponent';
@@ -48,7 +49,7 @@ import { SignupProfesor } from './signupprofesor';
   ],
   bootstrap: [ AppComponent ],
   providers: [
-    AuthGuard, ...AUTH_PROVIDERS
+    AuthGuard, ...AUTH_PROVIDERS, AlumnoService
   ]
 })
 

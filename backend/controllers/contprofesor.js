@@ -57,11 +57,9 @@ exports.registerprofesor = function(req, res) {
 
 exports.getallprofesores = function(req, res){
     console.log('GET /getallprofesores');
-    ProfesorScheme.find({}, function(err, dataprof){
-        DataProfesor.populate(dataprof, {path: "data"}, function(err, dataprofext){
-		      res.status(200).jsonp(dataprofext);
-        })
-    });
+      DataProfesor.find({}, function(err, dataprof){
+		      res.status(200).jsonp(dataprof);
+      });
 };
 
 exports.loginprofesor = function(req, res) {
@@ -78,3 +76,10 @@ exports.loginprofesor = function(req, res) {
     }
   });
 };
+
+
+  exports.queryprofesores = function(req, res) {
+    DataProfesor.find({"curso" : req.body.Curso}, function(err, dataprof){
+		      res.status(200).jsonp(dataprof);
+    });
+  };

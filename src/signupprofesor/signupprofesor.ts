@@ -14,7 +14,7 @@ import { ProfesorScheme } from '../models/profesores';
 
 export class SignupProfesor implements OnInit {
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
-  model = new ProfesorScheme('', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
+  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
 
 
 
@@ -31,13 +31,13 @@ export class SignupProfesor implements OnInit {
   };
 
   InitCoor(position: any) {
-    this.model.Loc.lat = position.coords.latitude;
-    this.model.Loc.lng = position.coords.longitude;
+    this.profesor.Loc.lat = position.coords.latitude;
+    this.profesor.Loc.lng = position.coords.longitude;
   };
 
   mapClicked($event: MouseEvent) {
-      this.model.Loc.lat = $event.coords.lat;
-      this.model.Loc.lng = $event.coords.lng;
+      this.profesor.Loc.lat = $event.coords.lat;
+      this.profesor.Loc.lng = $event.coords.lng;
   };
 
   registrar(description: ProfesorScheme) {
