@@ -8,9 +8,7 @@ export class ProfesorScheme {
     public Edad: Date,
     public Loc: {lat : number, lng: number },
     public Curso: string,
-    public Clase: {
-      curso: string,
-    }
+    public Clase: string,
   ) {  }
 
 }

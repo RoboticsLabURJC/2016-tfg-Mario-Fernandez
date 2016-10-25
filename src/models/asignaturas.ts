@@ -9,23 +9,16 @@ export var ASIGNATURAS: Object[] = [
 	'Historia del Arte', 'Historia', 'Geografía', 'Latín', 'Economia',
 	'Filosofía']},
 	{'Universidad':
-	  {'Ingenierias': ['Fisica', 'Calculo', 'Algebra', 'Programación', 'Campos y Ondas',
-	  'Arquitectura de Sistemas', 'Astronomia', 'Fundamentos de la Comunicación'],
-	  'ADE': ['Matematicas 1 y 2', 'Matematica Financiera', 'Métodos Matemáticos',
-	  'Estadistica 1 y 2', 'Instrumentos Matemáticos']}
-	},
+	  ['Fisica', 'Calculo', 'Algebra', 'Programación', 'Campos y Ondas',
+	  'Arquitectura de Sistemas', 'Astronomia', 'Fundamentos de la Comunicación',
+	  'Matematicas 1 y 2', 'Matematica Financiera', 'Métodos Matemáticos',
+	  'Estadistica 1 y 2', 'Instrumentos Matemáticos']},
 	{'FP':
-	  [{'Electricidad y Electronica': ['Electrotecnia', 'REBT', 'ITC complementarias'],
-	  'Administración y Gestión': ['Generico'],
-	  'Edificación Obra Civil': ['Generico'],
-	  'Gestion administrativa': ['Generico']}],
-	},
+	  ['Electrotecnia', 'REBT', 'ITC complementarias']},
 	{'EXAMENES LIBRES': ['Examen libre obtención del grado ESO',
 	'Bachillerato mayores de 20 años', 'Acceso a la universidad mayores de 25 años',
-	'Examenes libre superacion módulos de grado medioy grado superior']
-	},
+	'Examenes libre superacion módulos de grado medioy grado superior']},
 	{'FRACASO ESCOLAR': ['Educadores y tutores de conjunto de asignaturas TDH',
 	'Maduración', 'Conductas inadecuadas', 'Problemas de aprendizaje',
-	'Inadaptación', 'Conductas violentas']
-	}
+	'Inadaptación', 'Conductas violentas']}
 ];

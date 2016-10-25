@@ -18,7 +18,8 @@ export class Home {
   alumnocoors: Object;
 
   address : string = 'Madrid';
-  curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
+  curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'FP',
+  'EXAMENES LIBRES', 'FRACASO ESCOLAR'];
   query = new QueryScheme(this.curso[0]);
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
@@ -48,7 +49,6 @@ export class Home {
     this.http.post(url, body, options)
       .subscribe(
         response => {
-           console.log(response.json());
            this.profesores = response.json();
            console.log(this.profesores);
          },

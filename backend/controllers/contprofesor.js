@@ -19,6 +19,7 @@ exports.registerprofesor = function(req, res) {
     apellidos:    req.body.Apellidos,
     edad:         req.body.Edad,
     curso:        req.body.Curso,
+    asignaturas:   req.body.Clase,
     loc: {
       lat: req.body.Loc.lat,
       lng: req.body.Loc.lng
