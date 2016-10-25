@@ -17,14 +17,14 @@ export class SignupProfesor implements OnInit {
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
   asignaturas: Object[] = ASIGNATURAS;
 
-  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, '', {curso: '' });
+  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, this.curso[0], {curso: '' });
 
 
 
   constructor(public router: Router, public http: Http) {
     console.log(this.curso[0]);
     //let property: string = this.curso[0]
-    console.log(this.asignaturas[3]['Universidad']['ADE']);
+    console.log(this.asignaturas[0]['Primaria'][0]);
   }
 
   ngOnInit() {

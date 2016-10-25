@@ -31,6 +31,13 @@
       <option *ngFor="let p of curso" [value]="p">{{p}}</option>
     </select>
   </div>
+  <div class="form-group">
+    <label for="asignatura">Curso</label>
+    <select class="form-control" [(ngModel)]="asignaturas[0][profesor.Curso][0]" name="asignatura">
+      <option *ngFor="let p of asignaturas[0][profesor.Curso]" [value]="p">{{p}}</option>
+    </select>
+  </div>
+
 </form>
 <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"  [zoom] = "14" (mapClick)="mapClicked($event)">
   <sebm-google-map-marker
