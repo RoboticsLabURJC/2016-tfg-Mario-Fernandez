@@ -8,6 +8,7 @@
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
   </div>
   <p>{{address}}</p>
+  <p>{{alumnocoors.lat}}</p>
   <input [(ngModel)]="address" >
   <button (click)="initcoor(address)" >Elige tu zona</button>
   <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>

@@ -15,9 +15,12 @@ import {ASIGNATURAS} from '../models/asignaturas';
 
 export class SignupProfesor implements OnInit {
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
-  asignaturas: Object[] = ASIGNATURAS;
+  asignaturas: Object = ASIGNATURAS;
 
-  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, this.curso[0], {curso: '' });
+  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
+  this.curso[0], {curso: this.asignaturas[0][this.curso[0]][0] });
+
+  indice: number = 0;
 
 
 

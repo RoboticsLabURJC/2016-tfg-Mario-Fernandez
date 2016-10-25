@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http,  Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
@@ -15,26 +15,25 @@ export class Home {
   jwt: string;
   decodedJwt: Object;
   profesores: Object[] = [];
-  alumnocoors: Object = {lat: 40.416775, lng: -3.7037901999999576};
+  alumnocoors: Object;
 
   address : string = 'Madrid';
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'F.P.', 'Examenes'];
   query = new QueryScheme(this.curso[0]);
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
-  private alumnoService: AlumnoService) {
+  private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
-    console.log(this.decodedJwt);
+    this.alumnocoors = {lat: 40.416775, lng: -3.7037901999999576};
   }
 
   initcoor(address: string) {
     this.alumnoService.getLatLan(address).
       subscribe(
         resolve => {
-          console.log(resolve);
           this.alumnocoors = resolve;
-          console.log(this.alumnocoors);
+          this.ref.detectChanges();
         }
       );
   }
