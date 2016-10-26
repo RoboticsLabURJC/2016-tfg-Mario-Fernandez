@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
+import {ASIGNATURAS} from '../models/asignaturas';
 
 @Component({
   selector: 'home',
@@ -17,10 +18,11 @@ export class Home {
   profesores: Object[] = [];
   alumnocoors: Object;
 
+  asignaturas: Object = ASIGNATURAS;
   address : string = 'Madrid';
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'FP',
   'EXAMENES LIBRES', 'FRACASO ESCOLAR'];
-  query = new QueryScheme(this.curso[0]);
+  query = new QueryScheme(this.curso[0],  this.asignaturas[0][this.curso[0]][0]);
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
   private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {

@@ -18,6 +18,11 @@
         <option *ngFor="let p of curso" [value]="p">{{p}}</option>
       </select>
     </div>
+    <div class="form-group">
+      <select class="form-control" [(ngModel)]="query.Clase" name="clase">
+        <option *ngFor="let p of asignaturas[curso.indexOf(query.Curso)][query.Curso]" [value]="p">{{p}}</option>
+      </select>
+    </div>
   </form>
   <button type="submit" (click)="sendquery(query)">crea una query</button>
   <sebm-google-map *ngIf="alumnocoors"[latitude]="alumnocoors.lat" [longitude]="alumnocoors.lng"  [zoom] = "12">
@@ -26,8 +31,8 @@
             [longitude]="alumnocoors.lng">
     </sebm-google-map-marker>
     <sebm-google-map-marker *ngFor="let m of profesores"
-            [latitude]="m.loc.lat"
-            [longitude]="m.loc.lng">
+            [latitude]="m.location.coordinates[0]"
+            [longitude]="m.location.coordinates[1]">
     </sebm-google-map-marker>
   </sebm-google-map>
 </div>

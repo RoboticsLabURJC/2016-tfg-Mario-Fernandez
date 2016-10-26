@@ -9,9 +9,9 @@ var profesorSchema  = new Schema({
     ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'FP',
     'EXAMENES LIBRES', 'FRACASO ESCOLAR'] },
   asignaturas:  { type: String},
-  loc:          {
-    lat: {type : Number},
-    lng: {type: Number}
+  location: {
+    type:       { type: String},
+    coordinates: {type: []}
   }
 });
 module.exports = mongoose.model('Profesor', profesorSchema);
