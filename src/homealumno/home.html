@@ -7,8 +7,6 @@
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
       <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
   </div>
-  <p>{{address}}</p>
-  <p>{{alumnocoors.lat}}</p>
   <input [(ngModel)]="address" >
   <button (click)="initcoor(address)" >Elige tu zona</button>
   <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>
@@ -25,10 +23,10 @@
     </div>
   </form>
   <button type="submit" (click)="sendquery(query)">crea una query</button>
-  <sebm-google-map *ngIf="alumnocoors"[latitude]="alumnocoors.lat" [longitude]="alumnocoors.lng"  [zoom] = "12">
+  <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"  [zoom] = "12">
     <sebm-google-map-marker
-            [latitude]="alumnocoors.lat"
-            [longitude]="alumnocoors.lng">
+            [latitude]="query.Loc.lat"
+            [longitude]="query.Loc.lng">
     </sebm-google-map-marker>
     <sebm-google-map-marker *ngFor="let m of profesores"
             [latitude]="m.location.coordinates[0]"

@@ -22,7 +22,7 @@ export class Home {
   address : string = 'Madrid';
   curso = ['Primaria', 'ESO', 'Bachillerato', 'Universidad', 'FP',
   'EXAMENES LIBRES', 'FRACASO ESCOLAR'];
-  query = new QueryScheme(this.curso[0],  this.asignaturas[0][this.curso[0]][0]);
+  query = new QueryScheme(this.curso[0],  this.asignaturas[0][this.curso[0]][0], {lat: 40.416775, lng: -3.7037901999999576});
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
   private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {
@@ -35,7 +35,7 @@ export class Home {
     this.alumnoService.getLatLan(address).
       subscribe(
         resolve => {
-          this.alumnocoors = resolve;
+          this.query.Loc = resolve;
           this.ref.detectChanges();
         }
       );

@@ -58,7 +58,7 @@ exports.registerprofesor = function(req, res) {
 
 exports.getallprofesores = function(req, res){
     console.log('GET /getallprofesores');
-      DataProfesor.find({location:{$geoWithin:{$centerSphere: [ [ 40.4614648, -3.7739869 ], 5 / 3963.2 ] } }}, function(err, dataprof){
+      DataProfesor.find({}, function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
       });
 };
@@ -80,7 +80,9 @@ exports.loginprofesor = function(req, res) {
 
 
   exports.queryprofesores = function(req, res) {
-    DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase}, function(err, dataprof){
+    DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
+    location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
+    10 / 6378.1 ] } } },  function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
     });
   };
