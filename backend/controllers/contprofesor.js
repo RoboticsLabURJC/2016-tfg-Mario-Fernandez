@@ -82,7 +82,7 @@ exports.loginprofesor = function(req, res) {
   exports.queryprofesores = function(req, res) {
     DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
     location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
-    10 / 6378.1 ] } } },  function(err, dataprof){
+    req.body.Radio / 6378.1 ] } } },  function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
     });
   };

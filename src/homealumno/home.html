@@ -23,7 +23,7 @@
     </div>
   </form>
   <button type="submit" (click)="sendquery(query)">crea una query</button>
-  <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"  [zoom] = "12">
+  <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"  [zoom] = "13">
     <sebm-google-map-marker
             [latitude]="query.Loc.lat"
             [longitude]="query.Loc.lng">
@@ -32,5 +32,10 @@
             [latitude]="m.location.coordinates[0]"
             [longitude]="m.location.coordinates[1]">
     </sebm-google-map-marker>
+
+     <sebm-google-map-circle [latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
+         [radius]="query.Radio"
+         [fillColor]="'red'">
+     </sebm-google-map-circle>
   </sebm-google-map>
 </div>

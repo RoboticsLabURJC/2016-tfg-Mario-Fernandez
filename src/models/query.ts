@@ -4,6 +4,7 @@ export class QueryScheme {
     public Curso: string,
     public Clase: string,
     public Loc: {lat : number, lng: number },
+    public Radio: number
   ) {  }
 
 }
