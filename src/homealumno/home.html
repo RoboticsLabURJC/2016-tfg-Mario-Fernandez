@@ -19,7 +19,7 @@
     <div class="form-group">
       <select class="form-control" [(ngModel)]="query.Clase" name="clase">
         <option *ngFor="let p of asignaturas[curso.indexOf(query.Curso)][query.Curso]" [value]="p">{{p}}</option>
-      </select>
+      </select>cd
     </div>
   </form>
   <button type="submit" (click)="sendquery(query)">crea una query</button>

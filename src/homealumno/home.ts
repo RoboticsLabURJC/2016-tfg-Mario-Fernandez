@@ -6,6 +6,9 @@ import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
 
+
+
+
 @Component({
   selector: 'home',
   templateUrl: './src/homealumno/home.html',
@@ -24,6 +27,9 @@ export class Home {
   'EXAMENES LIBRES', 'FRACASO ESCOLAR'];
   query = new QueryScheme(this.curso[0],  this.asignaturas[0][this.curso[0]][0],
   {lat: 40.416775, lng: -3.7037901999999576}, 2000);
+
+
+
 
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
   private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {

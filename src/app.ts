@@ -9,6 +9,7 @@ import { AuthGuard } from './common/auth.guard';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AgmCoreModule} from 'angular2-google-maps/core';
 import {AlumnoService} from './services/AlumnoService';
+import {FileUploadModule } from 'ng2-file-upload';
 
 
 import { AppComponent } from './appcomponent';
@@ -25,6 +26,7 @@ import { SignupProfesor } from './signupprofesor';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FileUploadModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCYUVL5zFNpT0vaziTcpEUUbsmqZ7YRERM'
     }),

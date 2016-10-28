@@ -7,6 +7,14 @@ import { MouseEvent} from 'angular2-google-maps/core';
 import { ProfesorScheme } from '../models/profesores';
 import {ASIGNATURAS} from '../models/asignaturas';
 
+
+
+import {FileSelectDirective,
+        FileDropDirective,
+        FileUploader} from 'ng2-file-upload/ng2-file-upload';
+
+const URL = 'http://localhost:3001/api/';
+
 @Component({
   selector: 'signupprofesor',
   templateUrl: './src/signupprofesor/signupprofesor.html',
@@ -21,6 +29,7 @@ export class SignupProfesor implements OnInit {
   profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
   this.curso[0], this.asignaturas[0][this.curso[0]][0]);
 
+  public uploader:FileUploader = new FileUploader({url: URL});
 
   constructor(public router: Router, public http: Http) {
     console.log(this.curso[0]);

@@ -42,7 +42,8 @@
     "es6-promise": "^3.1.2",
     "es6-shim": "^0.35.0",
     "es7-reflect-metadata": "^1.6.0",
-    "angular2-google-maps": "^0.15.0"
+    "angular2-google-maps": "^0.15.0",
+    "ng2-file-upload": "^1.1.2"
   },
   "devDependencies": {
     "css-loader": "^0.23.1",
