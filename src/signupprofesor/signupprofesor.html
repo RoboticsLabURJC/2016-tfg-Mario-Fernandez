@@ -48,8 +48,8 @@
           [longitude]="profesor.Loc.lng">
   </sebm-google-map-marker>
 </sebm-google-map>
-<button type="submit"   (click)="registrar(profesor)">Submit</button>
-<button type="button" *ngFor="let item of uploader.queue"
-        (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-    Upload
+<button type="submit" (click)="registrar(profesor)" >Submit</button>
+<button *ngFor="let item of uploader.queue" type="button" class="btn btn-success btn-xs"
+    (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+Upload
 </button>

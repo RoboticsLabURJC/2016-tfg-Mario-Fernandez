@@ -7,8 +7,6 @@ import { MouseEvent} from 'angular2-google-maps/core';
 import { ProfesorScheme } from '../models/profesores';
 import {ASIGNATURAS} from '../models/asignaturas';
 
-
-
 import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
@@ -27,7 +25,7 @@ export class SignupProfesor implements OnInit {
   asignaturas: Object = ASIGNATURAS;
 
   profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
-  this.curso[0], this.asignaturas[0][this.curso[0]][0]);
+  this.curso[0], this.asignaturas[0][this.curso[0]][0], "./uploads/muestra.jpg");
 
   public uploader:FileUploader = new FileUploader({url: URL});
 
@@ -67,7 +65,7 @@ export class SignupProfesor implements OnInit {
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/profile']);
           console.log(response.json());
         },
         error => {

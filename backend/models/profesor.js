@@ -12,6 +12,12 @@ var profesorSchema  = new Schema({
   location: {
     type:       { type: String},
     coordinates: {type: []}
-  }
+  },
+  path:         {type: String}
 });
+
+profesorSchema.statics.findAndModify = function (query, sort, doc, options, callback) {
+  return this.collection.findAndModify(query, sort, doc, options, callback);
+};
+
 module.exports = mongoose.model('Profesor', profesorSchema);

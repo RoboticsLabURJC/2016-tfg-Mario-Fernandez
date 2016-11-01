@@ -13,7 +13,8 @@ import {FileUploadModule } from 'ng2-file-upload';
 
 
 import { AppComponent } from './appcomponent';
-import { Home } from './homealumno';
+import { HomeAlumno } from './homealumno';
+import { HomeProfesor } from './homeprofesor';
 import { Intro} from './intro/intro';
 import { LoginAlumno } from './loginalumno';
 import { LoginProfesor } from './loginprofesor';
@@ -36,7 +37,8 @@ import { SignupProfesor } from './signupprofesor';
       { path: 'profesor',  component: LoginProfesor },
       { path: 'signupalumno', component: SignupAlumno },
       { path: 'signupprofesor', component: SignupProfesor },
-      { path: 'home',   component: Home, canActivate: [AuthGuard] },
+      { path: 'home',   component: HomeAlumno, canActivate: [AuthGuard] },
+      { path: 'profile',   component: HomeProfesor, canActivate: [AuthGuard] },
       { path: '**',     redirectTo: ''}
     ])
   ],
@@ -47,7 +49,8 @@ import { SignupProfesor } from './signupprofesor';
     LoginProfesor,
     SignupAlumno,
     SignupProfesor,
-    Home
+    HomeAlumno,
+    HomeProfesor
   ],
   bootstrap: [ AppComponent ],
   providers: [

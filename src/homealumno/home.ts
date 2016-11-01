@@ -6,20 +6,16 @@ import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
 
-
-
-
 @Component({
   selector: 'home',
   templateUrl: './src/homealumno/home.html',
   styleUrls: [ './src/homealumno/home.css' ]
 })
 
-export class Home {
+export class HomeAlumno {
   jwt: string;
   decodedJwt: Object;
   profesores: Object[] = [];
-  alumnocoors: Object;
 
   asignaturas: Object = ASIGNATURAS;
   address : string = 'Madrid';
@@ -28,14 +24,10 @@ export class Home {
   query = new QueryScheme(this.curso[0],  this.asignaturas[0][this.curso[0]][0],
   {lat: 40.416775, lng: -3.7037901999999576}, 2000);
 
-
-
-
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
   private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
-    this.alumnocoors = {lat: 40.416775, lng: -3.7037901999999576};
   }
 
   initcoor(address: string) {

@@ -1,17 +1,18 @@
 var _       = require('lodash'),
     config  = require('../config'),
     jwt     = require('jsonwebtoken'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose')
+    main     = require('../server');
 
 var DataProfesor = mongoose.model('Profesor');
 var ProfesorScheme  = mongoose.model('LoginProfesor');
+
 
 function createToken(user) {
   return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 1 });
 }
 
 exports.registerprofesor = function(req, res) {
-	console.log('POSTCACA');
 	console.log(req.body);
 
   var datos = new DataProfesor(
@@ -23,7 +24,8 @@ exports.registerprofesor = function(req, res) {
     location: {
       type: "Point",
       coordinates: [req.body.Loc.lat, req.body.Loc.lng]
-    }
+    },
+    path: "./uploads/muestra.jpg"
   });
 
 	var profesor = new ProfesorScheme(
@@ -63,6 +65,17 @@ exports.getallprofesores = function(req, res){
       });
 };
 
+exports.postimg = function(req, res){
+  ProfesorScheme.findOne({"email" : req.file.originalname}, function(err, data) {
+    console.log(data);
+    DataProfesor.findById(data.data, function(err, dataext) {
+        dataext.path = req.file.path;
+        dataext.save();
+    });
+  });
+  res.end('File is uploaded');
+};
+
 exports.loginprofesor = function(req, res) {
   ProfesorScheme.find({"email" : req.body.Email}, function(err, login) {
     if (login.length != 0){
@@ -78,11 +91,10 @@ exports.loginprofesor = function(req, res) {
   });
 };
 
-
-  exports.queryprofesores = function(req, res) {
-    DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
-    location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
-    req.body.Radio / 6378.1 ] } } },  function(err, dataprof){
-		      res.status(200).jsonp(dataprof);
-    });
-  };
+exports.queryprofesores = function(req, res) {
+  DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
+  location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
+  req.body.Radio / 6378100 ] } } },  function(err, dataprof){
+	      res.status(200).jsonp(dataprof);
+  });
+};

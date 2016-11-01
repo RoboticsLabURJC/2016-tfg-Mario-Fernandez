@@ -13,6 +13,8 @@
     "./src/common/auth.guard.ts",
     "./src/homealumno/home.ts",
     "./src/homealumno/index.ts",
+    "./src/homeprofesor/home.ts",
+    "./src/homeprofesor/index.ts",
     "./src/index.ts",
     "./src/intro/index.ts",
     "./src/intro/intro.ts",

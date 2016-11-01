@@ -1,0 +1,16 @@
+  <div class="home jumbotron centered">
+    <button type="Submit" (click)="logout()">Logout</button>
+    <h1>Welcome to Perfill!</h1>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
+      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.path}}</code></pre>
+  </div>
+  <input type="file" ng2FileSelect [uploader]="uploader" />
+  <button type="button" class="btn btn-success btn-xs"
+      (click)="sendimg()" >
+  Upload
+  </button>
+
+  <img [src]="imgsrc">

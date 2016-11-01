@@ -1,16 +1,16 @@
 var logger          = require('morgan'),
-    cors            = require('cors'),
     http            = require('http'),
     express         = require('express'),
     errorhandler    = require('errorhandler'),
     dotenv          = require('dotenv'),
     mongoose        = require('mongoose'),
     path            = require('path');
-    bodyParser      = require('body-parser');
+    bodyParser      = require('body-parser'),
+    multer          = require('multer'),
+    path            = require('path');
 
 var app = express();
 
-// getting-started.js
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/classcity');
 
@@ -20,15 +20,10 @@ db.once('open', function() {
   console.log('Connected to Database');
 });
 
-dotenv.load();
-
-// Parsers
-// old version of line
-// app.use(bodyParser.urlencoded());
-// new version of line
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use('/uploads:id', express.static(__dirname + 'public'));
 
 app.use(function(err, req, res, next) {
   if (err.name === 'StatusError') {
@@ -38,10 +33,27 @@ app.use(function(err, req, res, next) {
   }
 });
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(express.logger('dev'));
-  app.use(errorhandler())
-}
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    console.log(file.fieldname);
+    var name = file.fieldname + '-' + Date.now() + '.jpg';
+    cb(null, name)
+  }
+})
+var upload = multer({ storage: storage })
+app.use(multer(upload).single('file'));
+
 
 require("./models/alumno");
 require("./models/loginalumno");
@@ -49,7 +61,6 @@ require("./models/profesor");
 require("./models/loginprofesor");
 var Ctrlalumno = require('./controllers/contalumno');
 var Ctrlprofesor = require('./controllers/contprofesor');
-
 
 //Rutas
 
@@ -72,6 +83,10 @@ users.route('/loginprofesor')
 users.route('/profesores')
   .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
+
+
+users.route('/api')
+  .post(Ctrlprofesor.postimg)
 
 
 

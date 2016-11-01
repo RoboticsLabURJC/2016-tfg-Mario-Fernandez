@@ -11,7 +11,8 @@ import { ProfesorScheme } from '../models/profesores';
 })
 export class LoginProfesor {
 
-  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0}, '', '');
+  profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
+  '', '', "./uploads/muestra");
 
   constructor(public router: Router, public http: Http) {  }
 
@@ -25,7 +26,7 @@ export class LoginProfesor {
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/profile']);
         },
         error => {
           alert(error.text());
