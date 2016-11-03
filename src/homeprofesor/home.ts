@@ -33,7 +33,7 @@ export class HomeProfesor {
 
   sendimg(){
     for (let item of this.uploader.queue){
-      //item.file.name = this.decodedJwt.Email;
+      item.file.name = this.decodedJwt.Email;
       item.upload();
     }
   }

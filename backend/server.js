@@ -23,7 +23,7 @@ db.once('open', function() {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'bower_components')));
-app.use('/uploads', express.static(__dirname + 'uploads'));
+//app.use('/uploads:id', express.static(__dirname + 'uploads'));
 
 app.use(function(err, req, res, next) {
   if (err.name === 'StatusError') {
@@ -68,6 +68,11 @@ var users = express.Router();
 app.use('/', users);
 
 //API ROUTES
+app.get('/uploads/:id', function(req, res){
+  console.log("pene");
+	res.sendfile(__dirname + '/uploads/'+ req.params.id)
+});
+
 users.route('/registeralumno')
   .post(Ctrlalumno.registeralumno);
 
