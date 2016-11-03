@@ -23,7 +23,7 @@ db.once('open', function() {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'bower_components')));
-app.use('/uploads:id', express.static(__dirname + 'public'));
+app.use('/uploads', express.static(__dirname + 'uploads'));
 
 app.use(function(err, req, res, next) {
   if (err.name === 'StatusError') {
