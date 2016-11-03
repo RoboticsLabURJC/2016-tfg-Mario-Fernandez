@@ -65,13 +65,16 @@ var Ctrlprofesor = require('./controllers/contprofesor');
 //Rutas
 
 var users = express.Router();
+var img = express.Router();
 app.use('/', users);
+app.use("/uploads", express.static(__dirname + '/uploads'), img);
 
-//API ROUTES
-app.get('/uploads/:id', function(req, res){
-  console.log("pene");
-	res.sendfile(__dirname + '/uploads/'+ req.params.id)
-});
+
+img.route('/:id')
+  .get(Ctrlprofesor.getimg)
+
+img.route('/')
+  .post(Ctrlprofesor.postimg)
 
 users.route('/registeralumno')
   .post(Ctrlalumno.registeralumno);
@@ -90,8 +93,7 @@ users.route('/profesores')
   .post(Ctrlprofesor.queryprofesores)
 
 
-users.route('/api')
-  .post(Ctrlprofesor.postimg)
+
 
 
 

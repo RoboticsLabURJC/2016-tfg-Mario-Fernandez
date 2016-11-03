@@ -9,7 +9,7 @@ export class ProfesorScheme {
     public Loc: {lat : number, lng: number },
     public Curso: string,
     public Clase: string,
-    public Path: string,
+    public Path: string
   ) {  }
 
 }

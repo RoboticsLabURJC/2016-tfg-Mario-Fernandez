@@ -25,7 +25,7 @@ exports.registerprofesor = function(req, res) {
       type: "Point",
       coordinates: [req.body.Loc.lat, req.body.Loc.lng]
     },
-    path: "./uploads/muestra.jpg"
+    path: req.body.Path
   });
 
 	var profesor = new ProfesorScheme(
@@ -63,6 +63,10 @@ exports.getallprofesores = function(req, res){
       DataProfesor.find({}, function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
       });
+};
+
+exports.getimg = function(req, res){
+  res.sendfile('uploads/'+ req.params.id)
 };
 
 exports.postimg = function(req, res){

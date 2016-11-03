@@ -7,7 +7,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:3001/api/';
+const URL = 'http://localhost:3001/uploads/';
 
 @Component({
   selector: 'home',
@@ -18,8 +18,6 @@ const URL = 'http://localhost:3001/api/';
 export class HomeProfesor {
   jwt: string;
   decodedJwt: Data;
-  profesores: Object[] = [];
-
   imgsrc: string;
 
   public uploader:FileUploader = new FileUploader({url: URL});
