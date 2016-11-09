@@ -9,7 +9,7 @@ var ProfesorScheme  = mongoose.model('LoginProfesor');
 
 
 function createToken(user) {
-  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 1 });
+  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 3 });
 }
 
 exports.registerprofesor = function(req, res) {
