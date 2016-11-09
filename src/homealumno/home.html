@@ -1,41 +1,44 @@
 <div>
-  <div class="home jumbotron centered">
-    <button type="Submit" (click)="logout()">Logout</button>
-    <h1>Welcome to Perfill!</h1>
-      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
-      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
-      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
-      <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
+  <div class="col-lg-8 col-xs-8">
+    <input [(ngModel)]="address" >
+    <button (click)="initcoor(address)" >Elige tu zona</button>
+    <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
+    [scrollwheel]="false" [zoom] = "13">
+      <sebm-google-map-marker
+              [latitude]="query.Loc.lat"
+              [longitude]="query.Loc.lng">
+      </sebm-google-map-marker>
+      <sebm-google-map-marker *ngFor="let m of profesores"
+              [latitude]="m.location.coordinates[0]"
+              [longitude]="m.location.coordinates[1]">
+      </sebm-google-map-marker>
+       <sebm-google-map-circle [latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
+           [radius]="query.Radio"
+           [fillColor]="'red'">
+       </sebm-google-map-circle>
+    </sebm-google-map>
   </div>
-  <input [(ngModel)]="address" >
-  <button (click)="initcoor(address)" >Elige tu zona</button>
-  <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>
-  <form role="form">
-    <div class="form-group">
-      <select class="form-control" [(ngModel)]="query.Curso" name="curso">
-        <option *ngFor="let p of curso" [value]="p">{{p}}</option>
-      </select>
+  <div class="col-lg-4 col-xs-4">
+    <div class="home jumbotron centered">
+      <button type="Submit" (click)="logout()">Logout</button>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
     </div>
-    <div class="form-group">
-      <select class="form-control" [(ngModel)]="query.Clase" name="clase">
-        <option *ngFor="let p of asignaturas[curso.indexOf(query.Curso)][query.Curso]" [value]="p">{{p}}</option>
-      </select>
-    </div>
-  </form>
-  <button type="submit" (click)="sendquery(query)">crea una query</button>
-  <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"  [zoom] = "13">
-    <sebm-google-map-marker
-            [latitude]="query.Loc.lat"
-            [longitude]="query.Loc.lng">
-    </sebm-google-map-marker>
-    <sebm-google-map-marker *ngFor="let m of profesores"
-            [latitude]="m.location.coordinates[0]"
-            [longitude]="m.location.coordinates[1]">
-    </sebm-google-map-marker>
 
-     <sebm-google-map-circle [latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
-         [radius]="query.Radio" 
-         [fillColor]="'red'">
-     </sebm-google-map-circle>
-  </sebm-google-map>
-</div>
+    <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>
+    <form role="form">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="query.Curso" name="curso">
+          <option *ngFor="let p of curso" [value]="p">{{p}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class="form-control" [(ngModel)]="query.Clase" name="clase">
+          <option *ngFor="let p of asignaturas[curso.indexOf(query.Curso)][query.Curso]" [value]="p">{{p}}</option>
+        </select>
+      </div>
+    </form>
+    <button type="submit" (click)="sendquery(query)">crea una query</button>
+  </div>

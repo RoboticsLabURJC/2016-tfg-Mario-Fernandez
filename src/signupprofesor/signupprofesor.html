@@ -40,7 +40,8 @@
       </div>
     </form>
     <button type="submit" class="btn rounded-btn" (click)="registrar(profesor)" >Submit</button>
-    <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"  [zoom] = "14" (mapClick)="mapClicked($event)">
+    <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"
+    [scrollwheel]="false" [zoom] = "14" (mapClick)="mapClicked($event)">
       <sebm-google-map-marker
               [latitude]="profesor.Loc.lat"
               [longitude]="profesor.Loc.lng">
