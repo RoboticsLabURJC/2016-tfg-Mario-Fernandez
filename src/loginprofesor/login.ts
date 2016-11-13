@@ -12,7 +12,7 @@ import { ProfesorScheme } from '../models/profesores';
 export class LoginProfesor {
 
   profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
-  '', '', "./uploads/muestra");
+  '', '', './uploads/muestra');
 
   constructor(public router: Router, public http: Http) {  }
 

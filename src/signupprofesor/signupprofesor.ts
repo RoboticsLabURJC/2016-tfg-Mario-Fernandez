@@ -25,9 +25,9 @@ export class SignupProfesor implements OnInit {
   asignaturas: Object = ASIGNATURAS;
 
   profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
-  this.curso[0], this.asignaturas[0][this.curso[0]][0], "./uploads/muestra.jpg");
+  this.curso[0], this.asignaturas[0][this.curso[0]][0], './uploads/muestra.jpg');
 
-  public uploader:FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({url: URL});
 
   constructor(public router: Router, public http: Http) {
     console.log(this.curso[0]);

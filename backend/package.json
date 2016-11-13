@@ -1,25 +1,12 @@
 {
-  "name": "chuck-norris-quotes-api",
-  "version": "0.1.0",
-  "description": "Chuck Norris Quotes API",
+  "name": "classcity",
+  "version": "3.0.0",
+  "description": "Backend TFG",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/auth0/angular2-authentication-sample"
+    "url": "https://github.com/RoboticsURJC-students/2016-tfg-Mario-Fernandez.git"
   },
-  "keywords": [
-    "jwt",
-    "auth0"
-  ],
-  "author": "Martin Gontovnikas",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/auth0/in-memory-todo/issues"
-  },
-  "homepage": "https://github.com/auth0/in-memory-todo",
   "dependencies": {
     "body-parser": "^1.15.0",
     "compression": "^1.6.1",
@@ -33,6 +20,5 @@
     "morgan": "^1.7.0",
     "mongoose": "^4.6.1",
     "multer": "^1.2.0"
-
   }
 }

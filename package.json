@@ -1,28 +1,17 @@
 {
-  "name": "angular2-authentication-sample",
-  "version": "0.0.1",
-  "description": "This is a sample that shows how to add authentication to an Angular 2 (ng2) app",
-  "main": "",
+  "name": "classcity",
+  "version": "3.0.0",
+  "description": "Trabajo de Fin de Carrera",
   "scripts": {
     "server": "cd backend && npm i && node server.js",
-    "front": "webpack-dev-server --inline -d --colors --display-error-details --display-cached --port 3000",
+    "front": "webpack-dev-server --port 3000 --hot --host 0.0.0.0",
     "start": "npm run front",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/auth0/angular2-authentication-sample.git"
+    "url": "https://github.com/RoboticsURJC-students/2016-tfg-Mario-Fernandez.git"
   },
-  "contributors": [
-    "Martin Gontovnikas (http://gon.to) <martin@gon.to>",
-    "PatrickJS <github@gdi2290.com>",
-    "Ryan Chenkie <ryanchenkie@gmail.com>"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/auth0/angular2-authentication-sample/issues"
-  },
-  "homepage": "https://github.com/auth0/angular2-authentication-sample",
   "dependencies": {
     "@angular/common": "~2.0.2",
     "@angular/compiler": "~2.0.2",

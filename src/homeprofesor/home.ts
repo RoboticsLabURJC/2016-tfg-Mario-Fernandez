@@ -20,16 +20,16 @@ export class HomeProfesor {
   decodedJwt: Data;
   imgsrc: string;
 
-  public uploader:FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({url: URL});
 
   constructor(public router: Router, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
     console.log(this.decodedJwt);
-    this.imgsrc= "http://localhost:3001/" +  this.decodedJwt.id.path
+    this.imgsrc = 'http://localhost:3001/' +  this.decodedJwt.id.path;
   }
 
-  sendimg(){
+  sendimg() {
     for (let item of this.uploader.queue){
       item.file.name = this.decodedJwt.Email;
       item.upload();
@@ -44,14 +44,14 @@ export class HomeProfesor {
 
 interface Data {
   Email: string;
-  id:{
+  id: {
     _id: string,
     apellidos: string,
-    asignaturas:string,
+    asignaturas: string,
     curso: string,
     edad: string,
-    location:{ lat: number, lng: number}
+    location: { lat: number, lng: number}
     nombre: string,
-    path:string
-  }
+    path: string
+  };
 }

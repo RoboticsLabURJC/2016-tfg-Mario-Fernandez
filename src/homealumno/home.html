@@ -11,6 +11,11 @@
       <sebm-google-map-marker *ngFor="let m of profesores"
               [latitude]="m.location.coordinates[0]"
               [longitude]="m.location.coordinates[1]">
+              <sebm-google-map-info-window>
+                  <strong>{{m.nombre}} {{m.apellidos}}</strong>
+                  <br>
+                  <strong>{{m.edad}}</strong>
+              </sebm-google-map-info-window>
       </sebm-google-map-marker>
        <sebm-google-map-circle [latitude]="query.Loc.lat" [longitude]="query.Loc.lng"
            [radius]="query.Radio"
