@@ -102,3 +102,11 @@ exports.queryprofesores = function(req, res) {
 	      res.status(200).jsonp(dataprof);
   });
 };
+
+exports.getdetail = function(req, res){
+  console.log("pene");
+  DataProfesor.findOne({"_id" : req.params.id}, function(err, dataprof) {
+    console.log(dataprof);
+    res.status(200).send(dataprof);
+  });
+};

@@ -92,6 +92,9 @@ users.route('/profesores')
   .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
 
+users.route('/detail/:id')
+  .get(Ctrlprofesor.getdetail)
+
 
 
 

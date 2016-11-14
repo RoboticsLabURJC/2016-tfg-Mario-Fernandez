@@ -12,7 +12,8 @@
               [latitude]="m.location.coordinates[0]"
               [longitude]="m.location.coordinates[1]">
               <sebm-google-map-info-window>
-                  <strong>{{m.nombre}} {{m.apellidos}}</strong>
+                  <a [routerLink]="['/detail', m._id]">
+                    <strong>{{m.nombre}} {{m.apellidos}}</strong></a>
                   <br>
                   <strong>{{m.edad}}</strong>
               </sebm-google-map-info-window>

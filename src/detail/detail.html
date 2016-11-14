@@ -1,0 +1,14 @@
+<div class="home" *ngIf="profesor">
+  <div class="col-xs-4 col-lg-4">
+    <button type="Submit" class="btn rounded-btn" (click)="logout()">Logout</button>
+  </div>
+  <div class="col-xs-4 col-lg-4 text-center">
+    <img [src]="imgsrc">
+  </div>
+  <div  class="col-xs-12 col-lg-12">
+    <h1 >{{profesor.nombre}} {{profesor.apellidos}}</h1>
+    <h3>Email: {{profesor.asignaturas}}</h3>
+    <h3>Asignatura: {{profesor.curso}}</h3>
+    <h3>Edad: {{profesor.edad}}</h3>
+  </div>
+</div>

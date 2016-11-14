@@ -20,6 +20,7 @@ import { LoginAlumno } from './loginalumno';
 import { LoginProfesor } from './loginprofesor';
 import { SignupAlumno } from './signupalumno';
 import { SignupProfesor } from './signupprofesor';
+import { ProfesorDetail } from './detail';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { SignupProfesor } from './signupprofesor';
       { path: 'signupprofesor', component: SignupProfesor },
       { path: 'home',   component: HomeAlumno, canActivate: [AuthGuard] },
       { path: 'profile',   component: HomeProfesor, canActivate: [AuthGuard] },
+      { path: 'detail/:id', component: ProfesorDetail, canActivate: [AuthGuard] },
       { path: '**',     redirectTo: ''}
     ])
   ],
@@ -50,7 +52,8 @@ import { SignupProfesor } from './signupprofesor';
     SignupAlumno,
     SignupProfesor,
     HomeAlumno,
-    HomeProfesor
+    HomeProfesor,
+    ProfesorDetail
   ],
   bootstrap: [ AppComponent ],
   providers: [
