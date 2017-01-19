@@ -31,7 +31,7 @@ export class ProfesorDetail {
         response => {
           console.log(response.json());
           this.profesor = response.json();
-          this.imgsrc = 'http://localhost:3001/' +  this.profesor.path;
+          this.imgsrc = 'http://localhost:3001/' +  response.json().path;
           console.log(this.profesor);
         },
         error => {

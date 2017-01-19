@@ -9,7 +9,7 @@ var ProfesorScheme  = mongoose.model('LoginProfesor');
 
 
 function createToken(user) {
-  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 3 });
+  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 30 });
 }
 
 exports.registerprofesor = function(req, res) {
@@ -96,6 +96,7 @@ exports.loginprofesor = function(req, res) {
 };
 
 exports.queryprofesores = function(req, res) {
+  console.log(req);
   DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
   location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
   req.body.Radio / 6378100 ] } } },  function(err, dataprof){
