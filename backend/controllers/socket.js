@@ -36,7 +36,6 @@ var chat = {
 	    });
 
 	    var leaveRoom = function() {
-					console.log(rooms, "PENIIIITA");
 	        rooms[room]--;
 	        io.to(room).emit('client left', {'userName': user, 'text': "dejo la sala"});
 	        if (rooms[room] === 0)

@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="direccion col-lg-8 col-xs-12">
-    <input [(ngModel)]="address" >
+    <input [(ngModel)]="address" (keypress)="keypressHandler($event, address)">
     <button (click)="initcoor(address)" > Submit</button>
   </div>
   <div class="mapa col-lg-8 col-xs-12 ">
@@ -43,7 +43,8 @@
   [scrollwheel]="false" [zoom] = "13">
     <sebm-google-map-marker
             [latitude]="query.Loc.lat"
-            [longitude]="query.Loc.lng">
+            [longitude]="query.Loc.lng"
+            [iconUrl] = "iconUrl">
     </sebm-google-map-marker>
     <sebm-google-map-marker *ngFor="let m of profesores; let i = index"
             (markerClick)= "select(i)"

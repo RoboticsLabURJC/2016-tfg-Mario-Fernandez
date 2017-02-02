@@ -25,25 +25,6 @@ export class ProfesorDetail {
 
   constructor(public route: ActivatedRoute, public authHttp: AuthHttp,
      private http: Http) {
-
-  }
-
-  getdata(id: string) {
-  console.log(id);
-  let url = 'http://localhost:3001/detail/' + id;
-  this.http.get(url)
-    .subscribe(
-      response => {
-        console.log(response.json());
-        this.profesor = response.json();
-        this.imgsrc = 'http://localhost:3001/' +  response.json().path;
-        console.log(this.profesor);
-      },
-      error => {
-        alert(error.text());
-        console.log(error.text());
-      }
-    );
   }
 
   ngOnInit(): void {
@@ -70,9 +51,23 @@ export class ProfesorDetail {
 
   }
 
+  getdata(id: string) {
+  let url = 'http://localhost:3001/detail/' + id;
+  this.http.get(url)
+    .subscribe(
+      response => {
+        this.profesor = response.json();
+        this.imgsrc = 'http://localhost:3001/' +  response.json().path;
+      },
+      error => {
+        alert(error.text());
+        console.log(error.text());
+      }
+    );
+  }
+
   send() {
         this.socket.emit('newMessage', {
-            'roomName': this.id,
             'userName': this.decodedJwt.id.nombre,
             'text': this.message
         });

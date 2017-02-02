@@ -8,7 +8,6 @@ declare var google: any;
 
 export class AlumnoService {
   getLatLan(address: string) {
-    console.log('Getting Address - ', address);
     let geocoder = new google.maps.Geocoder();
     return Observable.create(observer => {
       geocoder.geocode( { 'address': address}, function(results, status) {

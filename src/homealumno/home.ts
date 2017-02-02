@@ -27,9 +27,11 @@ export class HomeAlumno {
   {lat: 40.416775, lng: -3.703790199999957}, 2000);
   open: boolean = false;
   enable: boolean = false;
+  iconUrl: string = "/src/assets/images/home.png"
 
-  constructor(public router: Router, public http: Http, public authHttp: AuthHttp,
-  private alumnoService: AlumnoService, private ref: ChangeDetectorRef) {
+  constructor(public router: Router, public http: Http,
+  public authHttp: AuthHttp, private alumnoService: AlumnoService,
+  private ref: ChangeDetectorRef) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
   }
@@ -46,11 +48,10 @@ export class HomeAlumno {
     border.style.border = '2px solid';
   }
 
-
   changeborder(id: string) {
     if (!this.enable) {
       let border = document.getElementById(id);
-      border.style.border = '10px solid';
+      border.style.border = '10px solid yellow';
     }
   }
 
@@ -60,7 +61,6 @@ export class HomeAlumno {
       border.style.border = '2px solid';
     }
   }
-
 
   initcoor(address: string) {
     this.alumnoService.getLatLan(address).
@@ -72,18 +72,22 @@ export class HomeAlumno {
       );
   }
 
+  keypressHandler(event: any, address: string) {
+       if (event.keyCode === 13) {
+           this.initcoor(address);
+       }
+   }
+
   sendquery(description: QueryScheme) {
     let url = 'http://localhost:3001/profesores';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    console.log(body);
 
     this.http.post(url, body, options)
       .subscribe(
         response => {
            this.profesores = response.json();
-           console.log(this.profesores);
          },
          error => {
            alert(error.text());
@@ -97,9 +101,7 @@ export class HomeAlumno {
     this.http.get(url).
       subscribe(
        response => {
-          console.log(response.json());
           this.profesores = response.json();
-          console.log(this.profesores);
         },
         error => {
           alert(error.text());

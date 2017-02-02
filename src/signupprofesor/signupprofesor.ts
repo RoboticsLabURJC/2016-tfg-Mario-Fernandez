@@ -30,9 +30,7 @@ export class SignupProfesor implements OnInit {
   public uploader: FileUploader = new FileUploader({url: URL});
 
   constructor(public router: Router, public http: Http) {
-    console.log(this.curso[0]);
-    //let property: string = this.curso[0]
-    console.log(this.asignaturas[0]['Primaria'][0]);
+
   }
 
   ngOnInit() {
@@ -60,13 +58,11 @@ export class SignupProfesor implements OnInit {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    console.log(body);
     this.http.post(url, body, options)
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
           this.router.navigate(['/profile']);
-          console.log(response.json());
         },
         error => {
           alert(error.text());

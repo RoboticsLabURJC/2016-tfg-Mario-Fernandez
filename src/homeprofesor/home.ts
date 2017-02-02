@@ -25,7 +25,6 @@ export class HomeProfesor {
   constructor(public router: Router, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
-    console.log(this.decodedJwt);
     this.imgsrc = 'http://localhost:3001/' +  this.decodedJwt.id.path;
   }
 

@@ -23,13 +23,11 @@ export class SignupAlumno {
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
-    console.log(body);
     this.http.post(url, body, options)
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
           this.router.navigate(['/home']);
-          console.log(response.json());
         },
         error => {
           alert(error.text());

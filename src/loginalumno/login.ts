@@ -26,7 +26,6 @@ export class LoginAlumno {
         response => {
           localStorage.setItem('id_token', response.json().id_token);
           this.router.navigate(['/home']);
-          console.log(response.json());
         },
         error => {
           alert(error.text());
