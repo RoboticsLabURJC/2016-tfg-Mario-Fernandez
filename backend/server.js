@@ -11,6 +11,7 @@ var logger          = require('morgan'),
 
 var app = express();
 
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/classcity');
 
@@ -61,14 +62,14 @@ require("./models/profesor");
 require("./models/loginprofesor");
 var Ctrlalumno = require('./controllers/contalumno');
 var Ctrlprofesor = require('./controllers/contprofesor');
+var socketServer = require('./controllers/socket');
 
 //Rutas
-
 var users = express.Router();
 var img = express.Router();
 app.use('/', users);
 app.use("/uploads", express.static(__dirname + '/uploads'), img);
-
+socketServer.start();
 
 img.route('/:id')
   .get(Ctrlprofesor.getimg)
@@ -95,24 +96,6 @@ users.route('/profesores')
 users.route('/detail/:id')
   .get(Ctrlprofesor.getdetail)
 
-
-
-
-
-
-/*
-users.route('/login')
-  .get(Controller.findAllLogins)
-  .post(Controller.addlogin);
-
-users.route('/loginspharma')
-  .get(Controller.findAllloginpharma);
-
-users.route('/login/:id')
-  .get(Controller.findById)
-  .put(Controller.updatelogin)
-  .delete(Controller.deletelogin);
-*/
   // Start server
   app.listen(3001, function() {
     console.log("Node server running on http://localhost:3001");

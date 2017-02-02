@@ -1,5 +1,6 @@
   <div class= "busqueda col-lg-4 col-xs-12">
-    <div class="menu col-lg-4 col-xs-4" (click)="open=!open">&#9776;</div>
+    <div class="menu col-lg-2 col-xs-2" (click)="open=!open">&#9776;</div>
+    <div class="title col-lg-10 col-xs-10" >ClassCity</div>
     <div *ngIf= "open" class="sidenav">
       <a class="closebtn" (click)="open=!open">&times;</a>
         <img src="src/assets/images/flat-avatar.png"/>
@@ -9,7 +10,6 @@
         <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
         <button type="Submit" (click)="logout()">Logout</button>
     </div>
-    <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca los profesores que hay por tu zona</button>
     <form role="form">
       <div class="form-group">
         <select class="form-control" [(ngModel)]="query.Curso" name="curso">
@@ -27,7 +27,8 @@
         </select>
       </div>
     </form>
-    <button type="submit" (click)="sendquery(query)">crea una query</button>
+    <button type="submit" (click)="sendquery(query)">Busca</button>
+    <button type="submit" (click)="getallprof()" ng-bind="user.name()">Busca a todos los profesores</button>
     <div *ngFor="let m of profesores; let i = index"  >
       <img id={{i}} class="col-1-3" src="http://localhost:3001/{{m.path}}"
       (click)="goDetail(m._id)"/>

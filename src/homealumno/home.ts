@@ -34,30 +34,30 @@ export class HomeAlumno {
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
   }
 
-  select(id: string){
+  select(id: string) {
     this.enable = true;
     let border = document.getElementById(id);
-    border.style.border = "10px solid green";
+    border.style.border = '10px solid green';
   }
 
-  desselect(id: string){
+  desselect(id: string) {
     this.enable = false;
     let border = document.getElementById(id);
-    border.style.border = "2px solid";
+    border.style.border = '2px solid';
   }
 
 
-  changeborder(id: string){
-    if(!this.enable){
+  changeborder(id: string) {
+    if (!this.enable) {
       let border = document.getElementById(id);
-      border.style.border = "10px solid";
+      border.style.border = '10px solid';
     }
   }
 
-  rechangeborder(id: string){
-    if(!this.enable){
+  rechangeborder(id: string) {
+    if (!this.enable) {
       let border = document.getElementById(id);
-      border.style.border = "2px solid";
+      border.style.border = '2px solid';
     }
   }
 

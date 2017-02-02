@@ -1,7 +1,7 @@
 var _       = require('lodash'),
     config  = require('../config'),
     jwt     = require('jsonwebtoken'),
-    mongoose = require('mongoose')
+    mongoose = require('mongoose'),
     main     = require('../server');
 
 var DataProfesor = mongoose.model('Profesor');
@@ -106,6 +106,7 @@ exports.queryprofesores = function(req, res) {
 
 exports.getdetail = function(req, res){
   console.log("pene");
+
   DataProfesor.findOne({"_id" : req.params.id}, function(err, dataprof) {
     console.log(dataprof);
     res.status(200).send(dataprof);

@@ -1,11 +1,28 @@
+
 <div class="home" *ngIf="profesor">
   <div class="col-xs-4 col-lg-4">
-    <button type="Submit" class="btn rounded-btn" (click)="logout()">Logout</button>
+    <ul *ngFor="let msg of conversation" style="margin:0">
+        <li >
+          <div >
+              <span  class="userLabel" >{{msg.userName}}:</span>
+              <span style="font-weight:bold">{{msg.text}}</span>
+          </div>
+        </li>
+    </ul>
+    <div>
+          <input  type="text"
+            [(ngModel)]="message"
+            (keypress)="keypressHandler($event)">
+    </div>
+    <button (click)="send()"  type="submit"  name="action" >Send</button>
+
   </div>
-  <div class="col-xs-4 col-lg-4 text-center">
+
+  <div class="col-xs-4 col-lg-4">
+    <button type="Submit" class="btn rounded-btn" (click)="logout()">Logout</button>
     <img [src]="imgsrc">
   </div>
-  <div  class="col-xs-12 col-lg-12">
+  <div  class="col-xs-4 col-lg-4">
     <h1 >{{profesor.nombre}} {{profesor.apellidos}}</h1>
     <h3>Email: {{profesor.asignaturas}}</h3>
     <h3>Asignatura: {{profesor.curso}}</h3>
