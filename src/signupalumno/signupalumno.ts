@@ -18,7 +18,7 @@ export class SignupAlumno {
   }
 
   registrar(description: AlumnoScheme) {
-    let url = 'http://localhost:3001/registeralumno';
+    let url = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/registeralumno';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

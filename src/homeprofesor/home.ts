@@ -7,7 +7,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:3001/uploads/';
+const URL ='http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/uploads/';
 
 @Component({
   selector: 'home',
@@ -25,7 +25,7 @@ export class HomeProfesor {
   constructor(public router: Router, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
-    this.imgsrc = 'http://localhost:3001/' +  this.decodedJwt.id.path;
+    this.imgsrc = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/' +  this.decodedJwt.id.path;
   }
 
   sendimg() {

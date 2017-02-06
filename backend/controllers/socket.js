@@ -6,7 +6,7 @@ var io = require('socket.io').listen(server);
 
 var chat = {
 	start: function(){
-		server.listen(8000);
+		server.listen(8000,'0.0.0.0');
 		io.set("origins", "*:*");
 		var rooms = [];
 

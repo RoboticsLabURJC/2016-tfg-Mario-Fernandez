@@ -11,7 +11,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:3001/api/';
+const URL = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080//api/';
 
 @Component({
   selector: 'signupprofesor',
@@ -53,7 +53,7 @@ export class SignupProfesor implements OnInit {
   };
 
   registrar(description: ProfesorScheme) {
-    let url = 'http://localhost:3001/registerprofesor';
+    let url = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/registerprofesor';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
