@@ -1,9 +1,11 @@
 var _       = require('lodash'),
     config  = require('../config'),
     jwt     = require('jsonwebtoken'),
-    mongoose = require('mongoose'),
-    main     = require('../server');
+    mongoose = require('mongoose');
 
+
+require("../models/profesor");
+require("../models/loginprofesor");
 var DataProfesor = mongoose.model('Profesor');
 var ProfesorScheme  = mongoose.model('LoginProfesor');
 
@@ -13,7 +15,6 @@ function createToken(user) {
 }
 
 exports.registerprofesor = function(req, res) {
-	console.log(req.body);
 
   var datos = new DataProfesor(
   { nombre:       req.body.Nombre,
@@ -35,13 +36,11 @@ exports.registerprofesor = function(req, res) {
 
   //comprobar si el Nick ya existe
   ProfesorScheme.find( { "email": profesor.email }, function(err, data) {
-    console.log(data);
     if (data.length == 0){
       if (!profesor.email || !profesor.password) {
         res.status(400).send("You must send the username and the password");
       }else{
         profesor.save(function(err, datasave) {
-          console.log(datasave);
           if(err) return res.send(500, err.message);
           var profile = _.pick(req.body, 'Email', 'Password', 'extra');
           profile.id = datasave.data;
@@ -49,7 +48,6 @@ exports.registerprofesor = function(req, res) {
         });
         datos.save(function(err, datasave) {
           if(err) return res.send(500, err.message);
-          console.log(datasave);
         });
       }
     }else{
@@ -59,7 +57,6 @@ exports.registerprofesor = function(req, res) {
 };
 
 exports.getallprofesores = function(req, res){
-    console.log('GET /getallprofesores');
       DataProfesor.find({}, function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
       });
@@ -71,7 +68,6 @@ exports.getimg = function(req, res){
 
 exports.postimg = function(req, res){
   ProfesorScheme.findOne({"email" : req.file.originalname}, function(err, data) {
-    console.log(data);
     DataProfesor.findById(data.data, function(err, dataext) {
         dataext.path = req.file.path;
         dataext.save();
@@ -84,7 +80,6 @@ exports.loginprofesor = function(req, res) {
   ProfesorScheme.find({"email" : req.body.Email}, function(err, login) {
     if (login.length != 0){
       DataProfesor.populate(login, {path: "data"},function(err, libros){
-        console.log(libros);
         var profile = _.pick(req.body, 'Email', 'Password', 'extra');
         profile.id = libros[0].data;
         res.status(201).send({ id_token: createToken(profile) });
@@ -96,7 +91,6 @@ exports.loginprofesor = function(req, res) {
 };
 
 exports.queryprofesores = function(req, res) {
-  console.log(req);
   DataProfesor.find({"curso" : req.body.Curso, "asignaturas": req.body.Clase,
   location:{$geoWithin:{$centerSphere: [ [ req.body.Loc.lat, req.body.Loc.lng],
   req.body.Radio / 6378100 ] } } },  function(err, dataprof){
@@ -105,10 +99,7 @@ exports.queryprofesores = function(req, res) {
 };
 
 exports.getdetail = function(req, res){
-  console.log("pene");
-
   DataProfesor.findOne({"_id" : req.params.id}, function(err, dataprof) {
-    console.log(dataprof);
     res.status(200).send(dataprof);
   });
 };

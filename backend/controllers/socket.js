@@ -16,7 +16,7 @@ var chat = {
 			var text;
 	    socket.on('room', function(_room) {
 	        room = _room.roomName;
-					user = _room.userName
+					user = _room.userName;
 	        socket.join(room);
 	        if (room in rooms)
 	            rooms[room]++;
