@@ -4,7 +4,7 @@ import { AuthHttp } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
-const URL = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/uploads/';
+const URL = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/uploads/';
 
 @Component({
   selector: 'detail',
@@ -32,7 +32,7 @@ export class ProfesorDetail {
       this.id = params['id'];
       this.getdata(this.id);
     });
-    this.socket = io('http://ec2-54-145-99-112.compute-1.amazonaws.com:8000');
+    this.socket = io('http://ec2-52-90-104-48.compute-1.amazonaws.com:8000');
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && jwt_decode(this.jwt);
     console.log(this.decodedJwt);
@@ -75,12 +75,12 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/detail/' + id;
+  let url = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/detail/' + id;
   this.http.get(url)
     .subscribe(
       response => {
         this.profesor = response.json();
-        this.imgsrc = 'http://ec2-54-145-99-112.compute-1.amazonaws.com:8080/' +  response.json().path;
+        this.imgsrc = 'http://ec2-52-90-104-48.compute-1.amazonaws.com:8080/' +  response.json().path;
         console.log(this.profesor);
       },
       error => {
