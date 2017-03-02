@@ -37,6 +37,7 @@
   <div class="direccion col-lg-8 col-xs-12">
     <input [(ngModel)]="address" (keypress)="keypressHandler($event, address)">
     <button (click)="initcoor(address)" > Submit</button>
+    <button (click)="position()" > position</button>
   </div>
   <div class="mapa col-lg-8 col-xs-12 ">
   <sebm-google-map *ngIf="query.Loc"[latitude]="query.Loc.lat" [longitude]="query.Loc.lng"

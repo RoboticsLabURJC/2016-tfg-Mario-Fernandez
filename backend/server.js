@@ -1,8 +1,5 @@
-var logger          = require('morgan'),
-    http            = require('http'),
+var http            = require('http'),
     express         = require('express'),
-    errorhandler    = require('errorhandler'),
-    dotenv          = require('dotenv'),
     mongoose        = require('mongoose'),
     path            = require('path');
     bodyParser      = require('body-parser'),
@@ -10,37 +7,9 @@ var logger          = require('morgan'),
     path            = require('path');
 
 var app = express();
-
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/classcity');
-
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Connected to Database');
-});
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'bower_components')));
-//app.use('/uploads:id', express.static(__dirname + 'uploads'));
-
-app.use(function(err, req, res, next) {
-  if (err.name === 'StatusError') {
-    res.send(err.status, err.message);
-  } else {
-    next(err);
-  }
-});
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://ec2-54-145-99-112.compute-1.amazonaws.com:3000");
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -52,24 +21,52 @@ var storage = multer.diskStorage({
     cb(null, name)
   }
 })
-var upload = multer({ storage: storage })
-app.use(multer(upload).single('file'));
+var upload = multer({ storage: storage });
 
-
-require("./models/alumno");
-require("./models/loginalumno");
-require("./models/profesor");
-require("./models/loginprofesor");
 var Ctrlalumno = require('./controllers/contalumno');
 var Ctrlprofesor = require('./controllers/contprofesor');
 var socketServer = require('./controllers/socket');
 
-//Rutas
 var users = express.Router();
 var img = express.Router();
+
+//open mongo
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Connected to Database');
+});
+
+//parser body
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'bower_components')));
+
+//cntrl errors
+app.use(function(err, req, res, next) {
+  if (err.name === 'StatusError') {
+    res.send(err.status, err.message);
+  } else {
+    next(err);
+  }
+});
+
+//cntrl img
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://ec2-54-145-99-112.compute-1.amazonaws.com:3000");
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
+app.use(multer(upload).single('file'));
+
+//server sockets
+socketServer.start();
+
+//Rutas
 app.use('/', users);
 app.use("/uploads", express.static(__dirname + '/uploads'), img);
-socketServer.start();
 
 img.route('/:id')
   .get(Ctrlprofesor.getimg)
@@ -93,10 +90,16 @@ users.route('/profesores')
   .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
 
+users.route('/notification')
+  .post(Ctrlprofesor.savenotificacion);
+
+users.route('/readynotification')
+  .post(Ctrlprofesor.readynotificacion);
+
 users.route('/detail/:id')
   .get(Ctrlprofesor.getdetail)
 
-  // Start server
-  app.listen(8080,'0.0.0.0', function() {
-    console.log("Node server running on http://localhost:8080");
-  });
+// Start server
+app.listen(8080,'0.0.0.0', function() {
+  console.log("Node server running on http://localhost:8080");
+});

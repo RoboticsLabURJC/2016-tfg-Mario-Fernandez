@@ -1,6 +1,13 @@
 <div class="login-page animate">
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
+    <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"
+    [scrollwheel]="false" [zoom] = "14" (mapClick)="mapClicked($event)">
+      <sebm-google-map-marker
+              [latitude]="profesor.Loc.lat"
+              [longitude]="profesor.Loc.lng">
+      </sebm-google-map-marker>
+    </sebm-google-map>
     <h1>Registrate Profesor</h1>
     <form role="form">
       <div class="form-content">
@@ -40,13 +47,7 @@
       </div>
     </form>
     <button type="submit" class="btn rounded-btn" (click)="registrar(profesor)" >Submit</button>
-    <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"
-    [scrollwheel]="false" [zoom] = "14" (mapClick)="mapClicked($event)">
-      <sebm-google-map-marker
-              [latitude]="profesor.Loc.lat"
-              [longitude]="profesor.Loc.lng">
-      </sebm-google-map-marker>
-    </sebm-google-map>
+
 
     </div>
   </div>
