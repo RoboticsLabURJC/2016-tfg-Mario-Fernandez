@@ -90,6 +90,12 @@ users.route('/profesores')
   .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
 
+users.route('/notification')
+  .post(Ctrlprofesor.savenotificacion);
+
+users.route('/readynotification')
+  .post(Ctrlprofesor.readynotificacion);
+
 users.route('/detail/:id')
   .get(Ctrlprofesor.getdetail)
 

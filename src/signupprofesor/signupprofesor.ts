@@ -36,15 +36,20 @@ export class SignupProfesor implements OnInit {
   ngOnInit() {
     if (navigator.geolocation) {
       var that = this;
+      
       navigator.geolocation.getCurrentPosition(function(position){
+        console.log(position);
         that.InitCoor(position);
       });
     };
   };
 
+
   InitCoor(position: any) {
+
     this.profesor.Loc.lat = position.coords.latitude;
     this.profesor.Loc.lng = position.coords.longitude;
+    console.log(this.profesor.Loc.lat);
   };
 
   mapClicked($event: MouseEvent) {

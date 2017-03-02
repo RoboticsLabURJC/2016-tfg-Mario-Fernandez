@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
+var Alumno = mongoose.model('Alumno');
 
 var profesorSchema  = new Schema({
   nombre:       { type: String },
@@ -13,11 +14,16 @@ var profesorSchema  = new Schema({
     type:       { type: String},
     coordinates: {type: []}
   },
-  path:         {type: String}
+  path:         {type: String},
+  notification: {
+    type: [{
+      alumno: { type: Schema.ObjectId, ref: "Alumno"},
+      leido: {type: Boolean},
+      _id: false
+    }]
+  }
 });
 
-profesorSchema.statics.findAndModify = function (query, sort, doc, options, callback) {
-  return this.collection.findAndModify(query, sort, doc, options, callback);
-};
+
 
 module.exports = mongoose.model('Profesor', profesorSchema);
