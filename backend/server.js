@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
 
 //cntrl img
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://ec2-54-145-99-112.compute-1.amazonaws.com:3000");
+  res.header("Access-Control-Allow-Origin", "https://www.classcity.tk");
   res.setHeader('Access-Control-Allow-Methods', 'POST');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.setHeader('Access-Control-Allow-Credentials', true);
