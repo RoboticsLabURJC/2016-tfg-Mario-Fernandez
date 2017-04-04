@@ -27,7 +27,7 @@ export class HomeAlumno {
   {lat: 40.416775, lng: -3.703790199999957}, 2000);
   open: boolean = false;
   enable: boolean = false;
-  iconUrl: string = './assets/images/home.png';
+  iconUrl: string = '../../assets/images/home.png';
   jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(public router: Router, public http: Http,
@@ -63,10 +63,6 @@ export class HomeAlumno {
     }
   }
 
-  position(){
-    console.log("Dame la posicion aztual");
-  }
-
   initcoor(address: string) {
     this.alumnoService.getLatLan(address).
       subscribe(
@@ -84,7 +80,7 @@ export class HomeAlumno {
    }
 
   sendquery(description: QueryScheme) {
-    let url = 'localhost:8080/profesores';
+    let url = 'http://localhost:8080/profesores';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -102,7 +98,7 @@ export class HomeAlumno {
   }
 
   getallprof() {
-    let url = 'localhost:8080/profesores';
+    let url = 'http://localhost:8080/profesores';
     this.http.get(url).
       subscribe(
        response => {

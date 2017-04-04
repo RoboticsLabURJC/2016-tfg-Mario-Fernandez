@@ -17,7 +17,7 @@ export class LoginProfesor {
   constructor(public router: Router, public http: Http) {  }
 
   login(description: ProfesorScheme) {
-    let url = 'localhost:8080/loginprofesor';
+    let url = 'http://localhost:8080/loginprofesor';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

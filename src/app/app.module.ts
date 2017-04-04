@@ -13,7 +13,7 @@ import {FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import {Intro} from './intro';
-import {LoginAlumno} from './loginalumno'
+import {LoginAlumno} from './loginalumno';
 import { LoginProfesor } from './loginprofesor';
 import { HomeAlumno } from './homealumno';
 import { HomeProfesor } from './homeprofesor';

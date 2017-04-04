@@ -7,6 +7,7 @@ var io = require('socket.io').listen(server);
 var chat = {
 	start: function(){
 		server.listen(8000,'0.0.0.0');
+		console.log("Chat Node server running on http://localhost:8000");
 		io.set("origins", "*:*");
 		var rooms = [];
 

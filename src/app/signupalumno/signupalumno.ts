@@ -18,7 +18,7 @@ export class SignupAlumno {
   }
 
   registrar(description: AlumnoScheme) {
-    let url = 'localhost:8080/registeralumno';
+    let url = 'http://localhost:8080/registeralumno';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

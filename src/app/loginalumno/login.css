@@ -1,4 +1,14 @@
+/* movil */
+@media (max-width: 600px) {
 
+}
+
+/* ordenador */
+@media (min-width: 600px) {
+
+}
+
+/* Comun */
 .login-page {
 	background: #3ca2e0;
 	position: absolute;

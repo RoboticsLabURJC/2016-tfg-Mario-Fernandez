@@ -4,7 +4,7 @@
     <div class="title col-lg-10 col-xs-10" >{{profesor.nombre}}</div>
     <div *ngIf= "open" class="sidenav">
       <a class="closebtn" (click)="open=!open">&times;</a>
-        <img src="src/assets/images/flat-avatar.png"/>
+        <img src="../../assets/images/flat-avatar.png"/>
         <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
         <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
         <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>

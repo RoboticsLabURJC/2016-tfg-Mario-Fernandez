@@ -3,8 +3,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
-
-const URL = 'localhost:8080/uploads/';
+import * as io from 'socket.io-client';
+const URL = 'http://localhost:8080/uploads/';
 
 @Component({
   selector: 'detail',
@@ -33,11 +33,11 @@ export class ProfesorDetail {
       this.id = params['id'];
       this.getdata(this.id);
     });
-    //this.socket = io('http://ec2-52-90-104-48.compute-1.amazonaws.com:8000');
+    this.socket = io('http://localhost:8000');
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
     console.log(this.decodedJwt);
-    /*this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
+    this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
 
     this.socket.on('intro', function(data) {
             this.conversation.push(data);
@@ -49,12 +49,12 @@ export class ProfesorDetail {
 
     this.socket.on('client left', function(data) {
            this.conversation.push(data);
-    }.bind(this));*/
+    }.bind(this));
 
   }
 
   notification() {
-    let url = 'localhost:8080/notification';
+    let url = 'http://localhost:8080/notification';
     console.log(this.decodedJwt);
     let body = (<any>Object).assign(this.decodedJwt, this.profesor);
     console.log(this.decodedJwt);
@@ -76,12 +76,12 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'localhost:8080/detail/' + id;
+  let url = 'http://localhost:8080/detail/' + id;
   this.http.get(url)
     .subscribe(
       response => {
         this.profesor = response.json();
-        this.imgsrc = 'localhost:8080/' +  response.json().path;
+        this.imgsrc = 'http://localhost:8080/' +  response.json().path;
         console.log(this.profesor);
       },
       error => {

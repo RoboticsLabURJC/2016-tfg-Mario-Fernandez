@@ -8,7 +8,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL ='localhost:8080/uploads/';
+const URL = 'http://localhost:8080/uploads/';
 
 @Component({
   selector: 'home',
@@ -28,7 +28,7 @@ export class HomeProfesor {
   constructor(public router: Router, public http: Http, public authHttp: AuthHttp) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
-    this.imgsrc = 'localhost:8080/' +  this.decodedJwt.id.path;
+    this.imgsrc = 'http://localhost:8080/' +  this.decodedJwt.id.path;
   }
 
   ngOnInit(): void {
@@ -37,10 +37,10 @@ export class HomeProfesor {
   }
 
 getready(profe: string, alumno: string) {
-  console.log(profe, "PENE");
-  console.log(alumno, "pene");
-  let url = 'localhost:8080/readynotification';
-  let body = JSON.stringify({'profe': profe, "alumno": alumno});
+  console.log(profe, '>>>>>>');
+  console.log(alumno, '******');
+  let url = 'http://localhost:8080/readynotification';
+  let body = JSON.stringify({'profe': profe, 'alumno': alumno});
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
   let options = new RequestOptions({ headers: headers });
 
@@ -56,24 +56,21 @@ getready(profe: string, alumno: string) {
     );
   }
 
-
-
-
-  getnotification(data: any){
+  getnotification(data: any) {
     console.log(data);
 
-    if (data.id.notification.length == 0){
-      alert("No tienes inguna notificación");
-    }else{
-      for(let item of data.id.notification){
-        if (!item["leido"]){
-          this.getready(data.id._id, item["alumno"]._id);
+    if (data.id.notification.length === 0) {
+      alert('No tienes inguna notificación');
+    }else {
+      for (let item of data.id.notification) {
+        if (!item['leido']) {
+          this.getready(data.id._id, item['alumno']._id);
           //manejo el objeto alumno y envio una peticion get con numero de iteración
 
 
         }
         console.log();
-        alert("Tienes una notificación de: " + item.nombre);
+        alert('Tienes una notificación de: '  + item.nombre);
       }
     }
   }
