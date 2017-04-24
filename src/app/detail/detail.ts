@@ -23,6 +23,7 @@ export class ProfesorDetail {
   decodedJwt: Data;
   id: string;
   jwtHelper: JwtHelper = new JwtHelper();
+  aceptado: boolean = false;
 
   constructor(public route: ActivatedRoute, public authHttp: AuthHttp,
      private http: Http) {
@@ -83,12 +84,26 @@ export class ProfesorDetail {
         this.profesor = response.json();
         this.imgsrc = 'https://www.classcity.tk/app/' +  response.json().path;
         console.log(this.profesor);
+        console.log("^^^^^^", response.json().notification);
+        console.log(this.decodedJwt);
+        this.aceptado = this.estasaceptado(response.json().notification);
+        console.log(this.aceptado);
       },
       error => {
         alert(error.text());
         console.log(error.text());
       }
     );
+  }
+
+  estasaceptado(array){
+      console.log("pewprwepr")
+      for (let item of array) {
+        if(item.alumno === this.decodedJwt.id._id){
+          return item.leido;
+        }
+      }
+      return false;
   }
 
   send() {
@@ -98,11 +113,12 @@ export class ProfesorDetail {
         });
         this.message = '';
     }
-    keypressHandler(event) {
-         if (event.keyCode === 13) {
-             this.send();
-         }
-     }
+
+  keypressHandler(event) {
+       if (event.keyCode === 13) {
+           this.send();
+       }
+   }
 }
 
 interface Data {

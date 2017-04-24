@@ -1,4 +1,24 @@
+/* movil */
+@media (max-width: 600px) {
+	.form-content {
+		padding: 40px 0;
+	}
+}
 
+/* ordenador */
+@media (min-width: 600px) {
+	.form-content {
+		padding: 40px 0;
+		width: 50%;
+		margin-left: 30%;
+	}
+}
+
+.par{
+	font-style: italic;
+}
+
+/* Comun */
 .login-page {
 	background: #2c3e50;
 	position: absolute;
@@ -23,6 +43,7 @@
 	    font-size: 18px !important;
 	    line-height: 1.3333333;
 	    border-radius: 0;
+			text-align: left;
 	}
 	.input-underline {
 	    background: 0 0;

@@ -1,4 +1,20 @@
+/* movil */
+@media (max-width: 600px) {
+	.form-content {
+		padding: 40px 0;
+	}
+}
 
+/* ordenador */
+@media (min-width: 600px) {
+	.form-content {
+		padding: 40px 0;
+		width: 50%;
+		margin-left: 30%;
+	}
+}
+
+/* Comun */
 .login-page {
 	background: #3ca2e0;
 	position: absolute;
@@ -23,6 +39,7 @@
 	    font-size: 18px !important;
 	    line-height: 1.3333333;
 	    border-radius: 0;
+			text-align: left;
 	}
 	.input-underline {
 	    background: 0 0;
@@ -75,8 +92,4 @@
 	}
 	:-moz-placeholder { /* Firefox 18- */
 	color: white;
-	}
-
-	.form-content {
-		padding: 40px 0;
 	}
