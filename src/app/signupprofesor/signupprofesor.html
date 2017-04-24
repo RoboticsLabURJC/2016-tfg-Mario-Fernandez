@@ -1,6 +1,5 @@
 <div class="login-page animate">
-  <div class="row">
-    <div class="col-lg-4 col-lg-offset-4">
+
     <sebm-google-map [latitude]="profesor.Loc.lat" [longitude]="profesor.Loc.lng"
     [scrollwheel]="false" [zoom] = "14" (mapClick)="mapClicked($event)">
       <sebm-google-map-marker
@@ -8,12 +7,13 @@
               [longitude]="profesor.Loc.lng">
       </sebm-google-map-marker>
     </sebm-google-map>
+    <p class ="par">Asegurate de que la ubicacion es lo mas precisa posible.</p>
     <h1>Registrate Profesor</h1>
     <form role="form">
       <div class="form-content">
         <div class="form-group">
           <input type="text"  class="form-control input-underline input-lg"
-           [(ngModel)]="profesor.Nombre" name="nombre" placeholder="Username">
+           [(ngModel)]="profesor.Nombre" name="nombre" placeholder="Nombre">
         </div>
         <div class="form-group">
           <input type="text" class="form-control input-underline input-lg"
@@ -21,11 +21,12 @@
         </div>
         <div class="form-group">
           <input type="password" class="form-control input-underline input-lg"
-          [(ngModel)]="profesor.Password" name="password" placeholder="Password">
+          [(ngModel)]="profesor.Password" name="password" placeholder="Contraseña">
         </div>
         <div class="form-group">
-          <input type="date" class="form-control input-underline input-lg"
-          [(ngModel)]="profesor.Edad" name="edad" placeholder="Edad">
+            <label class="form-control input-underline input-lg" >Fecha de Nacimiento:
+            <input type="date"
+             [(ngModel)]="profesor.Edad" name="edad" placeholder="Edad"></label>
         </div>
         <div class="form-group">
           <input type="mail"  class="form-control input-underline input-lg"
@@ -48,7 +49,4 @@
     </form>
     <button type="submit" class="btn rounded-btn" (click)="registrar(profesor)" >Submit</button>
 
-
-    </div>
-  </div>
 </div>

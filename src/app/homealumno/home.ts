@@ -27,7 +27,7 @@ export class HomeAlumno {
   {lat: 40.416775, lng: -3.703790199999957}, 2000);
   open: boolean = false;
   enable: boolean = false;
-  iconUrl: string = '../../assets/images/home.png';
+  iconUrl: string = '../../src/assets/images/home.png';
   jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(public router: Router, public http: Http,

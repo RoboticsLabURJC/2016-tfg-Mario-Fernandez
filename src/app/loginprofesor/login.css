@@ -1,18 +1,25 @@
 /* movil */
 @media (max-width: 600px) {
+	.form-content {
+		padding: 40px 0;
 
+	}
 }
 
 /* ordenador */
 @media (min-width: 600px) {
-
+	.form-content {
+		padding: 40px 0;
+		width: 50%;
+		margin-left: 27%;
+	}
 }
 
 /* Comun */
 .login-page {
 	background: #2c3e50;
 	position: absolute;
-	top: -7%;
+	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;

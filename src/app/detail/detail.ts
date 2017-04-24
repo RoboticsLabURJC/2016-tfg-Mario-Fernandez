@@ -23,6 +23,7 @@ export class ProfesorDetail {
   decodedJwt: Data;
   id: string;
   jwtHelper: JwtHelper = new JwtHelper();
+  aceptado: boolean = false;
 
   constructor(public route: ActivatedRoute, public authHttp: AuthHttp,
      private http: Http) {
@@ -75,14 +76,22 @@ export class ProfesorDetail {
       );
   }
 
+
+
   getdata(id: string) {
   let url = 'http://localhost:8080/detail/' + id;
+  let obj: any;
   this.http.get(url)
     .subscribe(
       response => {
+
         this.profesor = response.json();
         this.imgsrc = 'http://localhost:8080/' +  response.json().path;
         console.log(this.profesor);
+        console.log("^^^^^^", response.json().notification);
+        console.log(this.decodedJwt);
+        this.aceptado = this.estasaceptado(response.json().notification);
+        console.log(this.aceptado);
       },
       error => {
         alert(error.text());
@@ -91,18 +100,29 @@ export class ProfesorDetail {
     );
   }
 
+  estasaceptado(array){
+      console.log("pewprwepr")
+      for (let item of array) {
+        if(item.alumno === this.decodedJwt.id._id){
+          return item.leido;
+        }
+      }
+      return false;
+  }
+
   send() {
         this.socket.emit('newMessage', {
             'userName': this.decodedJwt.id.nombre,
             'text': this.message
         });
         this.message = '';
-    }
-    keypressHandler(event) {
-         if (event.keyCode === 13) {
-             this.send();
-         }
-     }
+  }
+
+  keypressHandler(event) {
+       if (event.keyCode === 13) {
+           this.send();
+       }
+   }
 }
 
 interface Data {
