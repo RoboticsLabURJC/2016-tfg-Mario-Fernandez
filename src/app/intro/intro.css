@@ -11,7 +11,7 @@ http://www.bootstrapzero.com
 /* movil */
 @media (max-width: 600px) {
   #header-content {
-      background-image: url("/src/assets/images/madrid-movil.png");
+      background-image: url("/src/assets/images/pizarra.jpg");
   }
 
 
@@ -19,7 +19,7 @@ http://www.bootstrapzero.com
     font-size: 60px;
     font-family: 'Dancing Script', cursive;
     text-transform: none;
-    color: #200756;
+    color: #FFEC94;
 
   }
 
@@ -27,12 +27,10 @@ http://www.bootstrapzero.com
   #desc.col-xs-12{
     font-size: 28px;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #ec971f;
-    margin-bottom: 40%;
+    color: #ffffff;
+    margin-bottom: 20%;
 
   }
-
-
 
   #one.col-xs-6{
     text-align: right;
@@ -58,14 +56,14 @@ http://www.bootstrapzero.com
   #desc.col-xs-12{
     font-size: 40px;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #FFEC94;
+    color: #ffffff;
   }
 
   #zero.col-lg-12{
     font-size: 120px;
     font-family: 'Dancing Script', cursive;
     text-transform: none;
-    color: #6F36E8;
+    color: #FFEC94;
   }
 
   #one.col-lg-6{
@@ -95,7 +93,7 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: #ffffff;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -103,7 +101,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #9c27c1;
+    color: #000000;
     outline: 0;
 }
 
@@ -120,12 +118,12 @@ p {
     border: 0;
     border-radius: 290px;
     font-family: 'Helvetica Neue',Arial,sans-serif;
-    color: #000000;
+    color: #FFFFFF;
 }
 
 .btn.btn-primary {
     background-color: transparent;
-    border:3px solid #000000;
+    border:3px solid #ffffff;
     font-family: 'Dancing Script', cursive;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
