@@ -1,55 +1,9 @@
-/*
-
-Landing Zero theme - A free landing page theme from BootstrapZero
-http://www.bootstrapzero.com
-
-*/
-
-@import url(https://fonts.googleapis.com/css?family=Questrial);
-
-
-/* movil */
-@media (max-width: 600px) {
-  #header-content {
-      background-image: url("../../assets/images/pizarra.png");
-  }
-
-
-  #zero.col-xs-12{
-    font-size: 60px;
-    font-family: 'Dancing Script', cursive;
-    text-transform: none;
-    color: #FFEC94;
-
-  }
-
-
-  #desc.col-xs-12{
-    font-size: 28px;
-    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
-    color: #ffffff;
-    margin-bottom: 20%;
-
-  }
-
-  #one.col-xs-6{
-    text-align: right;
-    height: 300px;
-  }
-  #two.col-xs-6{
-    text-align: left;
-  }
-
-  a {
-      font-size: 25px;
-  }
-}
-
 /* ordenador */
 @media (min-width: 600px) {
   #header-content {
+      margin-top: 2%;
+      background-image: url("/src/assets/images/pizarra.jpg");
 
-      background-image: url("../../assets/images/pizarra.png");
 
   }
 
@@ -57,6 +11,7 @@ http://www.bootstrapzero.com
     font-size: 40px;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     color: #ffffff;
+    margin-bottom: 10%;
   }
 
   #zero.col-lg-12{
