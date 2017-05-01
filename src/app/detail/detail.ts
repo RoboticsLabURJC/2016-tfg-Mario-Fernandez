@@ -97,7 +97,6 @@ export class ProfesorDetail {
   }
 
   estasaceptado(array){
-      console.log("pewprwepr")
       for (let item of array) {
         if(item.alumno === this.decodedJwt.id._id){
           return item.leido;
