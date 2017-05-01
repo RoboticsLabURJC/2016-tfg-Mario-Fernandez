@@ -21,6 +21,9 @@ export class HomeProfesor {
   decodedJwt: Data;
   imgsrc: string;
   jwtHelper: JwtHelper = new JwtHelper();
+  socket = null;
+  message = '';
+  conversation = [];
 
 
   public uploader: FileUploader = new FileUploader({url: URL});
@@ -33,6 +36,19 @@ export class HomeProfesor {
 
   ngOnInit(): void {
     this.getnotification(this.decodedJwt);
+    this.socket = io('http://localhost:8000');
+    this.socket.emit('room', {'roomName': this.decodedJwt.id._id, 'userName': this.decodedJwt.id.nombre});
+    /*this.socket.on('intro', function(data) {
+            this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('message', function(data) {
+           this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('client left', function(data) {
+           this.conversation.push(data);
+    }.bind(this));*/
 
   }
 
@@ -89,6 +105,20 @@ getready(profe: string, alumno: string) {
     localStorage.removeItem('id_token');
     this.router.navigate(['/login']);
   }
+  
+  send() {
+        this.socket.emit('newMessage', {
+            'userName': this.decodedJwt.id.nombre,
+            'text': this.message
+        });
+        this.message = '';
+  }
+
+  keypressHandler(event) {
+       if (event.keyCode === 13) {
+           this.send();
+       }
+   }
 }
 
 interface Data {
