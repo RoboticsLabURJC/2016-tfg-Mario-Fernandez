@@ -48,8 +48,9 @@ http://www.bootstrapzero.com
 /* ordenador */
 @media (min-width: 600px) {
   #header-content {
-
+      margin-top: 2%;
       background-image: url("/src/assets/images/pizarra.jpg");
+
 
   }
 
@@ -57,6 +58,7 @@ http://www.bootstrapzero.com
     font-size: 40px;
     font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
     color: #ffffff;
+    margin-bottom: 10%;
   }
 
   #zero.col-lg-12{
