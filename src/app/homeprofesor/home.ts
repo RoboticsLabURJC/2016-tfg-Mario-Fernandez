@@ -36,8 +36,8 @@ export class HomeProfesor {
 
   ngOnInit(): void {
     this.getnotification(this.decodedJwt);
-    this.socket = io('http://localhost:8000');
-    this.socket.emit('room', {'roomName': this.decodedJwt.id._id, 'userName': this.decodedJwt.id.nombre});
+    //this.socket = io('http://localhost:8000');
+    //this.socket.emit('room', {'roomName': this.decodedJwt.id._id, 'userName': this.decodedJwt.id.nombre});
     /*this.socket.on('intro', function(data) {
             this.conversation.push(data);
     }.bind(this));
