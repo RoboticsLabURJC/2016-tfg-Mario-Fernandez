@@ -55,6 +55,10 @@ export class ProfesorDetail {
   }
 
   notification() {
+    let peticion = document.getElementById('peticion');
+    let solicitud = document.getElementById('solicitud');
+    solicitud.style.visibility = 'hidden';
+    peticion.style.visibility = 'inherit';
     let url = 'http://localhost:8080/notification';
     console.log(this.decodedJwt);
     let body = (<any>Object).assign(this.decodedJwt, this.profesor);
@@ -63,6 +67,7 @@ export class ProfesorDetail {
     console.log(body);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
+
 
     this.http.post(url, body, options)
       .subscribe(
