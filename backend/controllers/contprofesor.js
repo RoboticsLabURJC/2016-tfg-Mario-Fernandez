@@ -105,6 +105,7 @@ exports.savenotificacion = function(req, res){
 
 
 exports.getallprofesores = function(req, res){
+      console.log("GETALL");
       DataProfesor.find({}, function(err, dataprof){
 		      res.status(200).jsonp(dataprof);
       });
