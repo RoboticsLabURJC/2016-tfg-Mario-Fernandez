@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
-
+//import * as io from 'socket.io-client';
 const URL = 'https://www.classcity.tk/app/uploads/';
 
 @Component({
@@ -55,6 +55,10 @@ export class ProfesorDetail {
   }
 
   notification() {
+    let peticion = document.getElementById('peticion');
+    let solicitud = document.getElementById('solicitud');
+    solicitud.style.visibility = 'hidden';
+    peticion.style.visibility = 'inherit';
     let url = 'https://www.classcity.tk/app/notification';
     console.log(this.decodedJwt);
     let body = (<any>Object).assign(this.decodedJwt, this.profesor);
