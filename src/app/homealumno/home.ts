@@ -102,16 +102,20 @@ export class HomeAlumno {
   }
 
   getallprof() {
-    let url = 'https://www.classcity.tk/app/profesores';
-    this.http.get(url).
-      subscribe(
-       response => {
-          this.profesores = response.json();
-        },
-        error => {
-          alert(error.text());
-          console.log(error.text());
-        }
+    let url = 'https://www.classcity.tk/app/allprofesores';
+    let body = "GET";
+    let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(url, body, options)
+      .subscribe(
+        response => {
+           this.profesores = response.json();
+         },
+         error => {
+           alert(error.text());
+           console.log(error.text());
+         }
       );
   }
 
