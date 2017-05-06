@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
-//import * as io from 'socket.io-client';
+import * as io from 'socket.io-client';
 const URL = 'https://www.classcity.tk/app/uploads/';
 
 @Component({
@@ -38,7 +38,7 @@ export class ProfesorDetail {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
     console.log(this.decodedJwt);
-    /*this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
+    this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
 
     this.socket.on('intro', function(data) {
             this.conversation.push(data);
@@ -50,7 +50,7 @@ export class ProfesorDetail {
 
     this.socket.on('client left', function(data) {
            this.conversation.push(data);
-    }.bind(this));*/
+    }.bind(this));
 
   }
 
