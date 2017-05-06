@@ -1,6 +1,6 @@
 {
-  "name": "mean-app",
-  "version": "0.0.0",
+  "name": "ClassCity",
+  "version": "5.0.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -31,7 +31,8 @@
     "zone.js": "~0.7.2",
     "angular2-jwt": "0.1.28",
     "angular2-google-maps": "^0.17.0",
-    "ng2-file-upload": "^1.1.2"
+    "ng2-file-upload": "^1.1.2",
+    "socket.io-client": "~1.4.8"
   },
   "devDependencies": {
     "@types/jasmine": "2.5.41",
