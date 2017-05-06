@@ -34,7 +34,7 @@ export class ProfesorDetail {
       this.id = params['id'];
       this.getdata(this.id);
     });
-    //this.socket = io('http://ec2-52-90-104-48.compute-1.amazonaws.com:8000');
+    this.socket = io('https://wwww.classcity.tk/socket');
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
     console.log(this.decodedJwt);
