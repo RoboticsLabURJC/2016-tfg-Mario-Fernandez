@@ -87,8 +87,10 @@ users.route('/loginprofesor')
   .post(Ctrlprofesor.loginprofesor);
 
 users.route('/profesores')
-  .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
+
+users.route('/allprofesores')
+  .post(Ctrlprofesor.getallprofesores)
 
 users.route('/notification')
   .post(Ctrlprofesor.savenotificacion);
