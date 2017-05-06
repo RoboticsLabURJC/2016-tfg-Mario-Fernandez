@@ -81,8 +81,11 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'https://www.classcity.tk/app/detail/' + id;
-  this.http.get(url)
+  let url = 'https://www.classcity.tk/app/detail/' + id; 
+  let body = {'body': 'GET'};
+  let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+  let options = new RequestOptions({ headers: headers });
+  this.http.post(url, body, options)
     .subscribe(
       response => {
         this.profesor = response.json();
