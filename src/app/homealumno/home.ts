@@ -103,7 +103,7 @@ export class HomeAlumno {
 
   getallprof() {
     let url = 'https://www.classcity.tk/app/allprofesores';
-    let body = "GET";
+    let body = {'body': 'GET'};
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
 
