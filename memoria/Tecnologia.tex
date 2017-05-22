@@ -102,22 +102,12 @@ utilizan rangos y shard key, de modo que se torcea la colecicion en rangos y se 
     \includegraphics[width=90mm]{express.png}
 \end{figure}
 
+\subsection{Introduccion}
 Express es un framework por encima de Node.js que permite crear servidores web y recibir peticiones HTTP de una manera sencilla, lo que permite también crear APIs REST de forma rápida.
 
-Express es una plataforma ligera para construir aplicaciones web usando NodeJS. Nos ayuda a organizar las aplicaciones web en el lado del servidor. En la web de ExpressJS, lo describen como "un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js".
+Express es una plataforma ligera para construir aplicaciones web usando NodeJS. Nos ayuda a organizar las aplicaciones web en el lado del servidor. En la web de ExpressJS, lo describen como "un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js". Sin duda el exito de express radica en lo sencillo que es usarlo, y además abarca un sin número de aspectos que muchos desconocen pero son necesarios.
 
-Express esconde muchas funcionalidades internas de Node, lo que te permite sumergirte en el código de tu aplicación y conseguir tus objetivos de forma muy rápida. Es fácil de aprender y te deja cierta flexibilidad con su estructura.
-Por algo es el framework más popular de Node. Algunos nombres destacados que usan Express son:
-
-\begin{itemize}
-
-\item \textbf{MySpace}
-\item \textbf{LinkedIn}
-\item \textbf{Klout}
-\item \textbf{Segment.io}
-\end{itemize}
-
-De entre tantas cosas que puede hacer este framework, podemos destacar
+De entre las tantas cosas que tiene este framework podemos destacar:
 
 \begin{itemize}
 
@@ -127,24 +117,162 @@ De entre tantas cosas que puede hacer este framework, podemos destacar
 \item \textbf{Middleware}
 \end{itemize}
 
+Para comenzar, y suponiendo que tienes ya instalado node y npm, lo único que es necesario hacer es lo siguiente:
+
+\begin{lstlisting}[language=JSON] 
+    > npm install -g express
+\end{lstlisting}
+
+Una vez instalado express puedes utilizar express NOMBRE-DEL-APP lo cual te creara una estructura personalizada y los archivos necesarios para comenzar a trabajar con el mismo. Haz cd NOMBRE-DEL-APP && npm install para instalar automaticamente las dependencias.
+
+\subsection{Server.js}
+
+En una aplicación escrita con express existe una estructura interna bien definida y es como sigue:
+
+
+\begin{itemize}
+
+    \item \textbf{Modúlos o archivos externos} Importamos todos los módulos o archivos externos que nuestra app vaya a necesitar. El bloque, o mejor dicho la línea, que viene a continuación es la más importante de todas, ya que se encarga de instanciar Express y asignarlo a la variable app, la cual se utilizará a partir de ahora para configurar los parámetros de Express.
+    
+    \begin{lstlisting}[language=JSON] 
+    var app = express();
+   \end{lstlisting}
+   
+   El siguiente bloque sirve para configurar e iniciar algunos componentes de Express. Destacar la línea, app.use(express.static(...)), en la cual se configuran los objetos estáticos (imágenes, hojas de estilo, etc.) que debe servir Express, los cuales se encuentran en la carpeta public. Esta configuración permite también que los elementos estáticos puedan ser accedidos como si se encontrasen en el directorio raíz del proyecto, de forma que para acceder a las imágenes ubicadas en /public/images se haría con la URL http://localhost:3000/images.
+    \begin{lstlisting}[language=JSON] 
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(cookieParser());
+    app.use(express.static(path.join(__dirname, 'public')));
+   \end{lstlisting}
+   
+    
+    \item \textbf{Conectamos a la base de datos} La segunda parte de nuesta app express, es conectarnos a la base datos. 
+    
+    \item \textbf{Importamos controladores y modelos de la base de datos} Una vez conectados a la base de datos importamos los controladores y los modelos de nuestra base de datos.
+    
+    
+   \item \textbf{Rutas} Las rutas son definitivamente la parte más importante de tu aplicación, porque si estas no están definidas, no existiria una interfaz para él cliente.
+   
+   Como podemos ver una ruta esta especificada de la siguiente forma:
+   \begin{lstlisting}[language=JSON] 
+    app.VERBO(PATH, ACCION)
+   \end{lstlisting}
+   
+   VERBO: Puede ser: GET, POST, PUT, DELETE y así para cada uno de los verbos HTTP. 
+   
+   PATH: Define la dirección de acceso.
+   
+   ACCION: Que es lo que se tiene que hacer.
+   
+   \item \textbf{Listen} Por último es importante que tu aplicación este disponible en algún puerto.
+   \begin{lstlisting}[language=JSON] 
+    app.listen(3000);
+   \end{lstlisting}
+   
+\end{itemize}
+
+Express esconde muchas funcionalidades internas de Node, lo que te permite sumergirte en el código de tu aplicación y conseguir tus objetivos de forma muy rápida. Es fácil de aprender y te deja cierta flexibilidad con su estructura.
+Por algo es el framework más popular de Node. Algunos nombres destacados que usan Express son:
+
+\begin{itemize}
+
+\item \textbf{MySpace}
+\item \textbf{LinkedIn}
+\item \textbf{Segment.io}
+\end{itemize}
+
+
+
 \section{Angular 2}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=80mm]{a2.jpg}
 \end{figure}
-Angular es un framework JS para la parte cliente o Frontend de una aplicación web, que respeta el paradigma MVC y permite crear Single-Page Applications (Aplicaciones web que no necesitan recargar la página), de manera más o menos sencilla. Es un proyecto mantenido por Google y que actualmente está muy en auge.
 
-Angular permite extender el vocabulario de tu HTML con directivas y atributos para crear componentes dinámicos. Si alguna vez has hecho una página web dinámica sin Angular te habrás dado cuenta de ciertas complicaciones frecuentes, como el data binding, validación de formulario, manejador de eventos con DOM (Document Object Model) y otras muchas. Angular presenta una solución “todo-en-uno” a esos problemas.
-La curva de aprendizaje para Angular es muy pequeña, lo que explica que mucha gente se este pasando a este framework. La sintaxis es simple y sus principios básicos como el data binding (vinculación de elementos de nuestro documento HTML con nuestro modelo de datos) y la inyección de dependencias son sencillas de entender.
-Los dos puntos fuertes de Angular son el data binding y la inyección de dependencias:
+
+\subsection{Introduccion}
+
+Angular 2 es un framework JS para la parte cliente o Frontend de una aplicación web, que respeta el paradigma MVC y permite crear Single-Page Applications (Aplicaciones web que no necesitan recargar la página), de manera más o menos sencilla. Es un proyecto mantenido por Google y que actualmente está muy en auge.
+
+Para crear apps en Angular 2 necesitamos:
 
 \begin{itemize}
 
-\item \textbf{DATA BINDING}. Si vienes del país de jQuery, estarás familiarizado con el uso de selectores CSS para acceder al DOM. Cada vez que quieras obtener el valor de un input, necesitas usar (‘input’).val();. No digo que este mal, pero cuando tienes aplicaciones grandes con muchos input boxes, llega a ser un tanto tedioso controlarlo.
-Con Angular se ha eliminado la manipulación del DOM y al ser modelo MVC (model-view-controller) tus datos están en un lugar. Mediante el data binding, la vista (archivos HTML) se actualizará automáticamente cada vez que el modelo cambie y viceversa.
-\item \textbf{INYECCIÓN DE DEPENDENCIAS}. Una dependencia en tu código se produce cuando un objeto depende de otro. Hay diferentes grados de dependencia, pero tenerla en exceso hace que testear tu código sea complicado o que algunos procesos se ejecuten más tiempo de la cuenta.
+\item \textbf{Componemos plantillas HTML (templates) con el markup de Angular 2}
+\item \textbf{Escribimos Componentes para gestionar esas plantillas}
+\item \textbf{Encapsulamos la lógica de la aplicación en Servicios}
+\item \textbf{Entregamos el componente raíz de la app al sistema de arranque de Angular 2 (bootstrap).}
+\end{itemize}
+
+Veamos como se relacionan estos elementos en el diagrama de arquitectura típico, sacado de la web de Angular 2:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=110mm]{angular2Architecture.png}
+\end{figure}
+
+Podemos identificar los 8 bloques principales de una app con Angular 2:
+\begin{itemize}
+
+\item \textbf{Modulo} Igual que con su predecesor, las apps de Angular 2 son modulares. Un módulo, típicamente es un conjunto de código dedicado a cumplir un único objetivo. El módulo exporta algo representativo de ese código, típicamente una única cosa como una clase. Los modulos se pueden exportar e importar:
+
+ \begin{lstlisting}[language=JSON] 
+//app/app.component.js
+    export class AppComponent {
+        //aqui va la definicion del componente
+    }
+ 
+//app/main.js
+    import { AppComponent } from './app.component';
+\end{lstlisting}
+   
+Hay módulos que son librerías de conjuntos de módulos. Las librerías principales de Angular 2 son:
+\begin{itemize}
+\item \textbf{@angular/core}
+\item \textbf{@angular/common}
+\item \textbf{@angular/router}
+\item \textbf{@angular/http}
+\end{itemize}
+
+\item \textbf{Componente} Un Component controla una zona de espacio de la pantalla que podríamos denominar vista. El componente define propiedades y métodos que están disponibles en su template, pero eso no te da licencia para meter ahí todo lo que te parezca. Haciendo un símil con AngularJS (Angular 1), un componente vendría a ser un controlador que siempre va ligado a una vista.
+\item \textbf{Template} El Template (cuyo concepto ya existía en Angular 1), es lo que nos permite definir la vista de un Componente.
+Igual que su predecesor, el template de Angular 2 es HTML, pero decorado con otros componentes y algunas directivas: expresiones de Angular que enriquecen el comportamiento del template.
+
+Como vemos, además de elementos HTML normales como<h2> y <div>, hay otros elementos desconocidos en nuestro lenguaje de markup:
+\begin{itemize}
+\item \textbf{*ngForg}
+\item \textbf{todo.subject}
+\item \textbf{(click)}
+\item \textbf{[todo]}
+\item \textbf{todo-detail}
+\end{itemize}
+
+\item \textbf{Metadatos}
+\item \textbf{Data Binding} Uno de los principales valores de Angular es que nos abstrae de la lógica pull/push asociada a insertar y actualizar valores en el HTML y convertir las respuestas de usuario (inputs, clicks, etc) en acciones concretas. Escribir toda esa lógica a mano (lo que típicamente se hacía con JQuery) es tedioso y propenso a errores, y Angular 2 lo resuelve por nosotros gracias al Data Binding.
+\begin{itemize}
+\item \textbf{Interpolación} Hacia el DOM.
+{{todo.subject}}
+\item \textbf{Property binding} Hacia el DOM. 
+[todo]="selectedTodo"
+\item \textbf{Event binding} Desde el DOM. (click)="selectTodo(todo)"
+
+\item \textbf{Two-way binding} (Desde/Hacia el DOM) input [(ngModel)]="todo.subject"
+\end{itemize}
+\item \textbf{Directiva}
+\item \textbf{Servicio}
+\item \textbf{Dependency Injection}  Una dependencia en tu código se produce cuando un objeto depende de otro. Hay diferentes grados de dependencia, pero tenerla en exceso hace que testear tu código sea complicado o que algunos procesos se ejecuten más tiempo de la cuenta.
 La inyección de dependencias es un método por el cual damos a un objeto las dependencias que requiere para su funcionamiento. 
+\end{itemize}
+
+Angular permite extender el vocabulario de tu HTML con directivas y atributos para crear componentes dinámicos. Si alguna vez has hecho una página web dinámica sin Angular te habrás dado cuenta de ciertas complicaciones frecuentes, como el data binding, validación de formulario, manejador de eventos con DOM (Document Object Model) y otras muchas. Angular presenta una solución “todo-en-uno” a esos problemas.
+La curva de aprendizaje para Angular es muy pequeña, lo que explica que mucha gente se este pasando a este framework. La sintaxis es simple y sus principios básicos como el data binding (vinculación de elementos de nuestro documento HTML con nuestro modelo de datos) y la inyección de dependencias son sencillas de entender.
+
+\begin{itemize}
+
+
+
 \end{itemize}
 
 \section{Node}
