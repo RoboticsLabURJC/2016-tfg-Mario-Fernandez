@@ -87,8 +87,10 @@ users.route('/loginprofesor')
   .post(Ctrlprofesor.loginprofesor);
 
 users.route('/profesores')
-  .get(Ctrlprofesor.getallprofesores)
   .post(Ctrlprofesor.queryprofesores)
+
+users.route('/allprofesores')
+  .post(Ctrlprofesor.getallprofesores)
 
 users.route('/notification')
   .post(Ctrlprofesor.savenotificacion);
@@ -97,7 +99,7 @@ users.route('/readynotification')
   .post(Ctrlprofesor.readynotificacion);
 
 users.route('/detail/:id')
-  .get(Ctrlprofesor.getdetail)
+  .post(Ctrlprofesor.getdetail)
 
 // Start server
 app.listen(8080,'0.0.0.0', function() {

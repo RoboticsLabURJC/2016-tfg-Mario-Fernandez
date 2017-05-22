@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import * as io from 'socket.io-client';
 
 const URL = 'https://www.classcity.tk/app/uploads/';
 
@@ -34,11 +35,11 @@ export class ProfesorDetail {
       this.id = params['id'];
       this.getdata(this.id);
     });
-    //this.socket = io('http://ec2-52-90-104-48.compute-1.amazonaws.com:8000');
+    this.socket = io('https://wwww.classcity.tk/socket');
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
     console.log(this.decodedJwt);
-    /*this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
+    this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
 
     this.socket.on('intro', function(data) {
             this.conversation.push(data);
@@ -50,11 +51,15 @@ export class ProfesorDetail {
 
     this.socket.on('client left', function(data) {
            this.conversation.push(data);
-    }.bind(this));*/
+    }.bind(this));
 
   }
 
   notification() {
+    let peticion = document.getElementById('peticion');
+    let solicitud = document.getElementById('solicitud');
+    solicitud.style.visibility = 'hidden';
+    peticion.style.visibility = 'inherit';
     let url = 'https://www.classcity.tk/app/notification';
     console.log(this.decodedJwt);
     let body = (<any>Object).assign(this.decodedJwt, this.profesor);
@@ -77,8 +82,11 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'https://www.classcity.tk/app/detail/' + id;
-  this.http.get(url)
+  let url = 'https://www.classcity.tk/app/detail/' + id; 
+  let body = {'body': 'GET'};
+  let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
+  let options = new RequestOptions({ headers: headers });
+  this.http.post(url, body, options)
     .subscribe(
       response => {
         this.profesor = response.json();

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http,  Headers, RequestOptions } from '@angular/http';
+import * as io from 'socket.io-client';
 
 import {FileSelectDirective,
         FileDropDirective,
@@ -36,9 +37,9 @@ export class HomeProfesor {
 
   ngOnInit(): void {
     this.getnotification(this.decodedJwt);
-    this.socket = io('http://localhost:8000');
+    this.socket = io('https://www.classcity.tk/socket');
     this.socket.emit('room', {'roomName': this.decodedJwt.id._id, 'userName': this.decodedJwt.id.nombre});
-    /*this.socket.on('intro', function(data) {
+    this.socket.on('intro', function(data) {
             this.conversation.push(data);
     }.bind(this));
 
@@ -48,13 +49,11 @@ export class HomeProfesor {
 
     this.socket.on('client left', function(data) {
            this.conversation.push(data);
-    }.bind(this));*/
+    }.bind(this));
 
   }
 
 getready(profe: string, alumno: string) {
-  console.log(profe, "PENE");
-  console.log(alumno, "pene");
   let url = 'https://www.classcity.tk/app/readynotification';
   let body = JSON.stringify({'profe': profe, "alumno": alumno});
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
