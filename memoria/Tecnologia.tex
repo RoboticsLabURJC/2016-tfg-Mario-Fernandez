@@ -90,7 +90,7 @@ si creamos tres fragmentos, cada uno de los cuales tiene una
 replica set con tres servidores, estaríamos hablando de un
 total de nueve servidores. Para saber en que fragmento debe
 consultar para recuperar datos de una coleccion ordenada, se
-utilizan rangos y shard key, de modo que se torcea la colecicion en rangos y se les asigna un id a cada rango, de este modo que cuando se consulte la coleccion debemos proporcionar el "shard_Key".
+utilizan rangos y shard key, de modo que se torcea la colecicion en rangos y se les asigna un id a cada rango, de este modo que cuando se consulte la coleccion debemos proporcionar el shardKey.
 
 
 
@@ -123,7 +123,7 @@ Para comenzar, y suponiendo que tienes ya instalado node y npm, lo único que es
     > npm install -g express
 \end{lstlisting}
 
-Una vez instalado express puedes utilizar express NOMBRE-DEL-APP lo cual te creara una estructura personalizada y los archivos necesarios para comenzar a trabajar con el mismo. Haz cd NOMBRE-DEL-APP && npm install para instalar automaticamente las dependencias.
+Una vez instalado express puedes utilizar express NOMBRE-DEL-APP lo cual te creara una estructura personalizada y los archivos necesarios para comenzar a trabajar con el mismo. Haz cd NOMBRE-DEL-APP npm install para instalar automaticamente las dependencias.
 
 \subsection{Server.js}
 
@@ -269,11 +269,6 @@ La inyección de dependencias es un método por el cual damos a un objeto las de
 Angular permite extender el vocabulario de tu HTML con directivas y atributos para crear componentes dinámicos. Si alguna vez has hecho una página web dinámica sin Angular te habrás dado cuenta de ciertas complicaciones frecuentes, como el data binding, validación de formulario, manejador de eventos con DOM (Document Object Model) y otras muchas. Angular presenta una solución “todo-en-uno” a esos problemas.
 La curva de aprendizaje para Angular es muy pequeña, lo que explica que mucha gente se este pasando a este framework. La sintaxis es simple y sus principios básicos como el data binding (vinculación de elementos de nuestro documento HTML con nuestro modelo de datos) y la inyección de dependencias son sencillas de entender.
 
-\begin{itemize}
-
-
-
-\end{itemize}
 
 \section{Node}
 

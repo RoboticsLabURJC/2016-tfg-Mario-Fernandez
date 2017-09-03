@@ -1,0 +1,127 @@
+\chapter{ClassCity}
+ClassCity es una aplicacion que consiste en facilitar la comunicacion entre profesores y alumnos para que puedan reunirse. Es el claro ejemplo de una aplicación API REST donde tenemos una parte cliente(front-end) y otra parte servidor(backend), las cuales se comunican a partir de ficheros en formato JSON.
+
+\section{Front-End}
+Esta parte de la aplicación corresponde al modelo cliente, el cual ha sido desarollado con el framework Angular2. 
+
+\subsection{Fichero Raiz}
+
+Cuando el cliente accede a www.classcity.tk el fichero raiz de la app es index.html
+\begin{lstlisting}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ClassCity</title>
+  <base href="/">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+  
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>
+\end{lstlisting}
+Este fichero html no es el unico que se descarga cuando nos bajamos una aplicación en angular.
+\begin{enumerate}
+
+    \item \textbf {Main.ts} Este es el fichero raiz encargado de montar todo el cliente de nuestra app.
+    \begin{lstlisting}
+    import './polyfills';
+    
+    import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+    import { enableProdMode } from '@angular/core';
+    import { environment } from './environments/environment';
+    import { AppModule } from './app/app.module';
+    
+    if (environment.production) {
+      enableProdMode();
+    }
+    
+    platformBrowserDynamic().bootstrapModule(AppModule);
+
+    \end{lstlisting}
+    \item \textbf {App.Module.ts} Llegamos a uno de los ficheros mas importantes de toda la aplicación, donde se concentra todo lo necesario para que la app funcione. Si analizamos el fichero nos encontramos con un monton de importaciones, las cuales las he intentado separar por espacios en blancos dividiendolas en tres partes: las primeras
+    importaciones están relacionadas con el
+    framework angular2, las segundas importaciones estas
+    relacionadas con servicios que he utilizado y las
+    ultimas importaciones corresponden a la diferentes partes de la aplicación. 
+    
+    Si continuamos profundizando en el codigo encontramos una variable ROUTES, la cual se encargara de asignar a cada path un componente especifico.
+    
+    Por último encontramos el motor de la aplicación 
+\end{enumerate}
+  \begin{lstlisting}  
+    @NgModule({
+  declarations: [
+    AppComponent,
+    Intro,
+    LoginAlumno,
+    LoginProfesor,
+    SignupAlumno,
+    SignupProfesor,
+    HomeAlumno,
+    HomeProfesor,
+    ProfesorDetail
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    FileUploadModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCYUVL5zFNpT0vaziTcpEUUbsmqZ7YRERM'
+    }),
+    RouterModule.forRoot(ROUTES)
+  ],
+  providers: [AuthGuard, {provide: AuthHttp, useFactory: authHttpServiceFactory,
+    deps: [ Http, RequestOptions ]}, AlumnoService],
+  bootstrap: [AppComponent]
+})
+   \end{lstlisting}     
+  
+Si observamos las importaciones, encontramos modulos como:
+
+\begin{enumerate}
+ \item \textbf {FormsModule} Lo utilizamos para los formularios.
+ \item \textbf {HttpModule} Agiliza las peticiones tipo AJAX.
+ \item \textbf {FileUploadModule} Libreria necesaria para el envio de imagenes.
+ \item \textbf {AgmCoreModule} Libreria GoogleMaps para Angular, apiKey es la clave necesaria para realizar peticiones al servidor de google.
+\end{enumerate}
+   
+Justo después de las importaciones llegan los "Providers", que como su propio nombre indica son "proveedores de servicios". En este caso utilizaremos servicios como AuthHttp para una autenticación mas segura.
+
+
+
+\subsection{Servicios}
+
+Classcity es una aplicación web que necesita de la comunicación con varios backends para poder funcionar. De aquí los servicios que interactúan con nuestro backend y con otros como el de google.
+
+\begin{enumerate}
+    \item \textbf {Angular/router} Este es un servicio interno en la libreria de angular, el cual capacita a la aplicación a poder enrutar cualquier URL interna. 
+    \item \textbf {Angular2-jwt y Authguard} 
+    \item \textbf {Angular2-google-maps} 
+    \item \textbf {Imagenes} 
+    \item \textbf {Google Service Geolocation} 
+    
+\end{enumerate}
+
+
+\subsection{Componentes}
+A continuación se presentan los hitos en orden cronológico:
+\begin{enumerate}
+    \item \textbf {Login} 
+    \item \textbf {Sign-up} 
+    \item \textbf {Buscar Profesores}
+    \item \textbf {Navigator Geolocation} 
+    \item \textbf {Logout} 
+    
+    \item \textbf {Notificacion} 
+    
+    \item \textbf {Chat} 
+
+    
+\end{enumerate}
