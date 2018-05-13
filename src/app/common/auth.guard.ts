@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { tokenNotExpired } from 'angular2-jwt';
+import { tokenNotExpired } from 'angular-jwt';
 
 
 @Injectable()

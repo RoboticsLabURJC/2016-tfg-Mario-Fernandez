@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthHttp, JwtHelper } from 'angular2-jwt';
+import { AuthHttp, JwtHelper } from 'angular-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http,  Headers, RequestOptions } from '@angular/http';
 import * as io from 'socket.io-client';
@@ -104,7 +104,7 @@ getready(profe: string, alumno: string) {
     localStorage.removeItem('id_token');
     this.router.navigate(['/login']);
   }
-  
+
   send() {
         this.socket.emit('newMessage', {
             'userName': this.decodedJwt.id.nombre,

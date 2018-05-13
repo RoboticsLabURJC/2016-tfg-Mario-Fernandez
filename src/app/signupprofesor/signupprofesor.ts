@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { MouseEvent} from 'angular2-google-maps/core';
+import { MouseEvent} from '@agm/core';
 
 import { ProfesorScheme } from '../models/profesores';
 import {ASIGNATURAS} from '../models/asignaturas';

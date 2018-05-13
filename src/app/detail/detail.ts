@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AuthHttp, JwtHelper } from 'angular2-jwt';
+import { AuthHttp, JwtHelper } from 'angular-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import * as io from 'socket.io-client';
@@ -82,7 +82,7 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'https://www.classcity.tk/app/detail/' + id; 
+  let url = 'https://www.classcity.tk/app/detail/' + id;
   let body = {'body': 'GET'};
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
   let options = new RequestOptions({ headers: headers });

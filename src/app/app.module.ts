@@ -5,8 +5,8 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AuthGuard } from './common/auth.guard';
-import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
-import { AgmCoreModule} from 'angular2-google-maps/core';
+import { provideAuth, AuthHttp, AuthConfig } from 'angular-jwt';
+import { AgmCoreModule} from '@agm/core';
 import {AlumnoService} from './services/AlumnoService';
 import {FileUploadModule } from 'ng2-file-upload';
 

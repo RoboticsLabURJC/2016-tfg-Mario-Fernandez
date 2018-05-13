@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Http,  Headers, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
-import { AuthHttp, JwtHelper } from 'angular2-jwt';
+import { AuthHttp, JwtHelper } from 'angular-jwt';
 import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
