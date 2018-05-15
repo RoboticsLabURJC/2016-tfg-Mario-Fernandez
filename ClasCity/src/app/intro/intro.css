@@ -12,7 +12,7 @@ http://www.bootstrapzero.com
 @media (max-width: 600px) {
   #header-content {
       margin-top: 2%;
-      background-image: url("/images/pizarra.jpg");
+      background-image: url("../../assets/images/pizarra.jpg");
   }
 
 
@@ -50,7 +50,7 @@ http://www.bootstrapzero.com
 @media (min-width: 600px) {
   #header-content {
       margin-top: 2%;
-      background-image: url("/assets/images/pizarra.png");
+      background-image: url("../../assets/images/pizarra.jpg");
 
 
   }
