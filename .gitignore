@@ -1,4 +1,5 @@
 ClassCity/node_modules/
+ClassCity/package-lock.json
 dist/
 backend/node_modules/
 backend/data/
