@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AuthGuard } from './common/auth.guard';
+import { AuthenticationService } from './services/authentication.service';
 import { JwtModule } from '@auth0/angular-jwt'
 import { AgmCoreModule} from '@agm/core';
 import {AlumnoService} from './services/AlumnoService';
@@ -52,6 +54,7 @@ const ROUTES = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     FileUploadModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCYUVL5zFNpT0vaziTcpEUUbsmqZ7YRERM'
@@ -59,14 +62,14 @@ const ROUTES = [
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
-          return localStorage.getItem('access_token');
+          return localStorage.getItem('id_token');
         },
-        whitelistedDomains: ['you API url']
+        whitelistedDomains: ['localhost:4200']
       }
     }),
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [AlumnoService],
+  providers: [AuthGuard, AuthenticationService, AlumnoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

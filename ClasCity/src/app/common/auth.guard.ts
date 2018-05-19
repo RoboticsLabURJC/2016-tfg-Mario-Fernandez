@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
+
 @Injectable()
 export class AuthGuard implements CanActivate {
 
@@ -14,8 +15,8 @@ export class AuthGuard implements CanActivate {
     if (this.auth.loggedIn()) {
       return true;
     }  else {
-      localStorage.removeItem('token');
-      this.router.navigateByUrl('/login');
+      localStorage.removeItem('id_token');
+      this.router.navigateByUrl('/');
       return false;
     }
   }

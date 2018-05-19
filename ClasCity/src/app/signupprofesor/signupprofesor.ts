@@ -11,7 +11,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'https://www.classcity.tk/app//api/';
+const URL_SERVER ='http://localhost:8080';
 
 @Component({
   selector: 'signupprofesor',
@@ -27,7 +27,7 @@ export class SignupProfesor implements OnInit {
   profesor = new ProfesorScheme('', '', '', '', new Date(''), {lat: 0, lng: 0},
   this.curso[0], this.asignaturas[0][this.curso[0]][0], './uploads/muestra.jpg');
 
-  public uploader: FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({url: URL_SERVER});
 
   constructor(public router: Router, public http: Http) {
 
@@ -58,7 +58,7 @@ export class SignupProfesor implements OnInit {
   };
 
   registrar(description: ProfesorScheme) {
-    let url = 'https://www.classcity.tk/app/registerprofesor';
+    let url = URL_SERVER+'/registerprofesor';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

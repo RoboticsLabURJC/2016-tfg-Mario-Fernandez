@@ -6,6 +6,7 @@ import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
 
+const URL_SERVER ='http://localhost:8080';
 
 @Component({
   selector: 'home',
@@ -83,7 +84,7 @@ export class HomeAlumno {
    }
 
   sendquery(description: QueryScheme) {
-    let url = 'https://www.classcity.tk/app/profesores';
+    let url = URL_SERVER+'/profesores';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -101,7 +102,7 @@ export class HomeAlumno {
   }
 
   getallprof() {
-    let url = 'https://www.classcity.tk/app/allprofesores';
+    let url = URL_SERVER+'/allprofesores';
     let body = {'body': 'GET'};
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

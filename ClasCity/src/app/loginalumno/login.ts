@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AlumnoScheme } from '../models/alumnos';
 
+const URL_SERVER ='http://localhost:8080';
 @Component({
   selector: 'login',
   templateUrl: './login.html',
@@ -16,7 +17,7 @@ export class LoginAlumno {
   constructor(public router: Router, public http: Http) {  }
 
   login(description: AlumnoScheme) {
-    let url = 'https://www.classcity.tk/app/loginalumno';
+    let url = URL_SERVER+'/loginalumno';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });

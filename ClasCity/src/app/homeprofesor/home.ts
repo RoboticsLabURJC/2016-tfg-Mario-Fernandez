@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http,  Headers, RequestOptions } from '@angular/http';
-
+import * as io from 'socket.io-client';
 
 import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL ='https://www.classcity.tk/app/uploads/';
+const URL_SERVER ='http://localhost:8080';
+const URL_CHAT ='http://localhost:8000';
+
 
 @Component({
   selector: 'home',
@@ -22,23 +24,37 @@ export class HomeProfesor {
   decodedJwt: Data;
   imgsrc: string;
   message = '';
+  socket = null;
   conversation = [];
 
 
-  public uploader: FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({url: URL_SERVER+'uploads'});
 
   constructor(public router: Router, public http: Http, public jwtHelper: JwtHelperService) {
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
-    this.imgsrc = 'https://www.classcity.tk/app/' +  this.decodedJwt.id.path;
+    this.imgsrc = URL_SERVER +'/'+ this.decodedJwt.id.path;
   }
 
   ngOnInit(): void {
     this.getnotification(this.decodedJwt);
+    this.socket = io(URL_CHAT);
+    this.socket.emit('room', {'roomName': this.decodedJwt.id._id, 'userName': this.decodedJwt.id.nombre});
+    this.socket.on('intro', function(data) {
+            this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('message', function(data) {
+           this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('client left', function(data) {
+           this.conversation.push(data);
+    }.bind(this));
   }
 
 getready(profe: string, alumno: string) {
-  let url = 'https://www.classcity.tk/app/readynotification';
+  let url = URL_SERVER+'/readynotification';
   let body = JSON.stringify({'profe': profe, "alumno": alumno});
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
   let options = new RequestOptions({ headers: headers });
@@ -88,6 +104,19 @@ getready(profe: string, alumno: string) {
     localStorage.removeItem('id_token');
     this.router.navigate(['/login']);
   }
+  send() {
+      this.socket.emit('newMessage', {
+          'userName': this.decodedJwt.id.nombre,
+          'text': this.message
+      });
+      this.message = '';
+}
+
+keypressHandler(event) {
+     if (event.keyCode === 13) {
+         this.send();
+     }
+ }
 
 }
 

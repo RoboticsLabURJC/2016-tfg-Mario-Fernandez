@@ -3,9 +3,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import * as io from 'socket.io-client';
 
+const URL_SERVER ='http://localhost:8080';
+const URL_CHAT ='http://localhost:8000';
 
-const URL = 'https://www.classcity.tk/app/uploads/';
 
 @Component({
   selector: 'detail',
@@ -22,6 +24,7 @@ export class ProfesorDetail {
   jwt: string;
   decodedJwt: Data;
   id: string;
+  socket = null;
   aceptado: boolean = false;
 
   constructor(public route: ActivatedRoute, public jwtHelper: JwtHelperService,
@@ -33,10 +36,24 @@ export class ProfesorDetail {
       this.id = params['id'];
       this.getdata(this.id);
     });
-
+    this.socket = io(URL_CHAT);
     this.jwt = localStorage.getItem('id_token');
     this.decodedJwt = this.jwt && this.jwtHelper.decodeToken(this.jwt);
     console.log(this.decodedJwt);
+    this.socket.emit('room', {'roomName': this.id, 'userName': this.decodedJwt.id.nombre});
+
+    this.socket.on('intro', function(data) {
+            this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('message', function(data) {
+           this.conversation.push(data);
+    }.bind(this));
+
+    this.socket.on('client left', function(data) {
+           this.conversation.push(data);
+    }.bind(this));
+
   }
 
   notification() {
@@ -44,7 +61,7 @@ export class ProfesorDetail {
     let solicitud = document.getElementById('solicitud');
     solicitud.style.visibility = 'hidden';
     peticion.style.visibility = 'inherit';
-    let url = 'https://www.classcity.tk/app/notification';
+    let url = URL_SERVER+'/notification';
     console.log(this.decodedJwt);
     let body = (<any>Object).assign(this.decodedJwt, this.profesor);
     console.log(this.decodedJwt);
@@ -66,7 +83,7 @@ export class ProfesorDetail {
   }
 
   getdata(id: string) {
-  let url = 'https://www.classcity.tk/app/detail/' + id;
+  let url = URL_SERVER+'/detail/' + id;
   let body = {'body': 'GET'};
   let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
   let options = new RequestOptions({ headers: headers });
@@ -74,7 +91,7 @@ export class ProfesorDetail {
     .subscribe(
       response => {
         this.profesor = response.json();
-        this.imgsrc = 'https://www.classcity.tk/app/' +  response.json().path;
+        this.imgsrc = URL_SERVER+'/' +  response.json().path;
         console.log(this.profesor);
         console.log("^^^^^^", response.json().notification);
         console.log(this.decodedJwt);
@@ -96,7 +113,19 @@ export class ProfesorDetail {
       }
       return false;
   }
+  send() {
+        this.socket.emit('newMessage', {
+            'userName': this.decodedJwt.id.nombre,
+            'text': this.message
+        });
+        this.message = '';
+    }
 
+  keypressHandler(event) {
+       if (event.keyCode === 13) {
+           this.send();
+       }
+   }
 
 }
 

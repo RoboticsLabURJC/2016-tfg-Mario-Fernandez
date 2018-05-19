@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AlumnoScheme } from '../models/alumnos';
 
+const URL_SERVER ='http://localhost:8080';
+
 @Component({
   selector: 'signupalumno',
   templateUrl: './signupalumno.html',
@@ -18,7 +20,7 @@ export class SignupAlumno {
   }
 
   registrar(description: AlumnoScheme) {
-    let url = 'https://www.classcity.tk/app/registeralumno';
+    let url = URL_SERVER+'/registeralumno';
     let body = JSON.stringify(description);
     let headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -27,7 +29,7 @@ export class SignupAlumno {
       .subscribe(
         response => {
           localStorage.setItem('id_token', response.json().id_token);
-          this.router.navigate(['/home']);
+          this.router.navigateByUrl('/home');
         },
         error => {
           alert(error.text());
