@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AlumnoScheme } from '../models/alumnos';
 
-const URL_SERVER ='http://localhost:8080';
+const URL_SERVER ='http://ec2-54-84-25-113.compute-1.amazonaws.com/app';
 @Component({
   selector: 'login',
   templateUrl: './login.html',
