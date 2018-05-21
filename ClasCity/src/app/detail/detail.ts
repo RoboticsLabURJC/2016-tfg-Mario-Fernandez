@@ -6,7 +6,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import * as io from 'socket.io-client';
 
 const URL_SERVER ='https://54.84.25.113/app';
-const URL_CHAT ='http://localhost:8000';
+const URL_CHAT ='https://54.84.25.113/socket';
 
 
 @Component({

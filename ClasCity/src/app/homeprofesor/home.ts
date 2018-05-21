@@ -10,7 +10,7 @@ import {FileSelectDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
 const URL_SERVER ='https://54.84.25.113/app';
-const URL_CHAT ='http://localhost:8000';
+const URL_CHAT ='https://54.84.25.113/socket';
 
 
 @Component({
