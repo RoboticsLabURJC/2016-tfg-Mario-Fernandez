@@ -11,7 +11,7 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL_SERVER ='http://ec2-54-84-25-113.compute-1.amazonaws.com/app';
+const URL_SERVER ='https://54.84.25.113/app';
 
 @Component({
   selector: 'signupprofesor',
