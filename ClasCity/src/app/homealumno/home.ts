@@ -6,7 +6,7 @@ import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
 
-const URL_SERVER ='http://54.84.25.113/app';
+const URL_SERVER ='https://54.84.25.113/app';
 
 @Component({
   selector: 'home',
