@@ -9,7 +9,7 @@ var DataAlumno = mongoose.model('Alumno');
 var AlumnoScheme  = mongoose.model('LoginAlumno');
 
 function createToken(user) {
-  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 1 });
+  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 5 });
 }
 
 exports.registeralumno = function(req, res) {
