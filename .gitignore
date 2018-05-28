@@ -1,8 +1,1 @@
-dist/
-backend/node_modules/
-backend/data/
-backend/.DS_Store
 .DS_Store
-npm-debug.log
-backend/uploads/*
-!backend/uploads/muestra.jpg
