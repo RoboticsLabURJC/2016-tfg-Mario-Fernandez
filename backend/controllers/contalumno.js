@@ -9,7 +9,7 @@ var DataAlumno = mongoose.model('Alumno');
 var AlumnoScheme  = mongoose.model('LoginAlumno');
 
 function createToken(user) {
-  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 30 });
+  return jwt.sign(_.omit(user, 'Password'), config.secret, { expiresInMinutes: 5 });
 }
 
 exports.registeralumno = function(req, res) {
@@ -26,7 +26,6 @@ exports.registeralumno = function(req, res) {
 
   //comprobar si el Nick ya existe
   AlumnoScheme.find( { "email": alumno.email }, function(err, data) {
-
     if (data.length == 0){
       if (!alumno.email || !alumno.password) {
         res.status(400).send("You must send the username and the password");
