@@ -28,7 +28,7 @@ export class HomeProfesor {
   conversation = [];
 
 
-  public uploader: FileUploader = new FileUploader({url: URL_SERVER+'uploads'});
+  public uploader: FileUploader = new FileUploader({url: URL_SERVER+'/uploads'});
 
   constructor(public router: Router, public http: Http, public jwtHelper: JwtHelperService) {
     this.jwt = localStorage.getItem('id_token');
