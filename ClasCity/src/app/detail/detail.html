@@ -1,0 +1,55 @@
+<div class="home" *ngIf="profesor">
+  <div class="login-page col-xs-12 col-lg-12 ">
+    <div class="menu col-lg-12 col-xs-2 text-left" (click)="open=!open">&#9776;</div>
+    <div *ngIf= "open" class="sidenav">
+      <a class="closebtn" (click)="open=!open">&times;</a>
+        <img src="../../assets/images/flat-avatar.png"/>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.Email}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.nombre}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.apellidos}}</code></pre>
+        <pre *ngIf="jwt" class="jwt"><code>{{decodedJwt.id.edad}}</code></pre>
+        <button type="Submit" (click)="logout()">Logout</button>
+    </div>
+    <div class="col-lg-3 col-xs-10">
+      <img class="marco" [src]="imgsrc">
+    </div>
+    <div class="col-xs-12 col-lg-3">
+      <h3 >{{profesor.nombre}} {{profesor.apellidos}}</h3>
+      <h5>Edad: {{profesor.edad}}</h5>
+      <h5>Asignatura: {{profesor.asignaturas}}</h5>
+      <h5>Curso: {{profesor.curso}}</h5>
+    </div>
+    <div *ngIf='!aceptado' class="col-xs-12 col-lg-12">
+      <div id="solicitud"  >
+        <button class="btn btn-primary" (click)="notification()"
+        type="button"  name="action" >Enviarle una peticion de contacto</button>
+      </div>
+      <div id="peticion"  >
+        <button class="btn btn-success" type="submit"  name="action" >La peticion ya fue enviada</button>
+      </div>
+    </div>
+    <div *ngIf='aceptado' class="col-xs-12 col-lg-6">
+      <br>
+      <h5> Chat privado de {{decodedJwt.id.nombre}}</h5>
+      <br>
+      <ul *ngFor="let msg of conversation" style="margin:0">
+        <br>
+        <li >
+          <div class="description" >
+            <span  class="userLabel" >{{msg.userName}}:</span>
+            <span style="font-weight:bold">{{msg.text}}</span>
+          </div>
+        </li>
+      </ul>
+      <div class="col-xs-12 col-lg-12 text-right">
+        <div>
+          <input  type="text"
+            [(ngModel)]="message"
+            (keypress)="keypressHandler($event)">
+        </div>
+        <button class="btn btn-success btn-xs" (click)="send()"  type="submit"  name="action" >Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+

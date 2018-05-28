@@ -1,0 +1,148 @@
+/*
+
+Landing Zero theme - A free landing page theme from BootstrapZero
+http://www.bootstrapzero.com
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+
+
+/* movil */
+@media (max-width: 600px) {
+  #header-content {
+      margin-top: 2%;
+      background-image: url("../../assets/images/pizarra.jpg");
+  }
+
+
+  #zero.col-xs-12{
+    font-size: 60px;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    color: #FFEC94;
+
+  }
+
+
+  #desc.col-xs-12{
+    font-size: 28px;
+    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    color: #ffffff;
+    margin-bottom: 20%;
+
+  }
+
+  #one.col-xs-6{
+    text-align: right;
+    height: 300px;
+  }
+  #two.col-xs-6{
+    text-align: left;
+  }
+
+  a {
+      font-size: 25px;
+  }
+}
+
+/* ordenador */
+@media (min-width: 600px) {
+  #header-content {
+      margin-top: 2%;
+      background-image: url("../../assets/images/pizarra.jpg");
+
+
+  }
+
+  #desc.col-xs-12{
+    font-size: 40px;
+    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+    color: #ffffff;
+    margin-bottom: 5%;
+  }
+
+  #zero.col-lg-12{
+    font-size: 120px;
+    font-family: 'Dancing Script', cursive;
+    text-transform: none;
+    color: #FFEC94;
+  }
+
+  #one.col-lg-6{
+    text-align: right;
+  }
+  #two.col-lg-6{
+    text-align: left;
+  }
+
+  a {
+      font-size: 30px;
+  }
+}
+
+/* Comun */
+
+hr {
+    max-width: 130px;
+    border-width: 6px;
+    opacity: 0.09;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    color: #ffffff;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+a:hover,
+a:focus {
+    color: #000000;
+    outline: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Questrial','Helvetica Neue',Arial,sans-serif;
+}
+
+p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 290px;
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+    color: #FFFFFF;
+}
+
+.btn.btn-primary {
+    background-color: transparent;
+    border:3px solid #ffffff;
+    font-family: 'Dancing Script', cursive;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+.btn-xl {
+    padding: 15px;
+}
+
+#header-content {
+
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    width: auto;
+    height: auto;
+
+}
