@@ -1,6 +1,6 @@
 {
-  "name": "classcity",
-  "version": "3.0.0",
+  "name": "ClassCity-Backend",
+  "version": "6.0.0",
   "description": "Backend TFG",
   "main": "server.js",
   "repository": {
