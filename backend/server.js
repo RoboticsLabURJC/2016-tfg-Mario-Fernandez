@@ -103,5 +103,5 @@ users.route('/detail/:id')
 
 // Start server
 app.listen(8080,'0.0.0.0', function() {
-  console.log("Node server running on http://localhost:8080");
+  console.log("Node server runnning on http://localhost:8080");
 });

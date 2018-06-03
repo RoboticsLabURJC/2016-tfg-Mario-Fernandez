@@ -4,7 +4,7 @@
 /node_modules
 
 # folders
-backend/uploads/*
-!backend/uploads/muestra.jpg
+Backend/uploads/*
+!Backend/uploads/muestra.jpg
 /data
 .DS_Store
