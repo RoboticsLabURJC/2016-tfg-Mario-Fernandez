@@ -8,3 +8,4 @@ uploads/*
 !uploads/muestra.jpg
 data/*
 .DS_Store
+package-lock.json
