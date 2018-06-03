@@ -6,7 +6,7 @@ import {AlumnoService} from '../services/AlumnoService';
 import {QueryScheme} from '../models/query';
 import {ASIGNATURAS} from '../models/asignaturas';
 
-const URL_SERVER ='https://www.classcity.es/app';
+const URL_SERVER ='http://localhost:8080';
 
 @Component({
   selector: 'home',
