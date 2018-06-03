@@ -5,8 +5,8 @@ import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import * as io from 'socket.io-client';
 
-const URL_SERVER ='https://www.classcity.es/app';
-const URL_CHAT ='https://www.classcity.es';
+const URL_SERVER ='http://localhost:8080';
+const URL_CHAT ='http://localhost:8080';
 
 
 @Component({

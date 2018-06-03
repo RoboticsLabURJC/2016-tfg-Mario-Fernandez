@@ -9,8 +9,8 @@ import {FileSelectDirective,
         FileDropDirective,
         FileUploader} from 'ng2-file-upload/ng2-file-upload';
 
-const URL_SERVER ='https://www.classcity.es/app';
-const URL_CHAT ='https://www.classcity.es';
+const URL_SERVER ='http://localhost:8080';
+const URL_CHAT ='http://localhost:8080';
 
 
 @Component({

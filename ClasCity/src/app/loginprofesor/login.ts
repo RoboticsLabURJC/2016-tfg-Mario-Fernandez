@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { ProfesorScheme } from '../models/profesores';
 
-const URL_SERVER ='https://www.classcity.es/app';
+const URL_SERVER ='http://localhost:8080';
 @Component({
   selector: 'login',
   templateUrl: './login.html',

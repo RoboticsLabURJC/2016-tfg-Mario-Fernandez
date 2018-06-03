@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { AlumnoScheme } from '../models/alumnos';
 
-const URL_SERVER ='https://www.classcity.es/app';
+const URL_SERVER ='http://localhost:8080';
 
 @Component({
   selector: 'signupalumno',
