@@ -1,0 +1,20 @@
+Sobre Capítulo 2
+- Falta el objetivo general, traelo desde donde lo has puesto en cap1.
+- Bien el corte en subobjetivos pero el tono aquí no puede ser "he
+hecho" o 'a toro pasado', tiene que ser a priori, como planteamiento.
+Y sin mencionar cómo lo has resuelto, que a eso dedicarás capítulo 4.
+Por ejemplo un subobjetivo puede ser "diseñar y programar el lado
+cliente de la aplicación de clases particulares", pero aquí no debe
+salir nada de Angular.  Otro subobjetivo puede ser "diseñar y
+programar el lado servidor de la aplicación de clases particulares",
+pero aquí no debe salir nada de Express... Vamos, en este capítulo se
+plantea el QUÉ de manera aséptica, y viendose claro que resolviendo
+esos cuatro subobjetivos se consigue el objetivo global. En el
+capítulo 4 ya se explica el CÓMO se ha resuelto cada uno de los
+subobjetivos.
+- Lo que has puesto en metodología es el plan de trabajo. En
+metodología se cuenta la manera de trabajar, que si github, que si
+reuniones periódicas con tutor. Fíjate en otros TFGs
+- Las elecciones de tecnologías concretas que has seleccionado las
+pondría en capítulo 4 (Angular, Express, Mongo) y en capitulo 5 (AWS),
+justificando los motivos.
