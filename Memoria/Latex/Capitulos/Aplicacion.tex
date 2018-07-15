@@ -532,7 +532,7 @@ Una vez que el servidor está escuchando en el puerto 8000 debemos utilizar la l
 io.on('connection', function(socket) {}
 \end{lstlisting}
 
-Tenemos que manejar tantos hilos de chat como profesores tengamos, necesitamos un control de canales. Por eso cada 'sala' nueva viene asociado con el identificador de cada profesor. Es decir cuando un profesor se registra, un nuevo canal es creado y los alumnos tienen la oportunidad de poder hablar con el profesor en esa 'sala' sin que otros profesores tengan constancia de ello.
+Como tenemos que manejar tantos hilos de chat como profesores tengamos, necesitamos un control de canales. Por eso cada 'sala' nueva viene asociado con el identificador de cada profesor. Es decir cuando un profesor se registra, un nuevo canal es creado y los alumnos tienen la oportunidad de poder hablar con el profesor en esa 'sala' sin que otros profesores tengan constancia de ello.
 
 Las 'salas' son cada uno de los canales abiertos en la comunicación del chat, donde los alumnos son libres de elegir a que 'sala' entrar. Cada vez que un alumno entra en el perfil de un profesor, entra en una 'sala' donde sólo los que estén en el perfil del profesor podrán enterarse de lo que se comente por esa 'sala'.
 
@@ -592,7 +592,6 @@ var leaveRoom = function() {
 };
 \end{lstlisting}
 \end{itemize}
-
 \section{Casos de usos}
 
 Los diferentes escenarios que el usuario se puede encontrar en la aplicación de gestión de clases particulares son los siguientes:
@@ -601,23 +600,41 @@ Los diferentes escenarios que el usuario se puede encontrar en la aplicación de
 
 Si un estudiante quiere hacer uso de la aplicación y buscar a un profesor tiene que seguir los siguientes pasos:
 \begin{enumerate}
-\itemize Ir a httpd://www.classctity.es.
-\itemize Hacer click en el botón de Alumno.
-\itemize Introducir credenciales si el alumno ya esta acreditado. Si no esta acreditado, registrarse en la aplicación completando el formulario del registro.
-\itemize Introducir en la entrada de ubicación el lugar donde se quiere realizar la búsqueda del profesor.
-\itemize Seleccionar a que radio de distancia se quiere realizar las búsqueda en relación a la ubicación insertada.
-\itemize Seleccionar el curso en el que esta el alumno.
-\itemize Seleccionar la asignatura que quiere cursar.
-\itemize Hacer click en buscar.
-\itemize De los profesores mostrados seleccionar uno.
-\itemize Si el alumno es la primera vez que quiere contactar con el profesor deberá de enviarle una solicitud de contacto y esperar a que el profesor le acepte. Si por el contrario el alumno ya ha sido aceptado podrá poder comunicarse vía chat con el profesor.
-\itemize Hacer click en el botón de logout para cerrar la sesión.
+\item Ir a https://www.classctity.es y hacer click en el botón de Alumno.
+\item Introducir credenciales si el alumno ya esta acreditado. Si no esta acreditado, registrarse en la aplicación completando el formulario del registro.
+\item Introducir en la entrada de ubicación el lugar donde se quiere realizar la búsqueda del profesor.
+\item Seleccionar a que radio de distancia se quiere realizar las búsqueda en relación a la ubicación insertada.
+\item Seleccionar el curso en el que esta el alumno.
+\item Seleccionar la asignatura que quiere cursar.
+\item Hacer click en buscar.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=160mm]{img/templates/buscarprof.png}
+    \caption{Página Home Alumno}
+\end{figure}
+\item De los profesores mostrados seleccionar uno.
+\item Si el alumno es la primera vez que quiere contactar con el profesor deberá de enviarle una solicitud de contacto y esperar a que el profesor le acepte. Si por el contrario el alumno ya ha sido aceptado podrá poder comunicarse vía chat con el profesor. Ver imagen \ref{img:chatalumno}
+\item Hacer click en el botón de logout para cerrar la sesión.
 \end{enumerate}
 
 \subsection{Funcionalidad Profesor}
-\itemize Ir a httpd://www.classctity.es.
-\itemize Hacer click en el botón de Profesor.
-\itemize Introducir credenciales si el profesor ya esta acreditado. Si no esta acreditado, registrarse en la aplicación completando el formulario del registro.
-\itemize Si algún alumno ha intentado contactar con el profesor. Una notificación le llegará y el profesor decidirá aceptarla o no.
-\itemize El profesor puede hablar vía chat con aquellos alumnos aceptados para quedar y poder dar clases particulares.
-\itemiza El profesor en su página principal también tiene la opción de poder actualizar su imagen de perfil.
+Si un profesor quiere hacer uso de la aplicación y contactar con un alumno tiene que seguir los siguientes pasos:
+\begin{enumerate}
+\item Ir a https://www.classctity.es y hacer click en el botón de Profesor.
+\item Introducir credenciales si el profesor ya esta acreditado. Si no esta acreditado, registrarse en la aplicación completando el formulario del registro.
+\item Si algún alumno ha intentado contactar con el profesor. Una notificación le llegará y el profesor decidirá aceptarla o no.
+\item El profesor puede hablar vía chat con aquellos alumnos aceptados para quedar y poder dar clases particulares. Ver imagen \ref{img:chatprofesor}
+\item El profesor en su página principal también tiene la opción de poder actualizar su imagen de perfil.
+\end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=150mm]{img/templates/chatalumno.png}
+    \caption{Página Chat Alumno}
+    \label{img:chatalumno}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=150mm]{img/templates/chatprofesor.png}
+    \caption{Página Chat Profesor}
+    \label{img:chatprofesor}
+\end{figure}

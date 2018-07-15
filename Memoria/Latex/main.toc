@@ -48,10 +48,12 @@
 \contentsline {subsection}{\numberline {4.3.2}Estructura de la base de datos}{40}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Controladores}{42}{subsection.4.3.3}
 \contentsline {section}{\numberline {4.4}Casos de usos}{45}{section.4.4}
-\contentsline {chapter}{\numberline {5}Despliegue en la nube}{46}{chapter.5}
-\contentsline {section}{\numberline {5.1}Lanzar una instancia en AWS}{47}{section.5.1}
-\contentsline {section}{\numberline {5.2}Lanzar una aplicaci\IeC {\'o}n MEAN a producci\IeC {\'o}n}{51}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusiones}{54}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{54}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos Futuros }{55}{section.6.2}
-\contentsline {chapter}{Bibliograf\'{\i }a}{56}{chapter*.14}
+\contentsline {subsection}{\numberline {4.4.1}Funcionalidad Alumno}{45}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Funcionalidad Profesor}{46}{subsection.4.4.2}
+\contentsline {chapter}{\numberline {5}Despliegue en la nube}{48}{chapter.5}
+\contentsline {section}{\numberline {5.1}Lanzar una instancia en AWS}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Lanzar una aplicaci\IeC {\'o}n MEAN a producci\IeC {\'o}n}{53}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusiones}{56}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{56}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos Futuros }{57}{section.6.2}
+\contentsline {chapter}{Bibliograf\'{\i }a}{58}{chapter*.14}
