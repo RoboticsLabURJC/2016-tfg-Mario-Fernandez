@@ -1,0 +1,268 @@
+%Plantilla basada en "Template for Masters / Doctoral Thesis" (plantilla disponible en writeLaTex) que subió LaTeXTemplates.com
+
+\documentclass[oneside,a4paper,11pt]{book}
+\usepackage[lmargin=2.8cm, rmargin=2.8cm, tmargin=3.3cm, bmargin=3.3cm]{geometry}
+\usepackage{amssymb,amsmath,amsthm} %paquete para símbolo matemáticos
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage[utf8]{inputenc} %Paquete para escribir acentos y otros símbolos directamente
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{palatino} % Use the Palatino font by default
+\usepackage{wrapfig}
+\usepackage{subfigure} % subfigur
+%\usepackage{subfig} %para poner subfiguras
+\graphicspath{{img/}} %En qué carpeta están las imágenes
+\usepackage[nottoc]{tocbibind}
+\usepackage[pdftex,
+            pdfauthor={Walter Rene Cuenca Guachamin.},
+            pdftitle={Prácticas docentes de desarrollo web.},
+            pdfsubject={ÁREA DE LA TESIS},
+            pdfkeywords={PALABRAS CLAVE},
+            pdfproducer={Latex con hyperref},
+            pdfcreator={pdflatex}]{hyperref}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break,func},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+framerule=0pt,
+aboveskip=0.3cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.2pt,
+breaklines=true,
+frame=single,
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+keywordstyle=\bfseries,
+captionpos=b,
+language=JavaScript,
+}
+\newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}} % New command for a rule to be used under figures
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% COMANDOS PERSONALIZADOS
+%----------------------------------------------------------------------------------------
+
+%SI TU TESIS TIENE TEOREMAS Y DEMOSTRACIONES, PUEDES DESCOMENTAR Y USAR LOS SIGUIENTES COMANDOS
+
+%\renewcommand{\proofname}{Demostración}
+%\providecommand{\norm}[1]{\lVert#1\rVert} %Provee el comando para producir una norma.
+%\providecommand{\innp}[1]{\langle#1\rangle}
+%\newcommand{\seno}{\mathrm{sen}}
+%\newcommand{\diff}{\mathrm{d}}
+
+%\newtheorem{teo}{Teorema}[section]
+%\newtheorem{cor}[teo]{Corolario}
+%\newtheorem{lem}[teo]{Lema}
+
+%\theoremstyle{definition}
+%\newtheorem{dfn}[teo]{Definición}
+
+%\theoremstyle{remark}
+%\newtheorem{obs}[teo]{Observación}
+
+%\allowdisplaybreaks
+
+
+%----------------------------------------------------------------------------------------
+% PORTADA
+%----------------------------------------------------------------------------------------
+
+\pagestyle{empty}
+
+\vspace{2cm}
+
+%Figura
+\begin{figure}[htb]
+\centerline{\resizebox{.60\textwidth}{!}{\includegraphics{img/logo-urjc}}}
+\end{figure}
+
+\vspace{5mm}
+\begin{center}
+{\Large {\bf Grado en Ingeniería en Sistemas Audiovisuales y Multimedia}}
+\vspace{5mm}
+
+{\large Escuela Técnica Superior de Ingeniería de Telecomunicación}
+\vspace{5mm}
+
+{\large Curso académico 2017-2018}
+
+\vspace{1.0cm}
+
+{\large {\bf Trabajo Fin de Grado}}
+
+\vspace{2cm}
+{\Huge {Aplicación web para gestión de clases particulares}}
+
+
+\vspace{4cm}
+\makebox[8cm][r]{
+\begin{tabular}{ll}
+{\bf Autor}: & Mario Fernández Guerrero \\
+{\bf Tutor}:& José María Cañas Plaza \\
+\end{tabular}
+}
+\end{center}
+\vspace{0.5cm}
+\begin{center}
+\large{Curso académico 2017/2018}
+\end{center}
+
+
+%----------------------------------------------------------------------------------------
+% DEDICATORIA
+%----------------------------------------------------------------------------------------
+
+\clearpage
+\thispagestyle{empty}
+
+\vspace{5cm}
+\makebox[15cm][r]{
+\begin{tabular}{ll}
+&\emph{\textbf{Dedicatoria}}\\
+&\\
+&\emph{'No me juzgues por mis éxitos,}\\
+&\emph{júzgame por las veces que me caí y volví a levantarme'.}\\
+&\\
+&\emph{By Nelson Mandela}\\
+\end{tabular}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+% AGRADECIMIENTOS
+%----------------------------------------------------------------------------------------
+%\chapter*{Agradecimientos}
+%\markboth{AGRADECIMIENTOS23}{AGRADECIMIENTOS} % encabezado
+
+\clearpage
+\thispagestyle{empty}
+
+\vspace{5cm}
+\makebox[15cm][r]{
+\begin{tabular}{ll}
+&\emph{\textbf{Agradecimientos}}\\
+&\\
+&\emph{A mis padres, Mario y Rosa,}\\
+&\emph{a mi hermano Alejandro y a mi novia Cristina,}\\
+&\emph{por su apoyo y confianza sin limites.}\\
+&\\
+&\emph{Gracias.}
+\\
+\end{tabular}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+% PREFACIO
+%----------------------------------------------------------------------------------------
+
+\chapter*{Resumen}
+\pagestyle{plain}
+
+En este trabajo de final de carrera se ha desarrollado una aplicación web cuya funcionalidad principal es ofrecer el contacto y la comunicación entre alumnos y profesores para poder impartir clases particulares.
+
+El trabajo perseguía principalmente el objetivo de realizar una aplicación web como desarrollador full stack, desarrollando todo lo que una aplicación web necesita: Maquetación, Servicios, Bases de datos, Despliegue....
+
+Este TFG sirve como apoyo para todos aquellos alumnos que tengan una idea y quieran desarrollarla en forma de aplicación web. Algunas de las tecnologías empleadas son JavaScript como lenguaje principal tanto en el cliente como en el servidor, Base de datos como MongoDB y Websockets como tecnología de comunicación, aparte del despliegue en la red con Amazon Web Services.
+
+
+%\markboth{PREFACIO23}{PREFACIO} % encabezado
+%----------------------------------------------------------------------------------------
+% TABLA DE CONTENIDOS
+%---------------------------------------------------------------------------------------
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+
+%----------------------------------------------------------------------------------------
+% TESIS
+%----------------------------------------------------------------------------------------
+\mainmatter %empieza la numeración de las páginas
+\pagestyle{headings}
+
+%  Incluye los capítulos en el folder de capítulos
+
+% Uncomment the lines as you write the chapters
+%\include{Chapters/Portada}
+\include{Capitulos/Introduccion}
+\include{Capitulos/Objetivos}
+\include{Capitulos/Infraestructura}
+\include{Capitulos/Aplicacion}
+\include{Capitulos/Despliegue}
+\include{Capitulos/Conclusion}
+
+%----------------------------------------------------------------------------------------
+% APÉNDICES
+%----------------------------------------------------------------------------------------
+
+%\addtocontents{toc}{\vspace{2em}} % Agrega espacios en la toc
+
+%\appendix % Los siguientes capítulos son apéndices
+
+%  Incluye los apéndices en el folder de apéndices
+
+%\include{Apendices/Anexo_3}
+%\thispagestyle{empty}
+%\include{Apendices/AppendixB}
+%\include{Apendices/AppendixC}
+
+%\addtocontents{toc}{\vspace{2em}} % Agrega espacio en la toc
+
+%\nocite{*}
+%----------------------------------------------------------------------------------------
+% BIBLIOGRAFÍA
+%----------------------------------------------------------------------------------------
+%\backmatter
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{bibliografía.bib} %Aquí ponen el nombre del archivo .bib
+\thispagestyle{empty}
+\begin{thebibliography}{99}
+%%%% ANTECEDENTES
+\bibitem{TFGPracticasDesarrolloWeb} Walter Cuenca.Practicas Web para la asignatura de LTAW. Trabajo Fin de Grado, Grado en Ingeniera en Sistemas Audiovisuales y Multimedia, Universidad Rey Juan Carlos, 2016-2017.
+\bibitem{PracticasDesarrolloWeb} Mediawiki Walter Cuenca (Practicas docentes de desarrollo web.) \url{http://jderobot.org/Walter-tfg}
+\bibitem{TFGsurveillance5.1} Edgar Barrero. Desarrollo de una aplicación web para sistema domótico. Trabajo Fin de Grado, Grado en Ingeniería de Sistemas Audiovisuales y Multimedia, Universidad Rey Juan Carlos, 2013-2014.
+\bibitem{surveillance5.1} Mediawiki Edgar Barrero (Surveillance 5.1) \url{http://jderobot.org/Aerobeat-colab}
+\bibitem{TFGJdeRobotWebClients} Aitor Martínez.Tecnologías web en plataforma robotica JdeRobot. Trabajo Fin de Grado, Grado en Grado en Ingeniera Telemática, Universidad Rey Juan Carlos, 2015-2016.
+\bibitem{JdeRobotWebClients} MediaWiki Aitor Martínez (JdeRobotWebClients) \url{wiki http://jderobot.org/Aitormf-tfg}
+
+%%%% ANTECEDENTES
+\bibitem{mean} Web oficial MEAN \url{http://mean.io/}
+\bibitem{nodejs} Libro NodeJS \textnormal{Introducción a Nodejs a través de Koans ebook}
+\bibitem{mongodb} Pagina Oficial de Mongoose \url{http://mongoosejs.com/docs/guide.html}
+\bibitem{express} Pagina Oficial de Express  \url{http://expressjs.com/es/}
+\bibitem{angular} Pagina Oficial de Angular  \url{https://angular.io/guide/quickstart}
+\bibitem{Websockets} Introducción WebSockets  \url{http://html5index.org/index.html}
+
+
+\end{thebibliography}
+
+\end{document}

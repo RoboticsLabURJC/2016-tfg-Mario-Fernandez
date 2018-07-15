@@ -1,0 +1,30 @@
+\chapter{Conclusiones}
+En los capítulos anteriores se ha hecho una descripción de las tecnologías empleadas y se ha presentado la aplicación desarrollada. Además, se ha argumentado tanto la elección final del diseño como su arquitectura. En este capitulo se analizarán las conclusiones del trabajo realizado y se proponen posibles mejoras futuras de desarrollo. 
+
+\section{Conclusiones}
+Tras analizar el trabajo realizado se puede apreciar que se ha conseguido el objetivo general. Se ha creado una aplicación web capaz de poner en contacto alumnos y profesores para dar clases particulares. Además de cubrir todos los sub-ojetivos marcados en el capítulo 2 y que vamos a ir analizando una a uno a continuación:
+\begin{itemize}
+
+ \item \textbf {Front-End: }El Front-End de la aplicación se ha desarrollado satisfactoriamente utilizando Angular, una tecnología cuya curva de aprendizaje ha sido superada a pesar de la grandes dificultades que contiene. Angular nos ha permitido tener una estructura de la aplicación lo bastante solida y escalable para poder introducir cualquier tipo de mejora en un futuro.
+ \item \textbf {Back-End: }En cuanto al Back-End, era nuestro segundo sub-objetivo, añadir que también ha sido superado gracias a la facilidad que tiene Node y su framework Express en su aprendizaje, además de la numerosa comunidad de desarrolladores que hay detrás. Todo esto nos ha supuesto que crear una API desde cero, sea algo mas sencillo de lo que esperábamos.
+ \item \textbf {BBDD: } En lo relacionado con la BBDD, decir que la integración del Backend con MongoDB ha sido todo un exito gracias a moongoose, una librería que nos ha permitido enlazar el servidor con la base de datos sin demasiadas complicaciones. Aunque si que es verdad que comprender el modelo NoSQL y sus beneficios, no ha sido algo trivial.
+  \item \textbf {Despliegue en la red: }El último de los sub-objetivos consistía en subir la aplicación web a producción. Podemos decir que este sub-ojetivo se ha desarrollado satisfactoriamente, debido a que si accedemos a www.classcity.es podemos ver nuestra aplicación corriendo en producción. 
+
+\end{itemize}
+
+
+\section{Trabajos Futuros }
+Este TFG ha siso desarrollado para poder implementar funciones en un futuro sin necesidad de cambiar la arquitectura de nuestra aplicación. Es por eso que hemos identificado cuatro funcionalidades nuevas que harían a nuestra aplicación mucho mas interesante. 
+
+\begin{enumerate}
+
+    \item \textbf {Añadir WEB RTC}: WebRTC es una API que está siendo elaborada por la World Wide Web Consortium para permitir a las aplicaciones del navegador realizar llamadas de voz, chat de vídeo y uso compartido de archivos P2P sin plugins. Una de las mejoras que podría tener esta aplicación sería el uso de web RTC para que los profesores pudieses impartir sus clases a partir de videoconferencia.
+    
+    \item \textbf {Añadir Comentarios y valoraciones a los profesores}: Otra de las mejoras que podrían ser empleadas, es la valoración de los profesores por parte de los alumnos, utilizando el potencial de mongoDB para almacenar información. 
+    
+    \item \textbf {Añadir Calendario: } Otra funcionalidad extra que se puede introducir en la aplicación, es la utilización de calendarios para que los alumnos puedan consultar la disponibilidad de cada profesor  
+    
+    \item \textbf {Añadir un método de pago:} Por último se podría añadir la mejora de monetizar el uso de la aplicación. Añadiendo un método de pago a partir de la aplicación cada vez que un alumno quiera dar una clase particular.
+    
+
+\end{enumerate}
