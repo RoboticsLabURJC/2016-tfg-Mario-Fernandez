@@ -4,6 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import {ProfesorScheme} from '../models/profesores';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import * as io from 'socket.io-client';
+import { Router } from '@angular/router';
 
 const URL_SERVER ='https://www.classcity.es/app';
 const URL_CHAT ='https://www.classcity.es';
