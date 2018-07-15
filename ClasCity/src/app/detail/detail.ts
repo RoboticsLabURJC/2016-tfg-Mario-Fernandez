@@ -28,7 +28,7 @@ export class ProfesorDetail {
   socket = null;
   aceptado: boolean = false;
 
-  constructor(public routere: Router, public route: ActivatedRoute, public jwtHelper: JwtHelperService,
+  constructor(public router: Router, public route: ActivatedRoute, public jwtHelper: JwtHelperService,
      private http: Http) {
   }
 
@@ -58,7 +58,7 @@ export class ProfesorDetail {
   }
   logout() {
     localStorage.removeItem('id_token');
-    this.routere.navigate(['/login']);
+    this.router.navigate(['/login']);
   }
   notification() {
     let peticion = document.getElementById('peticion');
