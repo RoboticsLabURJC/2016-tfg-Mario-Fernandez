@@ -140,6 +140,20 @@ El estilo REST hace énfasis en que las interacciones entre los clientes y los s
     \item \textbf {DELETE} Se usa DELETE para eliminar un recurso
 \end{itemize}
 
+\subsection*{Paradigma MVC}
+MVC es un patrón que separa completamente los datos, la lógica de negocio y la interfaz de usuario de una aplicación. Esto ayuda a la reutilización de código y su mantenimiento.
+Veámos en qué se centra cada parte:
+\begin{itemize}
+\item \textbf {El modelo} es la información que maneja nuestra aplicación y su estructura.
+\item \textbf {En el controlador} es donde reside la lógica de negocio y, por tanto, será el encargado de procesar los datos y hacer operaciones con ellos. Por otro lado, también es el puente de comunicación entre los datos y las vistas.
+\item \textbf {Las vistas} suelen ser puras representaciones de los datos ofrecidos por el controlador.
+\end{itemize}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=90mm]{img/introduccion/mvc.png}
+    \caption{Diagrama de MVC}
+\end{figure}
+
 \section{Tecnologías del Cliente}
 
 El Front-end se desarrolla normalmente en HTML, CSS o Javascript, lo cual implica que los programadores se especialicen en estos tres lenguajes. Además de que el código sea correcto, la web debe tener un diseño atractivo y funcional, que permita que la experiencia del usuario sea lo suficientemente cómoda, intuitiva y agradable para que continúe navegando.
@@ -189,6 +203,16 @@ Su estandarizacion y especificación corre por parte del W3C, que lo incluyo a p
 Gracias a este lenguaje, podremos indicar donde se colocan los elementos, su color, apariencia, etc.
 Al tratarse de estilos en cascada, los estilos que definamos en un elemento que contenga a otros, éstos podrán propagarse hacia abajo. Por ejemplo: Si cambiamos el tamaño de fuente al elemento <body>(Padre de todo el documento), todos los párrafos y links de la página tendrán ese tamaño de fuente a menos que indiquemos lo contrario.
 En esta última vesión se han incluido grandes mejoras, podemos hacer uso de transformaciones 2D y 3D así como animaciones aceleradas por GPU, lo que hace que sean mucho más suaves y vistosas que programándolas como hasta ahora, en JavaScript.
+\subsection{DOM}
+Document Object Model o DOM ('Modelo de Objetos del Documento' o 'Modelo en Objetos para la Representación de Documentos') es esencialmente una interfaz de plataforma que proporciona un conjunto estándar de objetos para representar documentos HTML, XHTML y XML un modelo estándar sobre cómo pueden combinarse dichos objetos, y una interfaz estándar para acceder a ellos y manipularlos. A través del DOM, los programas pueden acceder y modificar el contenido, estructura y estilo de los documentos HTML y XML, que es para lo que se diseñó principalmente.
+
+El DOM permite el acceso dinámico a través de la programación para acceder, añadir y cambiar dinámicamente contenido estructurado en documentos con lenguajes como ECMAScript (JavaScript).
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=90mm]{img/introduccion/arbol_dom.png}
+    \caption{Arbol DOM}
+\end{figure}
+
 \subsection{Frameworks}
 Un Framework en desarrollo es un conjunto estandarizado de conceptos, prácticas y criterios para enfocar un tipo de problemática particular que sirve como referencia, para enfrentar y resolver nuevos problemas de índole similar.
 
@@ -255,10 +279,6 @@ Gracias a la nube, las empresas ya no tienen que planificar ni adquirir servidor
 \section{Antecedentes}
 EL TFG centra su desarrollo en el campo de las tecnologías Web y como a través de ella permiten generar diversas aplicaciones con las que el usuario puedan interactuar. A continuación, se presentan varios ejemplos de TFGs dentro del Laboratorio de Robótica de la URJC que emplean estas tecnologías y han sido el punto de partida de este TFG.
 
-\subsection*{Prácticas docentes de desarrollo web}
-Este TFG\cite{TFGPracticasDesarrolloWeb}\cite{PracticasDesarrolloWeb} fué realizado por Walter Cuenca, con el objetivo de servir como apoyo en las prácticas de la asignatura de LTAW del grado de ingeniería de sistemas audiovisuales y multimedia. Consta de cuatro prácticas que utilizan diferentes tecnologías Web, herramientas y bibliotecas muy acentuadas en este campo. Algunas de las tecnologías empleadas son Javascript en el cliente, NodeJS y Django en el servidor, Base de datos como MySQL y por último Web-Socket y WebRTC como tecnologías de comunicación fluida.
-\url{https://github.com/RoboticsURJC-students/2015-TFG-Walter-Cuenca}
-
 \subsection*{Suveillance 5.1}
 Edgar barrero desarrollo en Ruby sobre Rails Suveillance 5.1 \cite{TFGsurveillance5.1}\cite{surveillance5.1}, una aplicación web que ofrece un flujo de vídeo desde una cámara web, un flujo de imagen de profundidad procedente de un sector Kinect y su representación en 3D, además de un sensor de humedad y un actuador.
 
@@ -268,6 +288,11 @@ Edgar barrero desarrollo en Ruby sobre Rails Suveillance 5.1 \cite{TFGsurveillan
     \includegraphics[width=150mm]{img/introduccion/edgar.png}
     \caption{TFG Edgar Barrero}
 \end{figure}
+
+\subsection*{Prácticas docentes de desarrollo web}
+Este TFG\cite{TFGPracticasDesarrolloWeb}\cite{PracticasDesarrolloWeb} fué realizado por Walter Cuenca, con el objetivo de servir como apoyo en las prácticas de la asignatura de LTAW del grado de ingeniería de sistemas audiovisuales y multimedia. Consta de cuatro prácticas que utilizan diferentes tecnologías Web, herramientas y bibliotecas muy acentuadas en este campo. Algunas de las tecnologías empleadas son Javascript en el cliente, NodeJS y Django en el servidor, Base de datos como MySQL y por último Web-Socket y WebRTC como tecnologías de comunicación fluida.
+\url{https://github.com/RoboticsURJC-students/2015-TFG-Walter-Cuenca}
+
 
 \subsection*{JdeRobotWebClients (URJC)}
 JdeRobotWebClients \cite{TFGJdeRobotWebClients}\cite{JdeRobotWebClients}fue desarrollado por Aitor Martınez Fernandez como trabajo fin de grado. La aplicación Web consiste en crear seis versiones web de herramientas utilizadas por JdeRobot (CameraViewJS, RGBDViewerJS, KobukiViewerJS, .....) que estaban programadas en C++ o Python con su propio interfaz gráfico provocando que sean ejecutables solo en Linux.
