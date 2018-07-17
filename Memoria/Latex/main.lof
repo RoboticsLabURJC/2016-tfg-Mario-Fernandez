@@ -1,57 +1,56 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Ejemplo web 1\IeC {\textordmasculine } generaci\IeC {\'o}n}}{1}{figure.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Ejemplo web 2\IeC {\textordmasculine } generaci\IeC {\'o}n}}{2}{figure.1.2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Ejemplo web 3\IeC {\textordmasculine } generaci\IeC {\'o}n}}{2}{figure.1.3}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Aplicaci\IeC {\'o}n Airbnb}}{3}{figure.1.4}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Aplicaci\IeC {\'o}n Blablacar}}{3}{figure.1.5}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Ejemplo web segunda generaci\IeC {\'o}n}}{2}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Ejemplo web tercera generaci\IeC {\'o}n}}{3}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Aplicaci\IeC {\'o}n web Airbnb}}{3}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Aplicaci\IeC {\'o}n web Blablacar}}{4}{figure.1.5}
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Aplicaci\IeC {\'o}n Wallapop}}{4}{figure.1.6}
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Modelo cliente-servidor}}{4}{figure.1.7}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces api-rest}}{6}{figure.1.8}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Modelo cliente-servidor}}{5}{figure.1.7}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Api-rest}}{6}{figure.1.8}
 \contentsline {figure}{\numberline {1.9}{\ignorespaces Diagrama de MVC}}{7}{figure.1.9}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces HTML5 Icono}}{7}{figure.1.10}
-\contentsline {figure}{\numberline {1.11}{\ignorespaces EcmaScript 6 Icono}}{8}{figure.1.11}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces CSS3 Icono}}{9}{figure.1.12}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Icono de HTML5}}{8}{figure.1.10}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Icono de EcmaScript6}}{8}{figure.1.11}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Icono de CSS3}}{9}{figure.1.12}
 \contentsline {figure}{\numberline {1.13}{\ignorespaces Arbol DOM}}{10}{figure.1.13}
-\contentsline {figure}{\numberline {1.14}{\ignorespaces CSS3 Icono}}{11}{figure.1.14}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Frameworks Backend}}{11}{figure.1.14}
 \contentsline {figure}{\numberline {1.15}{\ignorespaces Proveedores m\IeC {\'a}s conocidos de computaci\IeC {\'o}n en la nube}}{12}{figure.1.15}
-\contentsline {figure}{\numberline {1.16}{\ignorespaces TFG Edgar Barrero}}{13}{figure.1.16}
-\contentsline {figure}{\numberline {1.17}{\ignorespaces TFG Aitor Martinez Fernandez}}{14}{figure.1.17}
+\contentsline {figure}{\numberline {1.16}{\ignorespaces TFG Edgar Barrero}}{14}{figure.1.16}
+\contentsline {figure}{\numberline {1.17}{\ignorespaces TFG Aitor Martinez Fernandez}}{15}{figure.1.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Logo ClassCity}}{15}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema Metodolog\IeC {\'\i }a Cascada}}{16}{figure.2.2}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Esquema Metodolog\IeC {\'\i }a Cascada}}{17}{figure.2.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema MEAN}}{18}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Icono de Angular}}{19}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de Angular}}{19}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Data-Binding Diagrama}}{22}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Icono de Node}}{23}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Icono de MongoDB}}{24}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Sharding}}{26}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Icono de Express}}{27}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces AWS}}{29}{figure.3.9}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema MEAN}}{19}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Icono de Angular}}{20}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de Angular}}{20}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Data-Binding Diagrama}}{23}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Icono de Node}}{24}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Icono de MongoDB}}{25}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Sharding}}{27}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Icono de Express}}{28}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces AWS}}{30}{figure.3.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de un proyecto con la pila MEAN}}{30}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces P\IeC {\'a}gina Intro ClassCity}}{33}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces P\IeC {\'a}gina Login Alumnos}}{34}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces P\IeC {\'a}gina Login Profesor}}{34}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces P\IeC {\'a}gina Registrar Alumno}}{35}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces P\IeC {\'a}gina Registrar Profesor}}{35}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces P\IeC {\'a}gina Home Alumno}}{36}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces P\IeC {\'a}gina Detalle del Profesor}}{36}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces P\IeC {\'a}gina Home Profesor}}{37}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces P\IeC {\'a}gina Home Alumno}}{47}{figure.4.10}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces P\IeC {\'a}gina Chat Alumno}}{48}{figure.4.11}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces P\IeC {\'a}gina Chat Profesor}}{48}{figure.4.12}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de un proyecto con la pila MEAN}}{31}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces P\IeC {\'a}gina Intro ClassCity}}{34}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces P\IeC {\'a}gina Login Alumnos}}{35}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces P\IeC {\'a}gina Login Profesor}}{35}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces P\IeC {\'a}gina Registrar Alumno}}{36}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces P\IeC {\'a}gina Registrar Profesor}}{36}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces P\IeC {\'a}gina Home Alumno}}{37}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces P\IeC {\'a}gina Detalle del Profesor}}{37}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces P\IeC {\'a}gina Home Profesor}}{38}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces P\IeC {\'a}gina Home Alumno}}{48}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces P\IeC {\'a}gina Chat Alumno}}{49}{figure.4.11}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces P\IeC {\'a}gina Chat Profesor}}{49}{figure.4.12}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Crear Key Pairs Paso 1}}{50}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Crear Key Pairs Paso 2}}{51}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Lanza una instancia Paso 1}}{51}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Lanza una instancia Paso 2}}{52}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Lanza una instancia Paso 3}}{52}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Con\IeC {\'e}ctate a tu EC2 Paso 2}}{53}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Con\IeC {\'e}ctate a tu EC2 Paso 3}}{53}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Correo de confirmaci\IeC {\'o}n}}{54}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces SSL}}{54}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces https://www.classcity.es}}{55}{figure.5.10}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Crear Key Pairs Paso 1}}{51}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Crear Key Pairs Paso 2}}{52}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Lanza una instancia Paso 1}}{52}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Lanza una instancia Paso 2}}{53}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Lanza una instancia Paso 3}}{53}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Con\IeC {\'e}ctate a tu EC2 Paso 2}}{54}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Con\IeC {\'e}ctate a tu EC2 Paso 3}}{54}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Correo de confirmaci\IeC {\'o}n}}{55}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces SSL}}{55}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces https://www.classcity.es}}{56}{figure.5.10}
 \addvspace {10\p@ }

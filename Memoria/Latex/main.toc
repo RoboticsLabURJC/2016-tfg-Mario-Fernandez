@@ -2,59 +2,64 @@
 \contentsline {chapter}{\'{I}ndice de figuras}{7}{chapter*.3}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Tecnolog\IeC {\'\i }as web}{4}{section.1.1}
-\contentsline {section}{\numberline {1.2}Tecnolog\IeC {\'\i }as del Cliente}{7}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}HTML 5}{7}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.1.1}Protocolo HTTP}{5}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Arquitectura API REST}{6}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Paradigma MVC}{7}{subsection.1.1.3}
+\contentsline {section}{\numberline {1.2}Tecnolog\IeC {\'\i }as del Cliente Web}{7}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}HTML 5}{8}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}ECMAScript 6}{8}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}CSS3}{9}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}DOM}{9}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}Frameworks}{10}{subsection.1.2.5}
-\contentsline {section}{\numberline {1.3}Tecnolog\IeC {\'\i }a del Servidor}{10}{section.1.3}
-\contentsline {section}{\numberline {1.4}Computaci\IeC {\'o}n en la nube}{11}{section.1.4}
-\contentsline {section}{\numberline {1.5}Antecedentes}{13}{section.1.5}
-\contentsline {chapter}{\numberline {2}Objetivos}{15}{chapter.2}
+\contentsline {subsection}{\numberline {1.2.4}DOM}{10}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Entornos de programaci\IeC {\'o}n para el lado cliente}{10}{subsection.1.2.5}
+\contentsline {section}{\numberline {1.3}Tecnolog\IeC {\'\i }a del Servidor Web}{11}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Entornos de programaci\IeC {\'o}n lado servidor}{11}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Tecnolog\IeC {\'\i }as de bases de datos}{12}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Computaci\IeC {\'o}n en la nube}{12}{section.1.4}
+\contentsline {section}{\numberline {1.5}Antecedentes}{14}{section.1.5}
+\contentsline {chapter}{\numberline {2}Objetivos}{16}{chapter.2}
 \contentsline {section}{\numberline {2.1}Metodolog\IeC {\'\i }a}{16}{section.2.1}
 \contentsline {section}{\numberline {2.2}Plan de trabajo}{17}{section.2.2}
-\contentsline {chapter}{\numberline {3}Infraestructura}{18}{chapter.3}
-\contentsline {section}{\numberline {3.1}Angular }{19}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}M\IeC {\'o}dulo}{20}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Componente}{20}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Plantilla}{20}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Metadatos}{21}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Data Binding}{21}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}Directiva}{22}{subsection.3.1.6}
-\contentsline {subsection}{\numberline {3.1.7}Servicio }{22}{subsection.3.1.7}
-\contentsline {subsection}{\numberline {3.1.8}Inyecci\IeC {\'o}n de Dependencias}{22}{subsection.3.1.8}
-\contentsline {section}{\numberline {3.2}Node}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}MongoDB}{23}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Caracter\IeC {\'\i }sticas}{24}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Documento en MongoDB}{25}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Inconvenientes de MongoDB}{25}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Fragmentaci\IeC {\'o}n \textit {(Sharding)}}{26}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Express}{26}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Introducci\IeC {\'o}n}{26}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Estructura de una API}{28}{subsection.3.4.2}
-\contentsline {section}{\numberline {3.5}Amazon web services}{29}{section.3.5}
-\contentsline {chapter}{\numberline {4}Dise\IeC {\~n}o e implementaci\IeC {\'o}n}{30}{chapter.4}
-\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{30}{section.4.1}
-\contentsline {section}{\numberline {4.2}Lado cliente de la aplicaci\IeC {\'o}n web}{31}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Modulos: }{31}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Componentes: }{32}{subsection.4.2.2}
-\contentsline {subsubsection}{Componentes secundarios }{32}{section*.14}
-\contentsline {subsection}{\numberline {4.2.3}Plantilla }{33}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Data Binding}{37}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Directiva: }{38}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Servicio }{39}{subsection.4.2.6}
-\contentsline {section}{\numberline {4.3}Lado servidor de la aplicaci\IeC {\'o}n}{39}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Server.js}{40}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Estructura de la base de datos}{41}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Controladores}{43}{subsection.4.3.3}
-\contentsline {section}{\numberline {4.4}Casos de usos}{46}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Funcionalidad Alumno}{46}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Funcionalidad Profesor}{47}{subsection.4.4.2}
-\contentsline {chapter}{\numberline {5}Despliegue en la nube}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}Lanzar una instancia en AWS}{50}{section.5.1}
-\contentsline {section}{\numberline {5.2}Lanzar una aplicaci\IeC {\'o}n MEAN a producci\IeC {\'o}n}{54}{section.5.2}
-\contentsline {chapter}{\numberline {6}Conclusiones}{57}{chapter.6}
-\contentsline {section}{\numberline {6.1}Conclusiones}{57}{section.6.1}
-\contentsline {section}{\numberline {6.2}Trabajos Futuros }{58}{section.6.2}
-\contentsline {chapter}{Bibliograf\'{\i }a}{59}{chapter*.15}
+\contentsline {chapter}{\numberline {3}Infraestructura}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Angular }{20}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}M\IeC {\'o}dulo}{21}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Componente}{21}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Plantilla}{21}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Metadatos}{22}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Data Binding}{22}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}Directiva}{23}{subsection.3.1.6}
+\contentsline {subsection}{\numberline {3.1.7}Servicio }{23}{subsection.3.1.7}
+\contentsline {subsection}{\numberline {3.1.8}Inyecci\IeC {\'o}n de Dependencias}{23}{subsection.3.1.8}
+\contentsline {section}{\numberline {3.2}Node}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}MongoDB}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Caracter\IeC {\'\i }sticas}{25}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Documento en MongoDB}{26}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Inconvenientes de MongoDB}{26}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Fragmentaci\IeC {\'o}n \textit {(Sharding)}}{27}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Express}{27}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Introducci\IeC {\'o}n}{27}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Estructura de una API}{29}{subsection.3.4.2}
+\contentsline {section}{\numberline {3.5}Amazon web services}{30}{section.3.5}
+\contentsline {chapter}{\numberline {4}Dise\IeC {\~n}o e implementaci\IeC {\'o}n}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dise\IeC {\~n}o}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}Lado cliente de la aplicaci\IeC {\'o}n web}{32}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Modulos: }{32}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Componentes: }{33}{subsection.4.2.2}
+\contentsline {subsubsection}{Componentes secundarios }{33}{section*.7}
+\contentsline {subsection}{\numberline {4.2.3}Plantilla }{34}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Data Binding}{38}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Directiva: }{39}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Servicio }{40}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}Lado servidor de la aplicaci\IeC {\'o}n}{40}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Server.js}{41}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Estructura de la base de datos}{42}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Controladores}{44}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Casos de usos}{47}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Funcionalidad Alumno}{47}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Funcionalidad Profesor}{48}{subsection.4.4.2}
+\contentsline {chapter}{\numberline {5}Despliegue en la nube}{50}{chapter.5}
+\contentsline {section}{\numberline {5.1}Lanzar una instancia en AWS}{51}{section.5.1}
+\contentsline {section}{\numberline {5.2}Lanzar una aplicaci\IeC {\'o}n MEAN a producci\IeC {\'o}n}{55}{section.5.2}
+\contentsline {chapter}{\numberline {6}Conclusiones}{58}{chapter.6}
+\contentsline {section}{\numberline {6.1}Conclusiones}{58}{section.6.1}
+\contentsline {section}{\numberline {6.2}Trabajos Futuros }{59}{section.6.2}
+\contentsline {chapter}{Bibliograf\'{\i }a}{60}{chapter*.8}
