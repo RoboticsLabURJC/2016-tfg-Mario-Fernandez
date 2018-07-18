@@ -79,7 +79,7 @@ El selector app-root o el nombre de la etiqueta que se usará cuando se desee re
 \begin{itemize}
 \item \textbf{Intro} Este componente corresponde con la página introductoria a la aplicación donde podemos elegir entre qué perfil de usuario queremos adoptar: Profesor o Alumno. Como podemos ver en la figura \ref{img:introclasscity}.
 
-\item \textbf{LoginAlumno, LoginProfesor} Componentes encargados de realizar la función de login del alumno o del profesor como podemos ver en las figuras \ref{img:loginalumnoclasscity} \ref{img:loginprofesorclasscity}. Hemos desarrollado una función que se encarga de realizar una petición POST al servidor. Si la respuesta es aceptada, el alumno accedera a la aplicación y se almacenarán las credenciales en el \textit{localstorage} del navegador con un tiempo de caducidad de 1 hora. Mientras que si la petición es rechazada, el servidor nos enviará un mensaje avisando de que \textit{The username or password don't match}.
+\item \textbf{LoginAlumno, LoginProfesor} Componentes encargados de realizar la función de login del alumno o del profesor como podemos ver en las figuras \ref{img:loginalumnoclasscity} \ref{img:loginprofesorclasscity}. Hemos desarrollado una función que se encarga de realizar una petición POST al servidor. Si la respuesta es aceptada, el alumno accederá a la aplicación y se almacenarán las credenciales en el \textit{localstorage} del navegador con un tiempo de caducidad de 1 hora. Mientras que si la petición es rechazada, el servidor nos enviará un mensaje avisando de que \textit{The username or password don't match}.
 
 \item \textbf{SignupAlumno, SignupProfesor} Estos componentes se van a encargar de registrar a profesores y alumnos en nuestra base de datos. Para ellos hemos desarrollado una función en cada componente que simplemente se encarga de enviar al servidor una petición POST con un cuerpo donde se encuentran los datos personales del profesor o el alumno. Figura \ref{img:signupalumnoclasscity} \ref{img:signuprofesorclasscity}
 
@@ -104,7 +104,7 @@ El selector app-root o el nombre de la etiqueta que se usará cuando se desee re
 
 Las plantillas se utilizan para dar forma a las aplicaciones. Es la parte más visual de una aplicación web y es la propia magia de Angular la que se encarga de renderizar estas plantillas, haciendo aplicaciones mucho más personalizadas para el usuario. A continuación vamos a ir analizando una a una las diferentes plantillas que forman la aplicación de gestión de clases particulares:
 
-\textbf {intro.html} Cuando accedemos a la URL \footnote{\url{https://www.classcity.es}} de la aplicación, la primera plantilla que se nos presenta es Intro.html. Según podemos ver en la imagen  \ref{img:introclasscity}, consiste en una página introductoria donde podemos elegir si somos alumnos o porfesores.
+\textbf {intro.html} Cuando accedemos a la URL \footnote{\url{https://www.classcity.es}} de la aplicación, la primera plantilla que se nos presenta es Intro.html. Según podemos ver en la imagen  \ref{img:introclasscity}, consiste en una página introductoria donde podemos elegir si somos alumnos o profesores.
 
 \begin{figure}[!h]
     \centering
@@ -114,7 +114,7 @@ Las plantillas se utilizan para dar forma a las aplicaciones. Es la parte más v
 \end{figure}
 
 
-\textbf{loginalumno.html} Al seleccionar dentro de Intro.html en Alumno, accedemos a la siguiente plantilla donde podemos visualizar un formulario con sus campos \textit{username} y \textit{password}. Además de resaltar la caracteristica resposive de la aplicación, demostrando que es totalmente adaptable para dispositivos moviles como para ordenadores.
+\textbf{loginalumno.html} Al seleccionar dentro de Intro.html en Alumno, accedemos a la siguiente plantilla donde podemos visualizar un formulario con sus campos \textit{username} y \textit{password}. Además de resaltar la característica \textit{resposive} de la aplicación, demostrando que es totalmente adaptable para dispositivos moviles como para ordenadores.
 
 \begin{figure}[!h]
     \centering
@@ -124,7 +124,7 @@ Las plantillas se utilizan para dar forma a las aplicaciones. Es la parte más v
 \end{figure}
 
 
-\textbf{loginprofesor.html} Si en vez de seleccionar Alumno hubiésemos seleccionado Profesor en la página introducctoria, hubiesemos entrado en otro formulario donde los profesores ya registrados pueden acceder a la aplicación.Al igual que la plantilla de \textit{loginalumno.html} es totalmente resposive. Para poder controlar que la plantilla sea resposinve hemos utilizado diferentes ficheros css \textit{(movil.css y ordenador.css)} por cada plantilla en todas las plantillas de la aplicación.
+\textbf{loginprofesor.html} Si en vez de seleccionar Alumno hubiésemos seleccionado Profesor en la página introducctoria, hubiesemos entrado en otro formulario donde los profesores ya registrados pueden acceder a la aplicación.Al igual que la plantilla de \textit{loginalumno.html} es totalmente \textit{resposive}. Para poder controlar que la plantilla sea \textit{resposive} hemos utilizado diferentes ficheros css \textit{(movil.css y ordenador.css)} por cada plantilla en todas las plantillas de la aplicación.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=140mm]{img/templates/loginprofesor.png}
@@ -140,7 +140,7 @@ Las plantillas se utilizan para dar forma a las aplicaciones. Es la parte más v
       \label{img:signupalumnoclasscity}
 \end{figure}
 
-\textbf{registerprofesor.html} Si es el profesor quien quiere registrarse en nuestra aplicación, entrará en SignUP de profesores e introducirá los datos necesarios. Los datos que solicitamos al profesor son: Ubicación, Nombre, Apellidos, Password, Email, Fecha de Nacimiento, Curso y Asignatura.
+\textbf{registerprofesor.html} Si es el profesor quien quiere registrarse en nuestra aplicación, entrará en \textit{SignUP} de profesores e introducirá los datos necesarios. Los datos que solicitamos al profesor son: Ubicación, Nombre, Apellidos, Password, Email, Fecha de Nacimiento, Curso y Asignatura.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=140mm]{img/templates/registerprofesor.png}
@@ -177,7 +177,7 @@ Podemos apreciar una entrada en el mapa para introducir la ubicación donde quer
 
 Como se ha comentado en el capítulo anterior Angular tiene 4 formas de Data Binding, todas ellas se han utilizado en nuestra aplicación para realizar las siguientes funciones:
 
-\textbf{Interpolación(Hacia el DOM)} Angular evaluá todas las variables e introduce su resultado en el DOM. En el siguiente ejemplo estamos insertando en el árbol DOM, todos los datos del usuario, consiguiendo una apariencia de la página mucho más personalizada.
+\textbf{Interpolación(Hacia el DOM)} Angular evalúa todas las variables e introduce su resultado en el DOM. En el siguiente ejemplo estamos insertando en el árbol DOM, todos los datos del usuario, consiguiendo una apariencia de la página mucho más personalizada.
 
 \begin{lstlisting}
 <code>{{decodedJwt.Email}}</code></pre>
@@ -198,7 +198,7 @@ Como se ha comentado en el capítulo anterior Angular tiene 4 formas de Data Bin
 \end{lstlisting}
 
 \textbf{Event binding: (Desde el DOM)}
-Si queremos invocar a una función cuando se lance un evento, como por ejemplo cuando queremos hacer click en el botón de LogOut. En el momento que hacemos click sobre el boton de logout, la función logout es invocada y salimos de la sesión.
+Si queremos invocar a una función cuando se lance un evento, como por ejemplo cuando queremos hacer click en el botón de LogOut. En el momento que hacemos click sobre el botón de logout, la función logout es invocada y salimos de la sesión.
 
 \begin{lstlisting}
 <button type="Submit" (click)="logout()">Logout</button>
